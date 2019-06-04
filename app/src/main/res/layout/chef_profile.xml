@@ -150,23 +150,26 @@
         <TextView
                 android:text="Loading...."
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="175dp"
                 android:id="@+id/tv_empty"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView11"
-                android:drawableTop="@android:drawable/stat_sys_download" android:gravity="center"/>
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                android:drawableTop="@android:drawable/stat_sys_download" android:gravity="center"
+                android:background="#00555252" android:backgroundTint="#005C5050" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/recyclerView_signature_dishes" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView11"/>
         <TextView
                 android:text="Loading....."
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="175dp"
                 android:id="@+id/tv_empty_testimonial"
-                app:layout_constraintBottom_toBottomOf="@+id/rv_testimonial"
-                app:layout_constraintStart_toStartOf="@+id/rv_testimonial" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toTopOf="@+id/rv_testimonial" android:gravity="center"
-                android:drawableTop="@android:drawable/stat_sys_download"/>
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:gravity="center"
+                android:drawableTop="@android:drawable/stat_sys_download" android:background="#003C3838"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/textView42"/>
 
 
     </android.support.constraint.ConstraintLayout>

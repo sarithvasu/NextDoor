@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
+            android:rating="5"
             style="@style/Widget.AppCompat.RatingBar.Small" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="4dp" app:layout_constraintTop_toBottomOf="@+id/tv_review_tag_name_row"/>
     <TextView
@@ -53,19 +54,38 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView66" android:textColor="@color/DarkBlue"
             app:layout_constraintTop_toBottomOf="@+id/tv_review_discription_review_row"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"/>
     <TextView
-            android:text="TextView"
+            android:text="69"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView67" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="234dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="511dp"/>
+            android:id="@+id/textView67"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_discription_review_row" android:layout_marginTop="4dp"/>
     <TextView
-            android:text="TextView"
+            android:text="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView68" android:layout_marginStart="43dp"
-            app:layout_constraintStart_toEndOf="@+id/textView67" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="511dp"/>
+            android:id="@+id/tv_dish_dislikes_review_row"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_discription_review_row" android:layout_marginTop="4dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/like"
+            android:id="@+id/imageView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView67" android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_discription_review_row"
+    />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dislike2"
+            android:id="@+id/imageView4"
+            app:layout_constraintEnd_toStartOf="@+id/tv_dish_dislikes_review_row"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_discription_review_row"
+            android:layout_marginTop="4dp"/>
 </android.support.constraint.ConstraintLayout>
