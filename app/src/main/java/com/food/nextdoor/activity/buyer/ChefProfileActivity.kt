@@ -9,9 +9,11 @@ import android.view.View
 import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.BuyerHomeAdapter
 import com.food.nextdoor.adapter.buyer.SignatureDishAdopter
+import com.food.nextdoor.adapter.buyer.TestimonialAdapter
 import com.food.nextdoor.model.BuyerHomeFeed
 import com.food.nextdoor.model.ChefProfile
 import com.food.nextdoor.model.ChefProfileFeed
+import com.food.nextdoor.model.Testimonial
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.chef_profile.*
 import kotlinx.android.synthetic.main.home.*
@@ -28,6 +30,7 @@ class ChefProfileActivity : AppCompatActivity() {
         val chefId = intent.getIntExtra(Utility.CHEF_ID_KEY,0)
         supportActionBar?.title = chefId.toString()
         recyclerView_signature_dishes.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
+        rv_testimonial.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
 
 
         // https://13bc56b9-2477-403c-b115-8c7e79545518.mock.pstmn.io/profileById?chefId=1
@@ -49,11 +52,12 @@ class ChefProfileActivity : AppCompatActivity() {
                 val  body = response?.body()?.string()
                 println("Successfully executed request")
                 val gson = GsonBuilder().create()
-                val chefProfile =  gson.fromJson(body, ChefProfileFeed::class.java)
+                val chefProfile:ChefProfileFeed =  gson.fromJson(body, ChefProfileFeed::class.java) as ChefProfileFeed
 
                 // Soumen: Bring the control back to Ui Thread
                 runOnUiThread {
                     recyclerView_signature_dishes.adapter = SignatureDishAdopter(chefProfile)
+                    rv_testimonial.adapter=TestimonialAdapter(chefProfile.chef_profile.testimoniallist as ArrayList<Testimonial>,this@ChefProfileActivity)
                 }
             }
             override fun onFailure(call: Call, e: IOException) {
