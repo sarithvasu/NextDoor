@@ -1,0 +1,384 @@
+{"chefs":[
+  {
+    "chef_id": 1,
+    "chef_name": "Keerthi",
+    "chef_rating": 1,
+    "chef_flat_number": "A2-503",
+    "chef_profile_image_url": "https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg"
+  },
+  {
+    "chef_id": 2,
+    "chef_name": "Babloo",
+    "chef_rating": 2,
+    "chef_flat_number": "A2-504",
+    "chef_profile_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL43mSCo0MAu3fCgV8t6QRsNzyiatE_Har4TjE8M6NZ-i0tKDzA"
+  },
+  {
+    "chef_id": 3,
+    "chef_name": "Sarith",
+    "chef_rating": 3,
+    "chef_flat_number": "A2-505",
+    "chef_profile_image_url": "http://www.anaivanovic.com/sites/default/files/styles/flexslider_full_mobile/public/profile.jpg?itok=50Q_EqHf"
+  }
+],
+  "dishes": [
+    {
+      "dish_id": 1,
+      "dish_name": "Kadai Paneer 1",
+      "dish_type": "Veg",
+      "dish_image_url": "https://www.whiskaffair.com/wp-content/uploads/2018/09/Kadai-Paneer-5.jpg",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 1,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 2,
+      "dish_name": "Dal Fry 1",
+      "dish_type": "Veg",
+      "dish_image_url": "http://i1.wp.com/spiceinthecity.co/wp-content/uploads/2014/02/dsc_0027.jpg",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 1,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 3,
+      "dish_name": "Aloo Fry 1",
+      "dish_type": "Veg",
+      "dish_image_url": "https://i1.wp.com/www.bharatzkitchen.com/wp-content/uploads/2019/03/aloo-  fry-3.jpg?fit=800%2C450",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 1,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 4,
+      "dish_name": "Chicken Biryani 1",
+      "dish_type": "Veg",
+      "dish_image_url": "https://recipes.timesofindia.com/photo/53553726.cms?",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 1,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 5,
+      "dish_name": "Chicken Biryani 2",
+      "dish_type": "Non_Veg",
+      "dish_image_url": "https://recipes.timesofindia.com/photo/53553726.cms?",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 2,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 6,
+      "dish_name": "Chicken Masala 2",
+      "dish_type": "Non_Veg",
+      "dish_image_url": "https://www.seriouseats.com/images/2014/01/20140125-pressure-cooker-chicken-chickpea-spinach-masala-recipe-19.jpg ",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 2,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 7,
+      "dish_name": "Kadai Paneer 2",
+      "dish_type": "Veg",
+      "dish_image_url": "https://www.whiskaffair.com/wp-content/uploads/2018/09/Kadai-Paneer-5.jpg",
+      "dish_short_description": "Sort Description Kadai Paneer 1",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 80,
+      "servings_per_plate": 2,
+      "dish_available_time": "11:00am - 10:30pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 2,
+      "dishes_sold": 263,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 10
+    },
+    {
+      "dish_id": 8,
+      "dish_name": "Veg Kofta Curry 2",
+      "dish_type": "Veg",
+      "dish_image_url": "https://i1.wp.com/media.hungryforever.com/wp-content/uploads/2018/02/28142513/veg-kofta-600x400.jpg?resize=600%2C400&ssl=1 ",
+      "dish_short_description": "Spicy food",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 120,
+      "servings_per_plate": 1,
+      "dish_available_time": "12:30 pm - 6:30 pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 2,
+      "dishes_sold": 150,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 2
+    },
+    {
+      "dish_id": 9,
+      "dish_name": "Chicken Biryani 3",
+      "dish_type": "Non_Veg",
+      "dish_image_url": "https://recipes.timesofindia.com/photo/53553726.cms?",
+      "dish_short_description": "Spicy food",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 120,
+      "servings_per_plate": 1,
+      "dish_available_time": "12:30 pm - 6:30 pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 3,
+      "dishes_sold": 150,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 2
+    },
+    {
+      "dish_id": 10,
+      "dish_name": "Veg Kofta Curry 3",
+      "dish_type": "Veg",
+      "dish_image_url": "https://i1.wp.com/media.hungryforever.com/wp-content/uploads/2018/02/28142513/veg-kofta-600x400.jpg?resize=600%2C400&ssl=1 ",
+      "dish_short_description": "Spicy food",
+      "dish_long_description": "Home Made Palak Paneer",
+      "unit_price": 120,
+      "servings_per_plate": 1,
+      "dish_available_time": "12:30 pm - 6:30 pm",
+      "dish_available_date": "15-05-2019",
+      "time_slot_interval": "15 Min",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 3,
+      "dishes_sold": 150,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 2
+    },
+    {
+      "dish_id": 11,
+      "dish_name": "Methi Chicken",
+      "dish_type": "Non-Veg",
+      "dish_image_url": "https://www.whiskaffair.com/wp-content/uploads/2015/04/Methi-Chicken-4-480x270.jpg",
+      "dish_short_description": "Spicy food",
+      "dish_long_description": "Home Made Methi chicken",
+      "unit_price": 90,
+      "servings_per_plate": 1,
+      "dish_available_time": "2:30 pm",
+      "time_slot_interval": "2:30 pm - 8:30 pm",
+      "dish_available_date": "16-05-2019",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 3,
+      "dishes_sold": 168,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 14
+    },
+    {
+      "dish_id": 12,
+      "dish_name": "Butter Chicken",
+      "dish_type": "Non-Veg",
+      "dish_image_url": "https://recipes.timesofindia.com/photo/53205522.cms",
+      "dish_short_description": "Spicy food",
+      "dish_long_description": "Home Made Methi chicken",
+      "unit_price": 180,
+      "servings_per_plate": 1,
+      "dish_available_time": "2:30 pm",
+      "time_slot_interval": "2:30 pm - 8:30 pm",
+      "dish_available_date": "16-05-2019",
+      "packing_options": "Parcel | Self Container",
+      "delivery_options": "Home | Self Pick",
+      "chef_id": 3,
+      "dishes_sold": 150,
+      "dish_rating": 5,
+      "dish_ingredients": "Rice, Indian Spices, Vegetables, Meat",
+      "available_dishes": 2
+    }
+  ],
+  "custommeals": {
+    "menuitems": [
+      {
+        "menu_id": 1,
+        "menu_name": "Choice of Main Course"
+      },
+      {
+        "menu_id": 2,
+        "menu_name": "Choice of Panner"
+      },
+      {
+        "menu_id": 3,
+        "menu_name": "Choice of Dal"
+      },
+      {
+        "menu_id": 4,
+        "menu_name": "Choice of Vegetables"
+      },
+      {
+        "menu_id": 5,
+        "menu_name": "Choice of Egg"
+      }
+
+    ],
+
+    "submenuitems": [
+      {
+        "sub_menu_id": 1,
+        "sub_menu_name": "White rice",
+        "sub_menu_unit_price": 25,
+        "menu_id": 1
+      },
+      {
+        "sub_menu_id": 2,
+        "sub_menu_name": "Ghee rice",
+        "sub_menu_unit_price": 55,
+        "menu_id": 1
+      },
+      {
+        "sub_menu_id": 3,
+        "sub_menu_name": "Phulka Roti",
+        "sub_menu_unit_price": 40,
+        "menu_id": 1
+      },
+      {
+        "sub_menu_id": 4,
+        "sub_menu_name": "Paratha",
+        "sub_menu_unit_price": 45,
+        "menu_id": 1
+      },
+      {
+        "sub_menu_id": 5,
+        "sub_menu_name": "Paneer Kofta",
+        "sub_menu_unit_price": 35,
+        "menu_id": 2
+      },
+      {
+        "sub_menu_id": 6,
+        "sub_menu_name": "Paneer Butter Masala",
+        "sub_menu_unit_price": 35,
+        "menu_id": 2
+      },
+      {
+        "sub_menu_id": 7,
+        "sub_menu_name": "Kadai Paneer",
+        "sub_menu_unit_price": 35,
+        "menu_id": 2
+      },
+      {
+        "sub_menu_id": 8,
+        "sub_menu_name": "Palak Paneer",
+        "sub_menu_unit_price": 35,
+        "menu_id": 2
+      },
+      {
+        "sub_menu_id": 9,
+        "sub_menu_name": "Paneer do-Pyaza",
+        "sub_menu_unit_price": 35,
+        "menu_id": 2
+      },
+      {
+        "sub_menu_id": 10,
+        "sub_menu_name": "Dal Fry",
+        "sub_menu_unit_price": 25,
+        "menu_id": 3
+      },
+      {
+        "sub_menu_id": 11,
+        "sub_menu_name": "Dal Makhni ",
+        "sub_menu_unit_price": 30,
+        "menu_id": 3
+      },
+      {
+        "sub_menu_id": 12,
+        "sub_menu_name": "Mixed Dal Fry ",
+        "sub_menu_unit_price": 35,
+        "menu_id": 3
+      },
+      {
+        "sub_menu_id": 13,
+        "sub_menu_name": "Masala Bhindi",
+        "sub_menu_unit_price": 20,
+        "menu_id": 4
+      },
+      {
+        "sub_menu_id": 14,
+        "sub_menu_name": "Veg Kofta Curry",
+        "sub_menu_unit_price": 25,
+        "menu_id": 4
+      },
+      {
+        "sub_menu_id": 15,
+        "sub_menu_name": "Baingan KI Sabji",
+        "sub_menu_unit_price": 20,
+        "menu_id": 4
+      }
+    ]
+  }
+}

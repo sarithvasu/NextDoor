@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content" android:padding="8dp">
+
+    <ImageView
+            android:layout_width="150dp"
+            android:layout_height="155dp"
+            app:srcCompat="@drawable/egg_biryani"
+            android:id="@+id/img_signature_dish"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:text="Egg Biriyani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_signature_dish_name" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/img_signature_dish"/>
+    <TextView
+            android:text="Egg Biryani is a popular North Indian recipe made with aromatic basmati rice, spices and eggs"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_signature_dish_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signature_dish_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="1"/>
+    <TextView
+            android:text="5.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_signature_dish_rating" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signature_dish_description"/>
+
+    <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
+            android:theme="@style/RatingBar"
+            android:numStars="5"
+            android:id="@+id/tv_signature_dish_rating_bar"
+            app:layout_constraintStart_toEndOf="@+id/tv_signature_dish_rating"
+            android:layout_marginStart="8dp" android:layout_marginTop="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signature_dish_description"/>
+</android.support.constraint.ConstraintLayout>

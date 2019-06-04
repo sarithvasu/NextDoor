@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NextDoor</string>
+    <string name="serving">Serving:</string>
+    <string name="chef">Chef:</string>
+    <string name="availability">Availability:</string>
+    <string name="rating">Rating</string>
+    <string name="sold">Sold</string>
+    <string name="available">Available</string>
+    <string name="buy">Buy</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="tomorrows">Tomorrows</string>
+    <string name="customized">Customized</string>
+    <string name="rupees">Rs.</string>
+
+
+</resources>
