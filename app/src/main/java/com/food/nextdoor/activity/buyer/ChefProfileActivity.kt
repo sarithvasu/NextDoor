@@ -29,8 +29,13 @@ class ChefProfileActivity : AppCompatActivity() {
 
         val chefId = intent.getIntExtra(Utility.CHEF_ID_KEY,0)
         supportActionBar?.title = chefId.toString()
+        recyclerView_signature_dishes.visibility=View.GONE
+        rv_testimonial.visibility=View.GONE
+        tv_empty.visibility=View.VISIBLE
+        tv_empty_testimonial.visibility=View.VISIBLE
         recyclerView_signature_dishes.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
         rv_testimonial.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
+
 
 
         // https://13bc56b9-2477-403c-b115-8c7e79545518.mock.pstmn.io/profileById?chefId=1
@@ -56,8 +61,13 @@ class ChefProfileActivity : AppCompatActivity() {
 
                 // Soumen: Bring the control back to Ui Thread
                 runOnUiThread {
+                    recyclerView_signature_dishes.visibility=View.VISIBLE
+                    rv_testimonial.visibility=View.VISIBLE
+                    tv_empty.visibility=View.GONE
+                    tv_empty_testimonial.visibility=View.GONE
                     recyclerView_signature_dishes.adapter = SignatureDishAdopter(chefProfile)
                     rv_testimonial.adapter=TestimonialAdapter(chefProfile.chef_profile.testimoniallist as ArrayList<Testimonial>,this@ChefProfileActivity)
+
                 }
             }
             override fun onFailure(call: Call, e: IOException) {
