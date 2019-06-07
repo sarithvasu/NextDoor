@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.testimonial_row.view.*
 import kotlin.random.Random
 
 class TestimonialAdapter(val items : ArrayList<Testimonial>, val context: Context): RecyclerView.Adapter<ViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.testimonial_row, parent, false))
     }

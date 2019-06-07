@@ -10,10 +10,30 @@ import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.WindowManager
 import com.food.nextdoor.R
+
+import com.food.nextdoor.model.HomeFeed
 import java.util.*
 
 class Utility {
 
+
+    class DataHolder {
+
+        companion object
+        {
+            init {
+                println("Singleton class invoked.")
+            }
+
+            var homeFeedInstance: HomeFeed? = null
+
+            private fun printName() : HomeFeed?
+            {return  homeFeedInstance}
+        }
+        init {
+            println("Class init method.")
+        }
+    }
 
 
 

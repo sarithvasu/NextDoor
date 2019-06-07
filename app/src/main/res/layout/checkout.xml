@@ -288,7 +288,7 @@
                 android:id="@+id/button3" android:padding="4dp"
                 android:background="@color/DarkBlue" android:textColor="@color/White"
                 android:textStyle="bold" app:layout_constraintStart_toEndOf="@+id/button2"
-                android:layout_marginStart="22dp" android:layout_marginTop="15dp"
+                android:layout_marginStart="8dp" android:layout_marginTop="15dp"
                 app:layout_constraintTop_toBottomOf="@+id/view7"/>
         <Button
                 android:text="Gpay"
@@ -296,8 +296,10 @@
                 android:layout_height="30dp"
                 android:id="@+id/button4" android:padding="4dp"
                 android:background="@color/DarkBlue" android:textColor="@color/White"
-                android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                android:layout_marginTop="15dp" app:layout_constraintTop_toBottomOf="@+id/view7"/>
+                android:textStyle="bold"
+                android:layout_marginTop="15dp" app:layout_constraintTop_toBottomOf="@+id/view7"
+                app:layout_constraintStart_toEndOf="@+id/button3" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     </android.support.constraint.ConstraintLayout>
 
 

@@ -1,5 +1,4 @@
 package com.food.nextdoor.activity.buyer
-
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,19 +6,18 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.view.View
 import com.food.nextdoor.R
-import com.food.nextdoor.adapter.buyer.BuyerHomeAdapter
-import com.food.nextdoor.adapter.buyer.SignatureDishAdopter
+import com.food.nextdoor.adapter.buyer.ChefProfileAdopter
+import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.adapter.buyer.TestimonialAdapter
-import com.food.nextdoor.model.BuyerHomeFeed
-import com.food.nextdoor.model.ChefProfile
-import com.food.nextdoor.model.ChefProfileFeed
+import com.food.nextdoor.model.Chef
+import com.food.nextdoor.model.Dish
+import com.food.nextdoor.model.HomeFeed
 import com.food.nextdoor.model.Testimonial
-import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.chef_profile.*
-import kotlinx.android.synthetic.main.home.*
-import okhttp3.*
+import kotlinx.android.synthetic.main.dish_detail.*
+import kotlinx.android.synthetic.main.home_row.view.*
 import system.Utility
-import java.io.IOException
 
 class ChefProfileActivity : AppCompatActivity() {
 
@@ -29,54 +27,64 @@ class ChefProfileActivity : AppCompatActivity() {
 
         val chefId = intent.getIntExtra(Utility.CHEF_ID_KEY,0)
         supportActionBar?.title = chefId.toString()
-        recyclerView_signature_dishes.visibility=View.GONE
-        rv_testimonial.visibility=View.GONE
-        tv_empty.visibility=View.VISIBLE
-        tv_empty_testimonial.visibility=View.VISIBLE
-        recyclerView_signature_dishes.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
-        rv_testimonial.layoutManager=LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
 
 
+        val  homeFeed = Utility.DataHolder.homeFeedInstance
+        configureOngoingRecycleView(homeFeed, chefId)
+        configureTestimonialRecycleView(homeFeed,chefId)
 
-        // https://13bc56b9-2477-403c-b115-8c7e79545518.mock.pstmn.io/profileById?chefId=1
-        fetchJsonFromServer1()
 
+        setControls(homeFeed, chefId)
     }
 
 
 
-    fun fetchJsonFromServer1() {
-        println("Attemptying to fetch JSON")
-        val strUrl = "https://13bc56b9-2477-403c-b115-8c7e79545518.mock.pstmn.io/profileById?chefId=1"
-        val request = Request.Builder().url(strUrl).build()
 
-        val client = OkHttpClient()
-        // Soumen: enqueue Means running on background thread
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                val  body = response?.body()?.string()
-                println("Successfully executed request")
-                val gson = GsonBuilder().create()
-                val chefProfile:ChefProfileFeed =  gson.fromJson(body, ChefProfileFeed::class.java) as ChefProfileFeed
+    private fun configureOngoingRecycleView(homeFeed: HomeFeed?, chefId: Int) {
+        recyclerView_signature_dishes.layoutManager = LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
+        val dishes: List<Dish> = homeFeed!!.dishes.filter { s-> chefId == s.chef_id}
+        recyclerView_signature_dishes.adapter = ChefProfileAdopter(dishes)
+     }
 
-                // Soumen: Bring the control back to Ui Thread
-                runOnUiThread {
-                    recyclerView_signature_dishes.visibility=View.VISIBLE
-                    rv_testimonial.visibility=View.VISIBLE
-                    tv_empty.visibility=View.GONE
-                    tv_empty_testimonial.visibility=View.GONE
-                    recyclerView_signature_dishes.adapter = SignatureDishAdopter(chefProfile)
-                    rv_testimonial.adapter=TestimonialAdapter(chefProfile.chef_profile.testimoniallist as ArrayList<Testimonial>,this@ChefProfileActivity)
 
-                }
-            }
-            override fun onFailure(call: Call, e: IOException) {
-                println("Failed to execute request")
-            }
-        })
+    private fun configureTestimonialRecycleView(homeFeed: HomeFeed?, chefId: Int ) {
+        val chefinfo: Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
+        val testimonials : List<Testimonial> = chefinfo.testimonials
+        rv_testimonial.layoutManager = LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
+        rv_testimonial.adapter= TestimonialAdapter(testimonials as ArrayList<Testimonial>,this@ChefProfileActivity)
     }
 
 
+    private fun setControls(homeFeed: HomeFeed?, chefId: Int){
+        // Bind Profile Image
+        val chefinfo: Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
+        Picasso.with(this).load(chefinfo.chef_profile_image_url).into(img_chef_profile_detail)
+
+//
+        tv_chef_name_detail_profile.text = chefinfo.chef_name
+        tv_flat_no_detail_profile.text = chefinfo.chef_flat_number
+        tv_about_chef_detail_profile.text = chefinfo.about_chef
+
+        tv_chef_gende_detail_profile.text = chefinfo.chef_gender
+
+        // Bind chef_specility
+          val builder = StringBuilder()
+       if (chefinfo.is_specialized_in_veg) {
+           builder.append("Veg")
+       }
+        if (chefinfo.is_specialized_in_non_veg) {
+            builder.append("Non Veg")
+        }
+        tv_chef_specility_detail_profile.text = builder.toString()
+
+
+
+
+
+
+
+
+    }
 
 
     fun loadCheckOut(view: View){

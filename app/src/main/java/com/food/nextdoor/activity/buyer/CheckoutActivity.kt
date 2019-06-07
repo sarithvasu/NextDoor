@@ -26,7 +26,7 @@ class CheckoutActivity : AppCompatActivity() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView_checkout.layoutManager =  layoutManager
        //val checkoutAdpoter = CheckoutAdapter(this, myModelObjetc)
-        //buyerHomeFeed.dishes= threeDish.toList()
+        //homeFeed.dishes= threeDish.toList()
         //recyclerView_checkout.adapter = checkoutAdpoter
 
 

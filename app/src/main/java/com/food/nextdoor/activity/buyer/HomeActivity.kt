@@ -1,7 +1,7 @@
 package com.food.nextdoor.activity.buyer
 
-import com.food.nextdoor.model.BuyerHomeFeed
-import com.food.nextdoor.adapter.buyer.BuyerHomeAdapter
+import com.food.nextdoor.model.HomeFeed
+import com.food.nextdoor.adapter.buyer.HomeAdapter
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -14,7 +14,12 @@ import com.food.nextdoor.webservices.RetrofitService
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.home.*
 import okhttp3.*
+import system.Utility
 import java.io.IOException
+
+
+
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -24,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
         //recyclerView_home_buyer.setBackgroundColor(Color.BLUE)
 
         recyclerView_home_buyer.layoutManager = LinearLayoutManager(this)
-        //recyclerView_home_buyer.adapter =  BuyerHomeAdapter() // Soumen Instead Assigned in readJsondata Method
+        //recyclerView_home_buyer.adapter =  HomeAdapter() // Soumen Instead Assigned in readJsondata Method
 
        // Draw line Divider between two rows in recyclerview
         drawRowDivider()
@@ -33,25 +38,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun fetchJsonFromServerUsingRefrofit() {
-
-
         val buyerHomeScreenService: RetrofitService = RetrofitInstantBuilder.buildService(RetrofitService::class.java)!!
-        val requestCall: retrofit2.Call<BuyerHomeFeed> = buyerHomeScreenService.getBuyerHomeData()
-        requestCall.enqueue(object: retrofit2.Callback<BuyerHomeFeed> {
-            override fun onFailure(call: retrofit2.Call<BuyerHomeFeed>, t: Throwable) {
+        val requestCall: retrofit2.Call<HomeFeed> = buyerHomeScreenService.getBuyerHomeData()
+        requestCall.enqueue(object: retrofit2.Callback<HomeFeed> {
+            override fun onFailure(call: retrofit2.Call<HomeFeed>, t: Throwable) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onResponse(call: retrofit2.Call<BuyerHomeFeed>, response: retrofit2.Response<BuyerHomeFeed>) {
+            override fun onResponse(call: retrofit2.Call<HomeFeed>, response: retrofit2.Response<HomeFeed>) {
                 if(response.isSuccessful){
                     Log.e("","xc';fd"+response.body())
-                    val buyerDataFeeder : BuyerHomeFeed = response.body()!!
-                    recyclerView_home_buyer.adapter = BuyerHomeAdapter(buyerDataFeeder)
-
-
+                    val dataFeeder : HomeFeed = response.body()!!
+                    recyclerView_home_buyer.adapter = HomeAdapter(dataFeeder)
                 }
             }
-
         })
 
     }
@@ -69,11 +69,17 @@ class HomeActivity : AppCompatActivity() {
                 val  body = response?.body()?.string()
                 println("Successfully executed request")
                 val gson = GsonBuilder().create()
-                val buyerHomeFeed =  gson.fromJson(body, BuyerHomeFeed::class.java)
+                val homeFeed =  gson.fromJson(body, HomeFeed::class.java)
+
 
                 // Soumen: Bring the control back to Ui Thread
                 runOnUiThread {
-                    recyclerView_home_buyer.adapter = BuyerHomeAdapter(buyerHomeFeed)
+                   Utility.DataHolder.homeFeedInstance = homeFeed
+                    val buyerHomeFeed = Utility.DataHolder.homeFeedInstance
+
+                    recyclerView_home_buyer.apply {
+                        recyclerView_home_buyer.adapter = HomeAdapter(buyerHomeFeed)
+                    }
                 }
             }
             override fun onFailure(call: Call, e: IOException) {
@@ -94,6 +100,62 @@ class HomeActivity : AppCompatActivity() {
         )
         recyclerView_home_buyer.addItemDecoration(itemDecorator)
     }
-    //</editor-fold>
+
+    override fun onResume() {
+        super.onResume()
+        if(Utility.DataHolder.homeFeedInstance!=null) {
+            recyclerView_home_buyer.apply {
+                recyclerView_home_buyer.adapter = HomeAdapter(Utility.DataHolder.homeFeedInstance)
+            }
+        }
+
+    }
 
 }
+
+//class Singleton private constructor(){
+//
+//    companion object {
+//        private var INSTANCE: Singleton ? = null
+//
+//        fun  getInstance(): Singleton {
+//            synchronized(this) {
+//                if(INSTANCE == null){
+//                    INSTANCE = Singleton()
+//                }
+//                return INSTANCE!!
+//            }
+//        }
+//    }
+//
+//}
+//
+//class Singleton1 private constructor(){
+//    companion object {
+//        @Volatile private var INSTANCE: Singleton ? = null
+//        fun  getInstance(): Singleton {
+//            return INSTANCE?: synchronized(this){
+//                Singleton().also {
+//                    INSTANCE = it
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//
+//class SomeSingleton private constructor() {
+//
+//    init {
+//        INSTANCE = this
+//        println("init complete")
+//    }
+//
+//    companion object {
+//        var INSTANCE: SomeSingleton
+//
+//        init {
+//            SomeSingleton()
+//        }
+//    }
+//}
