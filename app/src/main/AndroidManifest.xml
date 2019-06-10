@@ -16,8 +16,6 @@
         </activity>
         <activity android:name=".activity.buyer.CheckoutActivity">
         </activity>
-        <activity android:name=".TestTheBugActivity">
-        </activity>
         <activity android:name=".activity.buyer.ChefProfileActivity">
         </activity>
         <activity android:name=".activity.buyer.DishDetailActivity">
