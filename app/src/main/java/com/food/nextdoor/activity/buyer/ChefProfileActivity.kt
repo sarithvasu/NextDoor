@@ -9,10 +9,9 @@ import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.ChefProfileAdopter
 import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.adapter.buyer.TestimonialAdapter
-import com.food.nextdoor.model.Chef
-import com.food.nextdoor.model.Dish
+
 import com.food.nextdoor.model.HomeFeed
-import com.food.nextdoor.model.Testimonial
+
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.chef_profile.*
 import kotlinx.android.synthetic.main.dish_detail.*
@@ -42,22 +41,22 @@ class ChefProfileActivity : AppCompatActivity() {
 
     private fun configureOngoingRecycleView(homeFeed: HomeFeed?, chefId: Int) {
         recyclerView_signature_dishes.layoutManager = LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
-        val dishes: List<Dish> = homeFeed!!.dishes.filter { s-> chefId == s.chef_id}
+        val dishes: List<HomeFeed.Dish> = homeFeed!!.dishes.filter { s-> chefId == s.chef_id}
         recyclerView_signature_dishes.adapter = ChefProfileAdopter(dishes)
      }
 
 
     private fun configureTestimonialRecycleView(homeFeed: HomeFeed?, chefId: Int ) {
-        val chefinfo: Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
-        val testimonials : List<Testimonial> = chefinfo.testimonials
+        val chefinfo: HomeFeed.Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
+        val testimonials : List<HomeFeed.Testimonial> = chefinfo.testimonials
         rv_testimonial.layoutManager = LinearLayoutManager(this,OrientationHelper.HORIZONTAL,false)
-        rv_testimonial.adapter= TestimonialAdapter(testimonials as ArrayList<Testimonial>,this@ChefProfileActivity)
+        rv_testimonial.adapter= TestimonialAdapter(testimonials as ArrayList<HomeFeed.Testimonial>,this@ChefProfileActivity)
     }
 
 
     private fun setControls(homeFeed: HomeFeed?, chefId: Int){
         // Bind Profile Image
-        val chefinfo: Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
+        val chefinfo: HomeFeed.Chef = homeFeed!!.chefs.filter { s-> chefId == s.chef_id}.single()
         Picasso.with(this).load(chefinfo.chef_profile_image_url).into(img_chef_profile_detail)
 
 //
@@ -69,10 +68,15 @@ class ChefProfileActivity : AppCompatActivity() {
 
         // Bind chef_specility
           val builder = StringBuilder()
-       if (chefinfo.is_specialized_in_veg) {
+       if (chefinfo.specialized_in_veg) {
            builder.append("Veg")
        }
         if (chefinfo.is_specialized_in_non_veg) {
+
+            if (builder.length > 0){
+                builder.append(" and ")
+            }
+
             builder.append("Non Veg")
         }
         tv_chef_specility_detail_profile.text = builder.toString()

@@ -5,11 +5,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.food.nextdoor.R
 import com.food.nextdoor.activity.buyer.ChefProfileActivity
 import com.food.nextdoor.activity.buyer.DishDetailActivity
+import com.food.nextdoor.activity.buyer.TimeSlotActivity
 import com.food.nextdoor.model.HomeFeed
-import com.food.nextdoor.model.Chef
+
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_row.view.*
 import system.Utility
@@ -34,10 +36,10 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
         holder.view.img_dish_symbol_home.setImageDrawable(dishSymbol)
 
         holder.view.tv_dish_name_home.text = homeFeed.dishes.get(position).dish_name
-        holder.view.tv_dish_price_home.text = homeFeed.dishes.get(position).unit_price.toString()
+        holder.view.tv_dish_price_home.text =  " Rs. " + homeFeed.dishes.get(position).unit_price.toString()
         holder.view.tv_serving_home.text = (homeFeed.dishes.get(position).servings_per_plate.toString())
         //Soumen Bind Chef Name and Flat Number
-        val chefinfo: Chef=homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
+        val chefinfo: HomeFeed.Chef =homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
         holder.view.tv_chef_name_with_flat_number_home.text = chefinfo.chef_name + " | " + chefinfo.chef_flat_number
 
         holder.view.tv_dish_available_time_home.text = (homeFeed.dishes.get(position).dish_available_start_time + " | " + homeFeed.dishes.get(position).dish_available_end_time)
@@ -55,9 +57,32 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
             val intent = Intent(holder.view.img_chef_profile_home.context, ChefProfileActivity:: class.java)
             intent.putExtra(Utility.CHEF_ID_KEY,chefinfo.chef_id as Int)
             holder.view.img_chef_profile_home.context.startActivity(intent)
-
-
         }
+        holder.view.btn_buy_home.setOnClickListener {
+           /* val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity::class.java)
+            holder.view.btn_buy_home.context.startActivity(intent)*/
+            holder.view.btn_lay.visibility=View.VISIBLE
+            holder.view.btn_buy_home.visibility=View.GONE
+        }
+        holder.view.tv_minus.setOnClickListener{
+            var count=holder.view.tv_qutity.text.toString().toInt()
+            if(count>0) {
+                count--
+            }
+            else{
+                holder.view.btn_lay.visibility=View.GONE
+                holder.view.btn_buy_home.visibility=View.VISIBLE
+            }
+            holder.view.tv_qutity.text=count.toString()
+        }
+        holder.view.tv_plus.setOnClickListener{
+            var count=holder.view.tv_qutity.text.toString().toInt()
+            if(count<99) {
+                count++
+            }
+            holder.view.tv_qutity.text=count.toString()
+        }
+
     }
 }
 
@@ -69,6 +94,12 @@ class HomeBuyerViewHolder(val view: View, val homeFeed: HomeFeed?) : RecyclerVie
             val intent = Intent(view.context, DishDetailActivity::class.java)
                 intent.putExtra(Utility.DISH_ID_KEY,view.getTag() as Int)
             view.context.startActivity(intent)
+
+
+//             view.btn_buy_home.setOnClickListener {
+//                 val intent = Intent(view.context, TimeSlotActivity::class.java)
+//                 view.context.startActivity(intent)
+//             }
         }
     }
 }

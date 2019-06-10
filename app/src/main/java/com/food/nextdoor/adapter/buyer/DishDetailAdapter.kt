@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.food.nextdoor.model.HomeFeed
 import com.squareup.picasso.Picasso
-import com.food.nextdoor.model.Chef
+import kotlinx.android.synthetic.main.dish_detail.view.*
 import kotlinx.android.synthetic.main.dish_detail_row.view.*
 import system.Utility
 
 
 class DishDetailAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<DishDetailViewHolder>() {
+
 
     override fun getItemCount(): Int {
         return homeFeed!!.dishes.count()
@@ -47,15 +48,43 @@ class DishDetailAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<DishDeta
         //holder.view.tv_dish_available_time_detail.text = (homeFeed.dishes.get(position).dish_available_time)
         holder.view.tv_dish_price_detail.text = (homeFeed.dishes.get(position).unit_price.toString())
 
+
+
+
         //Soumen Bind Chef Name and Flat Number
-        val chefinfo: Chef =homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
+        val chefinfo: HomeFeed.Chef =homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
         holder.view.tv_chef_name_with_flat_number_detail_rv.text = chefinfo.chef_name + " | " + chefinfo.chef_flat_number
 
         // Bind Dish Image
         Picasso.with(holder.view.context).load(homeFeed.dishes.get(position).dish_image_url).into(holder.view.img_dish_image_detail_rv)
 
-    }
 
+
+        holder.view.btn_buy_detail_row.setOnClickListener {
+            /* val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity::class.java)
+             holder.view.btn_buy_home.context.startActivity(intent)*/
+            holder.view.btn_lay_detail_row.visibility=View.VISIBLE
+            holder.view.btn_buy_detail_row.visibility=View.GONE
+        }
+        holder.view.tv_minus_detail_row.setOnClickListener{
+            var count=holder.view.tv_quantity_detail_row.text.toString().toInt()
+            if(count>0) {
+                count--
+            }
+            else{
+                holder.view.btn_lay_detail_row.visibility=View.GONE
+                holder.view.btn_buy_detail_row.visibility=View.VISIBLE
+            }
+            holder.view.tv_quantity_detail_row.text=count.toString()
+        }
+        holder.view.tv_plus_detail_row.setOnClickListener{
+            var count=holder.view.tv_quantity_detail_row.text.toString().toInt()
+            if(count<99) {
+                count++
+            }
+            holder.view.tv_quantity_detail_row.text=count.toString()
+        }
+    }
 
 
 }

@@ -11,8 +11,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <com.mikhaellopez.circularimageview.CircularImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 app:srcCompat="@drawable/profile"
                 android:scaleType="centerCrop"
                 android:id="@+id/img_chef_profile_detail" app:layout_constraintTop_toTopOf="parent"
@@ -22,56 +22,57 @@
                 android:text="Anushka Shetty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:textColor="@color/Black"
+                android:textSize="18sp"
+                android:textColor="@color/DarkGrey"
                 android:textStyle="bold"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:id="@+id/tv_chef_name_detail_profile"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/img_chef_profile_detail"
-                android:layout_marginStart="24dp"/>
+                android:layout_marginStart="12dp"/>
         <TextView
                 android:text="A2-503"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_flat_no_detail_profile"
-                android:layout_marginStart="24dp"
-                android:textColor="@color/DarkBlue"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/SkyBlue"
                 app:layout_constraintStart_toEndOf="@+id/img_chef_profile_detail"
-                app:layout_constraintTop_toBottomOf="@+id/tv_chef_name_detail_profile"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_chef_name_detail_profile" android:textStyle="bold"
+                android:textSize="16sp"/>
         <TextView
                 android:text="About"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Black"
+                android:textColor="@color/DarkGrey"
                 android:id="@+id/textView13"
                 app:layout_constraintTop_toBottomOf="@+id/tv_flat_no_detail_profile"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="12dp"
                 app:layout_constraintStart_toEndOf="@+id/img_chef_profile_detail"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="12dp" android:textStyle="bold" android:textSize="16sp"/>
         <TextView
                 android:text="I am Soumen, I am a creative geek from provident wellworth city Marasandra"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_about_chef_detail_profile" android:layout_marginStart="24dp"
+                android:id="@+id/tv_about_chef_detail_profile" android:layout_marginStart="12dp"
                 app:layout_constraintStart_toEndOf="@+id/img_chef_profile_detail"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" android:maxLines="3"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:textSize="16sp"/>
         <TextView
-                android:text="Gender"
+                android:text="Gender:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/Black"
+                android:textSize="16sp"
+                android:textColor="@color/DarkGrey"
                 android:textStyle="bold"
-                android:id="@+id/textView15" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="12dp" android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/img_chef_profile_detail"/>
+                android:id="@+id/textView15"
+                android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/img_chef_profile_detail"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="12dp"/>
         <TextView
-                android:text="Specility"
+                android:text="Specility:"
                 android:layout_width="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/Black"
+                android:textSize="16sp"
+                android:textColor="@color/DarkGrey"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView16"
@@ -82,19 +83,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_chef_gende_detail_profile"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="4dp"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
-                app:layout_constraintTop_toTopOf="@+id/textView15"/>
+                app:layout_constraintTop_toTopOf="@+id/textView15" android:textSize="16sp"/>
         <TextView
                 android:text="Veg/ Non Veg Dishes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:id="@+id/tv_chef_specility_detail_profile" android:layout_marginStart="7dp"
+                android:id="@+id/tv_chef_specility_detail_profile" android:layout_marginStart="4dp"
                 app:layout_constraintStart_toEndOf="@+id/textView16"
-                app:layout_constraintTop_toTopOf="@+id/textView16"/>
+                app:layout_constraintTop_toTopOf="@+id/textView16" android:textSize="16sp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_gravity="center"
+                android:background="@color/LightGrey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" android:id="@+id/view8"/>
         <TextView
-                android:text="Other Ongoing Dishes"
+                android:text="Ongoing Dishes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -102,13 +112,13 @@
                 android:textStyle="bold"
 
                 android:id="@+id/textView10" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="12dp" android:layout_marginTop="50dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"/>
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/view8"/>
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_signature_dishes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="12dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView10"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
@@ -122,7 +132,7 @@
                 android:background="@color/LightGrey"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView42"
-                android:layout_marginTop="4dp" android:id="@+id/view4"/>
+                android:layout_marginTop="12dp" android:id="@+id/view4"/>
 
         <TextView
                 android:text="Testimonials"
@@ -132,12 +142,12 @@
                 android:textSize="16sp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="12dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="4dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="12dp"/>
 
         <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="4dp" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent" android:id="@+id/rv_testimonial"/>
@@ -149,8 +159,8 @@
                 android:id="@+id/textView42"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView_signature_dishes"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="12dp" android:textColor="@color/Orange" android:textStyle="bold"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginStart="12dp" android:textColor="#D61569" android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
         <TextView
                 android:text="@string/buy"
                 android:layout_width="50dp"
@@ -168,6 +178,71 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView43"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:weightSum="3"
+                android:id="@+id/linearLayout3" app:layout_constraintEnd_toStartOf="@+id/btn_follow_profile"
+                android:layout_marginEnd="4dp" android:layout_marginStart="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" android:layout_marginTop="12dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" android:layout_weight="2" android:weightSum="18">
+                <TextView
+                        android:text="140"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/tv_chef_reviews_profile"
+                        android:layout_weight="6" android:gravity="center" android:textSize="20sp"
+                        android:textStyle="bold" android:textColor="@color/DarkGrey" android:textAlignment="center"/>
+                <TextView
+                        android:text="5.0"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/tv_chef_ratings_profile"
+                        android:layout_weight="6" android:gravity="center" android:textSize="20sp"
+                        android:textStyle="bold" android:textColor="@color/DarkGrey"/>
+                <TextView
+                        android:text="70"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/tv_chef_followers_profile"
+                        android:layout_weight="6" android:gravity="center" android:textSize="20sp"
+                        android:textStyle="bold" android:textColor="@color/DarkGrey" android:textAlignment="center"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" android:layout_weight="1" android:weightSum="18">
+                <TextView
+                        android:text="Reviews"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView63" android:layout_weight="6"
+                        android:gravity="center" android:textSize="12sp" android:textAlignment="center"/>
+                <TextView
+                        android:text="Ratings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView64" android:layout_weight="6"
+                        android:gravity="center" android:textSize="12sp"/>
+                <TextView
+                        android:text="Followers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView65" android:layout_weight="6"
+                        android:gravity="center" android:textSize="12sp" android:textAlignment="center"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+                android:text="Follow +"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_follow_profile"
+                android:textColor="@color/White"
+                android:background="@drawable/buy_button_round_corner"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout3"/>
 
 
     </android.support.constraint.ConstraintLayout>

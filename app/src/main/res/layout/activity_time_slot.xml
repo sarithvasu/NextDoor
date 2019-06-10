@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -94,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:background="@android:color/white"/>
     <TextView
-            android:text="Select time slot for todays delivery"
+            android:text="Select delivery time slot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"

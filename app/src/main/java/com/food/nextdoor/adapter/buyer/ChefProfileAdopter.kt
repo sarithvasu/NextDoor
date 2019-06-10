@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.food.nextdoor.model.Dish
+
 
 import com.food.nextdoor.model.HomeFeed
 import com.squareup.picasso.Picasso
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.home_row.view.*
 
 //import com.food.nextdoor.model.ChefProfileFeed
 
-class ChefProfileAdopter (val dishes: List<Dish>) : RecyclerView.Adapter<ChefProfileViewHolder>() {
+class ChefProfileAdopter (val dishes: List<HomeFeed.Dish>) : RecyclerView.Adapter<ChefProfileViewHolder>() {
 
     override fun getItemCount(): Int {
         //return homeFeed.dishes.count()
@@ -34,7 +34,6 @@ class ChefProfileAdopter (val dishes: List<Dish>) : RecyclerView.Adapter<ChefPro
         // Bind Dish Image
         Picasso.with(holder.view.context).load(dishes.get(position).dish_image_url).into(holder.view.img_signature_dish)
         holder.view.tv_signature_dish_name.text = dishes.get(position).dish_name
-        holder.view.tv_signature_dish_description.text = dishes.get(position).dish_description
         holder.view.tv_signature_dish_rating.setText(dishes.get(position).dish_rating.toString())
         holder.view.tv_signature_dish_rating_bar.rating = dishes.get(position).dish_rating.toFloat()
         }

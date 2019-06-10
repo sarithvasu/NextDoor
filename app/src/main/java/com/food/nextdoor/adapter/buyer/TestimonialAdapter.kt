@@ -9,11 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.food.nextdoor.R
-import com.food.nextdoor.model.Testimonial
+import com.food.nextdoor.model.HomeFeed
+
 import kotlinx.android.synthetic.main.testimonial_row.view.*
 import kotlin.random.Random
 
-class TestimonialAdapter(val items : ArrayList<Testimonial>, val context: Context): RecyclerView.Adapter<ViewHolder>() {
+class TestimonialAdapter(val items : ArrayList<HomeFeed.Testimonial>, val context: Context): RecyclerView.Adapter<ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {

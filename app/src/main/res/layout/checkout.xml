@@ -40,14 +40,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/img_chef_profile_checkout"
                         android:textColor="#1565C0" android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="4dp"/>
+                        android:layout_marginStart="4dp" android:textSize="16sp"/>
                 <TextView
                         android:text="A2-503 PWC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_chef_address_with_flat_number_checkout"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"
-                        android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/tv_chef_name_checkout"/>
+                        android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/tv_chef_name_checkout"
+                        android:textSize="16sp"/>
                 <TextView
                         android:text="Chef Rating:"
                         android:layout_width="wrap_content"
@@ -55,7 +56,7 @@
                         android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginStart="4dp"
                         app:layout_constraintTop_toBottomOf="@+id/tv_chef_address_with_flat_number_checkout"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" android:textSize="16sp"/>
                 <TextView
                         android:text="430"
                         android:layout_width="wrap_content"
@@ -65,7 +66,7 @@
                         android:layout_marginStart="4dp"
                         android:textColor="#1565C0"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="@+id/textView7"/>
+                        app:layout_constraintTop_toTopOf="@+id/textView7" android:textSize="16sp"/>
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraint_layout_2_checkout"
@@ -88,7 +89,7 @@
                         app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="12dp"
                         android:layout_marginStart="8dp"
                         app:layout_constraintStart_toEndOf="@+id/img_buyer_profile_checkout" android:textColor="#000000"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" android:textSize="16sp"/>
                 <TextView
                         android:text="A2-509 PWC"
                         android:layout_width="wrap_content"
@@ -97,7 +98,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_buyer_name_checkout"
                         android:layout_marginStart="8dp"
                         app:layout_constraintStart_toEndOf="@+id/img_buyer_profile_checkout" android:textColor="#1565C0"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" android:textSize="16sp"/>
                 <TextView
                         android:text="abchefghijk@gmail.com"
                         android:layout_width="wrap_content"
@@ -105,7 +106,8 @@
                         android:id="@+id/tv_buyer_email_checkout"
                         android:layout_marginTop="36dp"
                         app:layout_constraintTop_toBottomOf="@+id/img_buyer_profile_checkout" android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/textView18" android:layout_marginStart="4dp"/>
+                        app:layout_constraintStart_toEndOf="@+id/textView18" android:layout_marginStart="4dp"
+                        android:textSize="16sp"/>
                 <TextView
                         android:text="+91 9739209885"
                         android:layout_width="wrap_content"
@@ -114,7 +116,7 @@
                         android:textStyle="bold"
                         app:layout_constraintTop_toBottomOf="@+id/tv_buyer_email_checkout"
                         android:layout_marginStart="4dp"
-                        app:layout_constraintStart_toEndOf="@+id/textView17"/>
+                        app:layout_constraintStart_toEndOf="@+id/textView17" android:textSize="16sp"/>
                 <TextView
                         android:text="Mob:"
                         android:layout_width="wrap_content"
@@ -122,14 +124,15 @@
                         android:id="@+id/textView17"
                         app:layout_constraintTop_toBottomOf="@+id/textView18"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="8dp"/>
+                        android:layout_marginStart="8dp" android:textSize="16sp"/>
                 <TextView
                         android:text="Email:"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView18" android:layout_marginTop="36dp"
                         app:layout_constraintTop_toBottomOf="@+id/img_buyer_profile_checkout"
-                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                        android:textSize="16sp"/>
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
         <TextView

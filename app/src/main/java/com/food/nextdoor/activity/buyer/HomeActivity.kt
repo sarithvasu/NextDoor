@@ -11,6 +11,7 @@ import android.util.Log
 import com.food.nextdoor.R
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
 import com.food.nextdoor.webservices.RetrofitService
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.home.*
 import okhttp3.*
@@ -33,8 +34,29 @@ class HomeActivity : AppCompatActivity() {
 
        // Draw line Divider between two rows in recyclerview
         drawRowDivider()
-       fetchJsonFromServer()
+       //fetchJsonFromServer()
+        readfromAsset()
         //fetchJsonFromServerUsingRefrofit()
+    }
+
+    private fun readfromAsset() {
+        val json_string = application.assets.open("home_json.json").bufferedReader().use{
+            it.readText()
+        }
+
+        val gson = GsonBuilder().serializeNulls().create()
+        val homeFeed =  gson.fromJson(json_string, HomeFeed::class.java)
+
+
+        // Soumen: Bring the control back to Ui Thread
+        runOnUiThread {
+            Utility.DataHolder.homeFeedInstance = homeFeed
+            val buyerHomeFeed = Utility.DataHolder.homeFeedInstance
+
+            recyclerView_home_buyer.apply {
+                recyclerView_home_buyer.adapter = HomeAdapter(buyerHomeFeed)
+            }
+        }
     }
 
     private fun fetchJsonFromServerUsingRefrofit() {
@@ -68,7 +90,9 @@ class HomeActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val  body = response?.body()?.string()
                 println("Successfully executed request")
-                val gson = GsonBuilder().create()
+                //val gson = GsonBuilder().create()
+
+                val gson = GsonBuilder().serializeNulls().create()
                 val homeFeed =  gson.fromJson(body, HomeFeed::class.java)
 
 

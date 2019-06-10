@@ -8,7 +8,7 @@ import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.CheckoutAdapter
 import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.adapter.buyer.DishDetailViewHolder
-import com.food.nextdoor.model.Dish
+
 import kotlinx.android.synthetic.main.checkout.*
 import kotlinx.android.synthetic.main.dish_detail.*
 
