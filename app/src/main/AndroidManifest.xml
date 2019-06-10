@@ -12,26 +12,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.buyer.TimeSlotActivity"
-        android:label="TimeSlots">
-
+        <activity android:name=".activity.buyer.TimeSlotActivity">
         </activity>
-        <activity android:name=".activity.buyer.CheckoutActivity"
-        android:label="Checkout">
+        <activity android:name=".activity.buyer.CheckoutActivity">
         </activity>
 
-        <activity android:name=".activity.buyer.ChefProfileActivity"
-        android:label="Chef">
+        <activity android:name=".activity.buyer.ChefProfileActivity">
         </activity>
-
-        <activity android:name=".activity.buyer.DishDetailActivity"
-        android:label="Details">
+        <activity android:name=".activity.buyer.DishDetailActivity">
         </activity>
-
-        <activity android:name=".activity.buyer.HomeActivity"
-        android:label="Home">
+        <activity android:name=".activity.buyer.HomeActivity">
         </activity>
-
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

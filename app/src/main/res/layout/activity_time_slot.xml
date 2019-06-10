@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:background="@android:color/white"/>
     <TextView
-            android:text="Select delivery time slot"
+            android:text="Select time slot for todays delivery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"
