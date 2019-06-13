@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.WindowManager
 import com.food.nextdoor.R
+import com.food.nextdoor.model.CartItem
 
 import com.food.nextdoor.model.HomeFeed
 import java.util.*
@@ -46,6 +47,10 @@ class Utility {
 
 
     companion object {
+
+        val myMap: Map<String,MutableList<CartItem>> = mapOf<String, MutableList<CartItem>>()
+
+        var IS_INITIALIZE = false
 
 
         val BUYER_HOME_FEED_KEY = "BUYER_HOME_FEED"

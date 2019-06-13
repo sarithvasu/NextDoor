@@ -5,12 +5,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.food.nextdoor.R
 import com.food.nextdoor.activity.buyer.ChefProfileActivity
 import com.food.nextdoor.activity.buyer.DishDetailActivity
-import com.food.nextdoor.activity.buyer.TimeSlotActivity
-import com.food.nextdoor.model.HomeFeed
+import com.food.nextdoor.model.*
 
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_row.view.*
@@ -52,20 +50,49 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
          // Seting the tag for dish Id for detail screen
         holder.view.setTag( homeFeed.dishes.get(position).dish_id)
 
-        // Set ClickListener
+
+
+        // Set ClickListener for dish Image
+        holder.view.img_dish_image_home.setOnClickListener{
+            val intent = Intent(holder.view.img_dish_image_home.context, DishDetailActivity:: class.java)
+            intent.putExtra(Utility.DISH_ID_KEY, holder.view.getTag() as Int)
+            holder.view.img_dish_image_home.context.startActivity(intent)
+        }
+
+
+        // Set ClickListener for chef profile Image
         holder.view.img_chef_profile_home.setOnClickListener{
             val intent = Intent(holder.view.img_chef_profile_home.context, ChefProfileActivity:: class.java)
             intent.putExtra(Utility.CHEF_ID_KEY,chefinfo.chef_id as Int)
             holder.view.img_chef_profile_home.context.startActivity(intent)
         }
+
+        // Set ClickListener for buy Button
         holder.view.btn_buy_home.setOnClickListener {
            /* val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity::class.java)
             holder.view.btn_buy_home.context.startActivity(intent)*/
             holder.view.btn_lay.visibility=View.VISIBLE
             holder.view.btn_buy_home.visibility=View.GONE
         }
+
+        // Set ClickListener for + Button
+        holder.view.tv_plus.setOnClickListener{
+            var count=holder.view.tv_qutity.text.toString().toInt()
+            //AddItem()
+            if(count<99) {
+                count++
+            }
+
+
+            holder.view.tv_qutity.text=count.toString()
+        }
+
+        // Set ClickListener for - Button
         holder.view.tv_minus.setOnClickListener{
             var count=holder.view.tv_qutity.text.toString().toInt()
+
+            //RemoveItem()
+
             if(count>0) {
                 count--
             }
@@ -75,33 +102,78 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
             }
             holder.view.tv_qutity.text=count.toString()
         }
-        holder.view.tv_plus.setOnClickListener{
-            var count=holder.view.tv_qutity.text.toString().toInt()
-            if(count<99) {
-                count++
-            }
-            holder.view.tv_qutity.text=count.toString()
-        }
+
+
 
     }
+
+
+
+
+    private fun AddItem() {
+        var product: Product = Product()
+        product.description = "Delicious restaurant style dal fry recipe at home"
+        product.id = 1
+        product.quantity = 1
+        product.name = "Dal Fry"
+        product.price = "90"
+        // Add Photo
+        var photo: Photo = Photo()
+        photo.filename = "File1"
+        product.photos.add(photo)
+
+
+        val item = CartItem(product,1)
+        ShoppingCart.addItem(item)
+
+        // Read back for Checking
+        val cart = ShoppingCart.getCartItems()
+    }
+
+
+    private fun RemoveItem() {
+        var product: Product = Product()
+        product.description = "Delicious restaurant style dal fry recipe at home"
+        product.id = 1
+        product.quantity = 1
+        product.name = "Dal Fry"
+        product.price = "90"
+        // Add Photo
+        var photo: Photo = Photo()
+        photo.filename = "File1"
+        product.photos.add(photo)
+
+
+        val item = CartItem(product,1)
+        ShoppingCart.removeItem(item)
+
+        // Read back for Checking
+        val cart = ShoppingCart.getCartItems()
+    }
+
+
+
 }
 
 
 
+
+
+
 class HomeBuyerViewHolder(val view: View, val homeFeed: HomeFeed?) : RecyclerView.ViewHolder(view) {
-  init {
-            view.setOnClickListener {
-            val intent = Intent(view.context, DishDetailActivity::class.java)
-                intent.putExtra(Utility.DISH_ID_KEY,view.getTag() as Int)
-            view.context.startActivity(intent)
-
-
-//             view.btn_buy_home.setOnClickListener {
-//                 val intent = Intent(view.context, TimeSlotActivity::class.java)
-//                 view.context.startActivity(intent)
-//             }
-        }
-    }
+//  init {
+//            view.setOnClickListener {
+//            val intent = Intent(view.context, DishDetailActivity::class.java)
+//                intent.putExtra(Utility.DISH_ID_KEY,view.getTag() as Int)
+//            view.context.startActivity(intent)
+//
+//
+////             view.btn_buy_home.setOnClickListener {
+////                 val intent = Intent(view.context, TimeSlotActivity::class.java)
+////                 view.context.startActivity(intent)
+////             }
+//        }
+//    }
 }
 
 

@@ -235,7 +235,7 @@
       "dish_name": "Chicken Biryani 4",
       "dish_type": "Non_Veg",
       "dish_image_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ulidabtpyrh128rg5coi",
-      "dish_description": " biryani takes time and practice to make but is worth every bit of the effort",
+      "dish_description": "Biryani takes time and practice to make but is worth every bit of the effort",
       "unit_price": 83,
       "servings_per_plate": 4,
       "dish_available_start_time": "12pm",

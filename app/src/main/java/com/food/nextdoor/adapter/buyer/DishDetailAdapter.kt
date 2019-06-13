@@ -5,16 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.food.nextdoor.model.HomeFeed
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.dish_detail.view.*
 import kotlinx.android.synthetic.main.dish_detail_row.view.*
 import system.Utility
 
 
 class DishDetailAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<DishDetailViewHolder>() {
 
+    private lateinit var fiveDishes:List<HomeFeed.Dish>
 
     override fun getItemCount(): Int {
-        return homeFeed!!.dishes.count()
+        //return homeFeed!!.dishes.count()
+        fiveDishes = homeFeed!!.dishes.take(5)
+        return fiveDishes.size
     }
 
 
@@ -36,27 +38,29 @@ class DishDetailAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<DishDeta
         //holder.view.tv_rating.text = (homeFeed.dishes.get(position).dish_rating).toString()
 
 
+        //val chefinfo: HomeFeed.Chef =homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
+
 
         // set Dish Symbol
-        val dishSymbol =   Utility.setDishSymbol(homeFeed!!.dishes.get(position).dish_type,holder.view.context)
+        val dishSymbol =   Utility.setDishSymbol(fiveDishes.get(position).dish_type,holder.view.context)
         holder.view.img_dish_symbol_detail_rv.setImageDrawable(dishSymbol)
         //holder.view.img_dish_symbol_detail.setColorFilter(R.color.Black)
 
 
-        holder.view.tv_dish_name_detail_main_rv.text = homeFeed!!.dishes.get(position).dish_name
-        holder.view.tv_serving_per_person_detail_rv.text = (homeFeed!!.dishes.get(position).servings_per_plate.toString())
+        holder.view.tv_dish_name_detail_main_rv.text = fiveDishes.get(position).dish_name
+        holder.view.tv_serving_per_person_detail_rv.text = (fiveDishes.get(position).servings_per_plate.toString())
         //holder.view.tv_dish_available_time_detail.text = (homeFeed.dishes.get(position).dish_available_time)
-        holder.view.tv_dish_price_detail.text = (homeFeed.dishes.get(position).unit_price.toString())
+        holder.view.tv_dish_price_detail_rv.text =  " Rs. " +(fiveDishes.get(position).unit_price.toString())
 
 
 
 
         //Soumen Bind Chef Name and Flat Number
-        val chefinfo: HomeFeed.Chef =homeFeed.chefs.filter { s-> homeFeed.dishes.get(position).chef_id==s.chef_id}.single()
+        val chefinfo: HomeFeed.Chef = homeFeed!!.chefs.filter { s-> fiveDishes.get(position).chef_id==s.chef_id}.single()
         holder.view.tv_chef_name_with_flat_number_detail_rv.text = chefinfo.chef_name + " | " + chefinfo.chef_flat_number
 
         // Bind Dish Image
-        Picasso.with(holder.view.context).load(homeFeed.dishes.get(position).dish_image_url).into(holder.view.img_dish_image_detail_rv)
+        Picasso.with(holder.view.context).load(fiveDishes.get(position).dish_image_url).into(holder.view.img_dish_image_detail_rv)
 
 
 

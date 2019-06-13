@@ -8,7 +8,9 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.WindowManager
 import com.food.nextdoor.R
+import com.food.nextdoor.model.OrderDetail
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
 import com.food.nextdoor.webservices.RetrofitService
 import com.google.gson.Gson
@@ -26,8 +28,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.home)
         //recyclerView_home_buyer.setBackgroundColor(Color.BLUE)
+
+
 
         recyclerView_home_buyer.layoutManager = LinearLayoutManager(this)
         //recyclerView_home_buyer.adapter =  HomeAdapter() // Soumen Instead Assigned in readJsondata Method
@@ -37,7 +42,13 @@ class HomeActivity : AppCompatActivity() {
        //fetchJsonFromServer()
         readfromAsset()
         //fetchJsonFromServerUsingRefrofit()
+
+
+
+
     }
+
+
 
     private fun readfromAsset() {
         val json_string = application.assets.open("home_json.json").bufferedReader().use{
@@ -134,6 +145,23 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+
+
+
+
+//    private fun testMap(){
+//        val myMap: Map<Int,String> = mapOf<Int, String>()
+//
+//        for(p in myMap.plus(Pair(5, "Rohan"))){
+//            println("Element at key ${p.key} = ${p.value}")
+//        }
+//
+//
+//        myMap.plus(Pair(6, "Soumen"))
+//
+//
+//    }
+
 
 }
 
