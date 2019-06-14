@@ -50,7 +50,7 @@ class DishDetailAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<DishDeta
         holder.view.tv_dish_name_detail_main_rv.text = fiveDishes.get(position).dish_name
         holder.view.tv_serving_per_person_detail_rv.text = (fiveDishes.get(position).servings_per_plate.toString())
         //holder.view.tv_dish_available_time_detail.text = (homeFeed.dishes.get(position).dish_available_time)
-        holder.view.tv_dish_price_detail_rv.text =  " Rs. " +(fiveDishes.get(position).unit_price.toString())
+        holder.view.tv_dish_price_detail.text =  " Rs. " +(fiveDishes.get(position).unit_price.toString())
 
 
 

@@ -9,8 +9,6 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import com.food.nextdoor.R
 
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
@@ -164,9 +162,51 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-
-
-
-
 }
 
+//class Singleton private constructor(){
+//
+//    companion object {
+//        private var INSTANCE: Singleton ? = null
+//
+//        fun  getInstance(): Singleton {
+//            synchronized(this) {
+//                if(INSTANCE == null){
+//                    INSTANCE = Singleton()
+//                }
+//                return INSTANCE!!
+//            }
+//        }
+//    }
+//
+//}
+//
+//class Singleton1 private constructor(){
+//    companion object {
+//        @Volatile private var INSTANCE: Singleton ? = null
+//        fun  getInstance(): Singleton {
+//            return INSTANCE?: synchronized(this){
+//                Singleton().also {
+//                    INSTANCE = it
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//
+//class SomeSingleton private constructor() {
+//
+//    init {
+//        INSTANCE = this
+//        println("init complete")
+//    }
+//
+//    companion object {
+//        var INSTANCE: SomeSingleton
+//
+//        init {
+//            SomeSingleton()
+//        }
+//    }
+//}

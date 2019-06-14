@@ -74,12 +74,6 @@ class DishDetailActivity : AppCompatActivity() {
             btn_lay_detail.visibility=View.VISIBLE
            btn_buy_detail.visibility=View.GONE
         }
-        //OnClick BackButton in dishdetails
-        fab_detail.setOnClickListener {
-            val intent = Intent(fab_detail.context, HomeActivity::class.java)
-            fab_detail.context.startActivity(intent)
-
-        }
         tv_minus_detail.setOnClickListener{
             var count=tv_quantity_detail.text.toString().toInt()
             if(count>0) {

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // After setting the adapter use the timer
-        //SetSliderTimer()
+        SetSliderTimer()
     }
 
 
