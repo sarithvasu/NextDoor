@@ -1,5 +1,6 @@
 package com.food.nextdoor.activity.buyer
 
+import android.content.Intent
 import com.food.nextdoor.model.HomeFeed
 import com.food.nextdoor.adapter.buyer.HomeAdapter
 import android.support.v7.app.AppCompatActivity
@@ -8,11 +9,15 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import com.food.nextdoor.R
+
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
 import com.food.nextdoor.webservices.RetrofitService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.dish_detail.*
 import kotlinx.android.synthetic.main.home.*
 import okhttp3.*
 import system.Utility
@@ -26,8 +31,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.home)
         //recyclerView_home_buyer.setBackgroundColor(Color.BLUE)
+
+
 
         recyclerView_home_buyer.layoutManager = LinearLayoutManager(this)
         //recyclerView_home_buyer.adapter =  HomeAdapter() // Soumen Instead Assigned in readJsondata Method
@@ -37,7 +45,28 @@ class HomeActivity : AppCompatActivity() {
        //fetchJsonFromServer()
         readfromAsset()
         //fetchJsonFromServerUsingRefrofit()
+
+        this.loadBuyerInfo()
+
+        button.setOnClickListener { start() }
+
+
     }
+
+    private fun loadBuyerInfo() {
+        val buyerInfo = Utility.Manager.BuyerInfo(1,1,"Soumen roy","A2-503","+91 9739209885",
+            "somurai2002@yahoo.com","Male","https://cdn.networkrail.co.uk/wp-content/uploads/2018/02/josh-ward-profile.jpg",
+            true,"14-06-2019 | 02.56 PM","14-06-2019 | 02.56 PM")
+        Utility.Manager.instance.thisBuyerInfo = buyerInfo
+    }
+
+
+
+    private fun start() {
+        val intent = Intent(this, TimeSlotActivity::class.java)
+        startActivity(intent)
+    }
+
 
     private fun readfromAsset() {
         val json_string = application.assets.open("home_json.json").bufferedReader().use{
@@ -135,51 +164,9 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+
+
+
+
 }
 
-//class Singleton private constructor(){
-//
-//    companion object {
-//        private var INSTANCE: Singleton ? = null
-//
-//        fun  getInstance(): Singleton {
-//            synchronized(this) {
-//                if(INSTANCE == null){
-//                    INSTANCE = Singleton()
-//                }
-//                return INSTANCE!!
-//            }
-//        }
-//    }
-//
-//}
-//
-//class Singleton1 private constructor(){
-//    companion object {
-//        @Volatile private var INSTANCE: Singleton ? = null
-//        fun  getInstance(): Singleton {
-//            return INSTANCE?: synchronized(this){
-//                Singleton().also {
-//                    INSTANCE = it
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//
-//class SomeSingleton private constructor() {
-//
-//    init {
-//        INSTANCE = this
-//        println("init complete")
-//    }
-//
-//    companion object {
-//        var INSTANCE: SomeSingleton
-//
-//        init {
-//            SomeSingleton()
-//        }
-//    }
-//}

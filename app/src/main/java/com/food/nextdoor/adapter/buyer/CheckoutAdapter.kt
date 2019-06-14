@@ -5,11 +5,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.food.nextdoor.model.OrderDetail
+import com.food.nextdoor.model.Order
+
 import kotlinx.android.synthetic.main.checkout_row.view.*
 
 
-class CheckoutAdapter(val context: Context, val OrderDetails: List<OrderDetail>) : RecyclerView.Adapter<CheckoutAdapter.OrderDetailViewHolder>() {
+class CheckoutAdapter(val context: Context, val OrderDetails: List<Order>) : RecyclerView.Adapter<CheckoutAdapter.OrderDetailViewHolder>() {
 
     override fun getItemCount(): Int {
         return OrderDetails.size
@@ -29,10 +30,10 @@ class CheckoutAdapter(val context: Context, val OrderDetails: List<OrderDetail>)
 
 
     inner class OrderDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var currentOrder: OrderDetail? = null
+        var currentOrder: Order? = null
         var currentPosition: Int = 0
 
-        fun setData(orderDetail: OrderDetail?, position: Int) {
+        fun setData(orderDetail: Order?, position: Int) {
             this.currentOrder = orderDetail
             this.currentPosition = position
             //itemView.tv_dishName.text =  myModelObject!!.dish_Name

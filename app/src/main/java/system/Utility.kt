@@ -10,11 +10,117 @@ import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.WindowManager
 import com.food.nextdoor.R
+import com.food.nextdoor.model.CartItem
 
 import com.food.nextdoor.model.HomeFeed
 import java.util.*
 
+
+enum class UpdateType {
+    ADD, REMOVE
+}
+
+
+
 class Utility {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    class Manager{
+
+        private constructor() {
+            println("Instance Created")
+        }
+
+        companion object{
+            val instance: Manager by lazy {Manager()}
+        }
+
+        var thisBuyerInfo: BuyerInfo
+            get() = BuyerInfo().buyerInfo
+            set(value) {
+                BuyerInfo().buyerInfo = value
+            }
+
+
+//        fun saveBuyerInfo(buyerInfo: BuyerInfo) {
+//            BuyerInfo().buyerInfo = buyerInfo
+//        }
+//
+//        fun getBuyerInfo(): BuyerInfo{
+//            return BuyerInfo().buyerInfo
+//        }
+
+        class BuyerInfo () {
+
+            internal lateinit var buyerInfo: BuyerInfo
+
+
+            var userid: Int? = null
+            var apartmentId: Int? = null
+            var userName: String? = null
+            var flatNumber: String? = null
+            var mobileNumber: String? = null
+            var email: String? = null
+            var gender: String? = null
+            var profileImageUrl: String? = null
+            var isActive: Boolean = true
+            var dateInsertion: String? = null
+            var dateRevision: String? = null
+
+            // :this() pointing to empty constractor
+            constructor (
+                userid: Int,
+                apartmentId: Int,
+                userName: String,
+                flatNumber: String,
+                mobileNumber: String,
+                email: String,
+                gender: String,
+                profileImageUrl: String,
+                isActive: Boolean,
+                dateInsertion: String,
+                dateRevision: String
+            ) : this() {
+                this.userid = userid
+                this.apartmentId = apartmentId
+                this.userName = userName
+                this.flatNumber = flatNumber
+                this.mobileNumber = mobileNumber
+                this.email = email
+                this.gender = gender
+                this.profileImageUrl = profileImageUrl
+                this.isActive = isActive
+                this.dateInsertion = dateInsertion
+                this.dateRevision = dateRevision
+            }
+
+
+            private fun saveBuyerInfo(buyerInfo: BuyerInfo) {
+                this.buyerInfo = buyerInfo
+            }
+
+            private fun getBuyerInfo(): BuyerInfo{
+                return this.buyerInfo
+            }
+        }
+
+    }
+
+
 
 
     class DataHolder {
@@ -46,6 +152,10 @@ class Utility {
 
 
     companion object {
+
+        val myMap: Map<String,MutableList<CartItem>> = mapOf<String, MutableList<CartItem>>()
+
+        var IS_INITIALIZE = false
 
 
         val BUYER_HOME_FEED_KEY = "BUYER_HOME_FEED"

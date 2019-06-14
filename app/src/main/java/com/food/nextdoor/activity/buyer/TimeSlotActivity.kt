@@ -1,12 +1,16 @@
 package com.food.nextdoor.activity.buyer
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.OrientationHelper
 import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.TimeSlotAdapter
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_time_slot.*
+
 
 class TimeSlotActivity : AppCompatActivity() {
 
@@ -29,7 +33,17 @@ class TimeSlotActivity : AppCompatActivity() {
             adapter = TimeSlotAdapter(this@TimeSlotActivity,morningSlots)
         }
 
-
+        btn_confirm_slots.setOnClickListener { start() }
 
     }
+
+
+    private fun start() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+    }
 }
+
+
+@Parcelize
+class PackingAndDeliveryWarper(val deliveryStartTime: String, val deliveryEndTime: String, val packingTypeId: Int, val deliveryTypeId: Int) : Parcelable

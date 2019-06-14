@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.view.WindowManager
 import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.model.HomeFeed
@@ -18,6 +19,11 @@ class DishDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
         setContentView(R.layout.dish_detail)
 
         // Extract dishId from intent and homeFeed from dataholder
@@ -67,6 +73,12 @@ class DishDetailActivity : AppCompatActivity() {
              holder.view.btn_buy_home.context.startActivity(intent)*/
             btn_lay_detail.visibility=View.VISIBLE
            btn_buy_detail.visibility=View.GONE
+        }
+        //OnClick BackButton in dishdetails
+        fab_detail.setOnClickListener {
+            val intent = Intent(fab_detail.context, HomeActivity::class.java)
+            fab_detail.context.startActivity(intent)
+
         }
         tv_minus_detail.setOnClickListener{
             var count=tv_quantity_detail.text.toString().toInt()

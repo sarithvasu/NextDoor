@@ -34,7 +34,7 @@
                     android:elevation="10dp"
                     android:background="#fafafa"
                     android:gravity="center"
-                    android:paddingTop="20dp"/>
+                    android:paddingTop="20dp" android:textSize="16sp"/>
             <TextView
                     android:text="Buy Home made food"
                     android:layout_width="175dp"
@@ -49,7 +49,7 @@
                     android:background="#fafafa"
                     android:onClick="buyerOnClick"
                     android:gravity="center"
-                    android:paddingTop="20dp" app:layout_constraintHorizontal_bias="0.0"/>
+                    android:paddingTop="20dp" app:layout_constraintHorizontal_bias="0.0" android:textSize="16sp"/>
             <TextView
                     android:text="Share ride"
                     android:layout_width="175dp"
@@ -64,7 +64,7 @@
                     android:layout_marginBottom="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:gravity="center"
-                    android:paddingTop="20dp" app:layout_constraintVertical_bias="0.0"/>
+                    android:paddingTop="20dp" app:layout_constraintVertical_bias="0.0" android:textSize="16sp"/>
             <TextView
                     android:text="Profile"
                     android:layout_width="175dp"
@@ -82,7 +82,7 @@
                     android:layout_marginStart="12dp"
                     android:gravity="center"
                     android:paddingTop="20dp" app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintVertical_bias="1.0"/>
+                    app:layout_constraintVertical_bias="1.0" android:textSize="16sp"/>
 
 
         </android.support.constraint.ConstraintLayout>
