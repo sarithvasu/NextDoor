@@ -1,6 +1,7 @@
 package com.food.nextdoor.adapter
 
 import android.content.Context
+import android.support.constraint.ConstraintLayout
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ class ImageSliderAdapter(private val context: Context) : PagerAdapter() {
     private val arrImage =  arrayOf(R.drawable.kadai_panner, R.drawable.egg_biryani,R.drawable.roti_new, R.drawable.tandoori_new)
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object`
+        return view === `object` as ConstraintLayout
     }
 
 
