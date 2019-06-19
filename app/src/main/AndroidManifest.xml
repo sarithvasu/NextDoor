@@ -12,23 +12,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.buyer.CustomMealActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activity.buyer.RegistrationActivity">
+        </activity>
+        <activity android:name=".activity.Registration">
+        </activity>
+        <activity
+                android:name=".activity.buyer.CustomMealActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity android:name=".activity.buyer.TimeSlotActivity">
         </activity>
         <activity android:name=".activity.buyer.CheckoutActivity">
         </activity>
-
         <activity android:name=".activity.buyer.ChefProfileActivity">
         </activity>
-
-        <activity android:name=".activity.buyer.DishDetailActivity"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".activity.buyer.DishDetailActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity android:name=".activity.buyer.HomeActivity">
         </activity>
-
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
