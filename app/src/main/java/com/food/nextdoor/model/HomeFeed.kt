@@ -72,6 +72,3 @@ class HomeFeed(val chefs: List<Chef>, var dishes: List<Dish>, val custommeals: C
     class SubMenuItem(val sub_menu_id: Int, val sub_menu_name: String, val sub_menu_unit_price: Int, val menu_id: Int) :
         Parcelable
 }
-
-
-

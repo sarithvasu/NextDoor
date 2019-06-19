@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import com.food.nextdoor.R
 import com.food.nextdoor.activity.buyer.ChefProfileActivity
 import com.food.nextdoor.activity.buyer.DishDetailActivity
+import com.food.nextdoor.activity.buyer.PackingAndDeliveryWarper
 import com.food.nextdoor.activity.buyer.TimeSlotActivity
 import com.food.nextdoor.model.*
 import com.google.gson.GsonBuilder
 
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_row.view.*
+import system.CartItem
+import system.ShoppingCart
 import system.Utility
 
 class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewHolder>() {
@@ -75,8 +78,9 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
            /* val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity::class.java)
             holder.view.btn_buy_home.context.startActivity(intent)*/
 
-            AddItem(dishInfo)
+            // AddItem(dishInfo)
             val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity:: class.java)
+            intent.putExtra(Utility.DISH_ID_KEY,dishInfo.dish_id as Int)
             holder.view.btn_buy_home.context.startActivity(intent)
 
 
@@ -101,9 +105,6 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
         // Set ClickListener for - Button
         holder.view.tv_minus.setOnClickListener{
             var count=holder.view.tv_qutity.text.toString().toInt()
-
-            RemoveItem(dishInfo)
-
             if(count>0) {
                 count--
             }
@@ -111,6 +112,8 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
                 holder.view.btn_lay.visibility=View.GONE
                 holder.view.btn_buy_home.visibility=View.VISIBLE
             }
+
+           RemoveItem(dishInfo)
             holder.view.tv_qutity.text=count.toString()
         }
     }
@@ -125,8 +128,8 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
         dishItem.deliveryTypeId = dishInfo.delivery_type_id
         dishItem.quantity = 1
 
-        val thiDishItem = CartItem(dishItem)
-        ShoppingCart.addToCart(thiDishItem)
+        val thiCartItem = CartItem(dishItem)
+        ShoppingCart.addToCart(thiCartItem)
 
         // Read back for Checking
         val listOfCartItem = ShoppingCart.getCartItems()

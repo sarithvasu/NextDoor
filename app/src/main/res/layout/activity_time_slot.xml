@@ -20,20 +20,29 @@
         <TextView
                 android:text="Select packing option"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView124"
-                android:textColor="@android:color/holo_blue_dark" android:layout_marginStart="5dp"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView124"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginStart="5dp"/>
         <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_marginStart="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
                 android:id="@+id/rbg_select_packing">
             <RadioButton
-                    android:text="Parcel in Disposable box(Rs 5 extra)"
+                    android:text="Parcel in Disposable box (Rs 5 extra)"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/rb_packing_disposable" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_packing_disposable"
+                    android:layout_weight="1"
+                    android:onClick="onPackinOptionClicked"/>
             <RadioButton
-                    android:text="Bring your own box"
+                    android:text="Get your box"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/rb_packing_bring_own" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_packing_bring_own"
+                    android:layout_weight="1"
+                    android:onClick="onPackinOptionClicked"/>
         </RadioGroup>
     </LinearLayout>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -114,20 +123,29 @@
         <TextView
                 android:text="Select delivery option"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView123"
-                android:textColor="@android:color/holo_orange_dark" android:layout_marginStart="5dp"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView123"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginStart="5dp"/>
         <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_marginStart="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
                 android:id="@+id/rbg_delivery_option">
             <RadioButton
-                    android:text="Parcel in Disposable box(Rs 5 extra)"
+                    android:text="Home Delivery (Rs 10 extra)"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/rb_delivery_disposable" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_home_delivery"
+                    android:layout_weight="1"
+                    android:onClick="onDeliveryOptionClicked"/>
             <RadioButton
-                    android:text="Bring your own box"
+                    android:text="Self Pick"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/rb_devlivery_bring_own" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_self_pick"
+                    android:layout_weight="1"
+                    android:onClick="onDeliveryOptionClicked"/>
         </RadioGroup>
     </LinearLayout>
     <TextView

@@ -9,17 +9,17 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import com.food.nextdoor.R
-
+import com.food.nextdoor.model.BuyerInfo
+import com.food.nextdoor.model.DishItem
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
 import com.food.nextdoor.webservices.RetrofitService
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.dish_detail.*
 import kotlinx.android.synthetic.main.home.*
 import okhttp3.*
+import system.CartItem
+import system.Manager
+import system.ShoppingCart
 import system.Utility
 import java.io.IOException
 
@@ -31,10 +31,22 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.home)
-        //recyclerView_home_buyer.setBackgroundColor(Color.BLUE)
 
+
+        val thisDishItem = intent.getParcelableExtra<DishItem>(Utility.DISH_ITEM_KEY)
+
+        thisDishItem?.let {
+            val thiCartItem = CartItem(thisDishItem)
+            ShoppingCart.addToCart(thiCartItem)
+            val listOfCartItem = ShoppingCart.getCartItems()
+            var s = "Soumen"
+            s += "babab"
+        }
+
+
+
+        // val dishItem:DishItem1 = intent.getParcelableExtra("DISH_ITEM_KEY") //as DishItem
 
 
         recyclerView_home_buyer.layoutManager = LinearLayoutManager(this)
@@ -47,21 +59,27 @@ class HomeActivity : AppCompatActivity() {
         //fetchJsonFromServerUsingRefrofit()
 
         this.loadBuyerInfo()
-
         button.setOnClickListener { start() }
-
-
     }
 
     private fun loadBuyerInfo() {
-        val buyerInfo = Utility.Manager.BuyerInfo(1,1,"Soumen roy","A2-503","+91 9739209885",
-            "somurai2002@yahoo.com","Male","https://cdn.networkrail.co.uk/wp-content/uploads/2018/02/josh-ward-profile.jpg",
-            true,"14-06-2019 | 02.56 PM","14-06-2019 | 02.56 PM")
-        Utility.Manager.instance.thisBuyerInfo = buyerInfo
+        val buyerInfo = BuyerInfo()
+        buyerInfo.userid = 1
+        buyerInfo.apartmentId = 1
+        buyerInfo.userName = "Soumen Roy"
+        buyerInfo.flatNumber = "A2-503"
+        buyerInfo.mobileNumber = "+91 9739209885"
+        buyerInfo.email = "somurai2002@yahoo.com"
+        buyerInfo.gender = "Male"
+        buyerInfo.profileImageUrl = "https://cdn.networkrail.co.uk/wp-content/uploads/2018/02/josh-ward-profile.jpg"
+        buyerInfo.isActive = true
+        buyerInfo.dateInsertion = "14-06-2019 | 02.56 PM"
+        buyerInfo.dateRevision = "14-06-2019 | 02.56 PM"
+
+
+        //Save buyer Info
+        Manager.Companion.buyerInfo = buyerInfo
     }
-
-
-
     private fun start() {
         val intent = Intent(this, TimeSlotActivity::class.java)
         startActivity(intent)
@@ -156,11 +174,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if(Utility.DataHolder.homeFeedInstance!=null) {
-            recyclerView_home_buyer.apply {
-                recyclerView_home_buyer.adapter = HomeAdapter(Utility.DataHolder.homeFeedInstance)
-            }
-        }
+//        if(Utility.DataHolder.homeFeedInstance!=null) {
+//            recyclerView_home_buyer.apply {
+//                recyclerView_home_buyer.adapter = HomeAdapter(Utility.DataHolder.homeFeedInstance)
+//            }
+//        }
 
     }
 

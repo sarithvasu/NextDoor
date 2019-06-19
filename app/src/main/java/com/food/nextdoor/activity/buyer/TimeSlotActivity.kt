@@ -9,17 +9,19 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.OrientationHelper
-import android.text.format.DateUtils
+import android.view.View
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import com.food.nextdoor.adapter.buyer.TimeSlotAdapter
 
 import com.food.nextdoor.listeners.OnTimeSlotSelectListener
+import com.food.nextdoor.model.DishItem
 import com.food.nextdoor.model.TimeSlots
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_time_slot.*
+import system.Manager
+import system.ShoppingCart
+import system.Utility
 
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,10 +30,24 @@ import kotlin.collections.ArrayList
 
 class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
+    private lateinit var m_dishItem: DishItem
+    private val m_delimiter = "("
+
+
+
     private lateinit var timeSlotText: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_slot)
+
+        val dishId = intent.getIntExtra(Utility.DISH_ID_KEY,0)
+        m_dishItem =  DishItem()
+        m_dishItem.dishId = dishId
+        m_dishItem.quantity = 1
+
+        val listOfCartItem = ShoppingCart.getCartItems()
+
+
 
         var timeSlots: TimeSlots= createTimeSlots("09:00 AM","07:00 PM",60)
         rv_after_noon_time_slots.apply {
@@ -48,38 +64,70 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
         }
 
         btn_confirm_slots.setOnClickListener { start() }
-
-        val radioGroup = findViewById<RadioGroup>(R.id.rbg_select_packing)
-
-        //radioGroup.setOnClickListener { soumen() }
-
-        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->
-           // textView.text = "option "+i+" is selected"
-            Toast.makeText(applicationContext,"On button click : ${i}", Toast.LENGTH_SHORT).show()
-        })
-
-
-
-
-
     }
 
-    private fun soumen() {
-        var id: Int = rbg_select_packing.checkedRadioButtonId
-        if (id!=-1){ // If any radio button checked from radio group
-            // Get the instance of radio button using id
-            val radio:RadioButton = findViewById(id)
-            Toast.makeText(applicationContext,"On button click : ${radio.text}", Toast.LENGTH_SHORT).show()
-        }else{
-            // If no radio button checked in this radio group
-            Toast.makeText(applicationContext,"On button click : nothing selected", Toast.LENGTH_SHORT).show()
+
+
+
+    private fun start() {
+//        val intent = Intent(this, HomeActivity::class.java)
+//        startActivity(intent)
+
+        m_dishItem.deliveryStartTime = "6.30pm"
+        m_dishItem.deliveryEndTime = "6.45pm"
+
+        val intent = Intent(this, HomeActivity:: class.java)
+        intent.putExtra(Utility.DISH_ITEM_KEY, m_dishItem)
+        this.startActivity(intent)
+    }
+
+
+    open fun onPackinOptionClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            var strPackingDescription = ""
+            // Check which radio button was clicked
+            when (view.getId()) {
+
+                R.id.rb_packing_disposable ->
+                    if (checked) {
+                        strPackingDescription = rb_packing_disposable.text.toString()
+                    }
+                R.id.rb_packing_bring_own ->
+                    if (checked) {
+                        strPackingDescription = rb_packing_bring_own.text.toString()
+                    }
+            }
+            Toast.makeText(applicationContext,"${strPackingDescription}", Toast.LENGTH_SHORT).show()
+            m_dishItem.packingTypeId = Manager.Companion.Preference().getPackingTypeId(strPackingDescription.split(m_delimiter)[0].trim())
         }
     }
 
 
-    private fun start() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+   open fun onDeliveryOptionClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+
+            var strDeliveryDescription = ""
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.rb_home_delivery ->
+                    if (checked) {
+                        strDeliveryDescription = rb_home_delivery.text.toString()
+                    }
+                R.id.rb_self_pick ->
+                    if (checked) {
+                        strDeliveryDescription = rb_self_pick.text.toString()
+                    }
+            }
+
+            Toast.makeText(applicationContext,"${strDeliveryDescription}", Toast.LENGTH_SHORT).show()
+            m_dishItem.deliveryTypeId = Manager.Companion.Preference().getDeliveryTypeId(strDeliveryDescription.split(m_delimiter)[0].trim())
+        }
     }
 
 
@@ -148,7 +196,9 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
 }
 
-@Parcelize
-class PackingAndDeliveryWarper(val deliveryStartTime: String, val deliveryEndTime: String, val packingTypeId: Int, val deliveryTypeId: Int) :
-    Parcelable
+//@Parcelize
+//class PackingAndDeliveryWarper (val deliveryStartTime: String, val deliveryEndTime: String, val packingTypeId: Int, val deliveryTypeId: Int) :
+//    Parcelable {
+//
+//}
 
