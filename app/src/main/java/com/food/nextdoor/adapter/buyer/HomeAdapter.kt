@@ -10,6 +10,7 @@ import com.food.nextdoor.R
 import com.food.nextdoor.activity.buyer.ChefProfileActivity
 import com.food.nextdoor.activity.buyer.DishDetailActivity
 //import com.food.nextdoor.activity.buyer.PackingAndDeliveryWarper
+
 import com.food.nextdoor.activity.buyer.TimeSlotActivity
 import com.food.nextdoor.model.*
 import com.google.gson.GsonBuilder
@@ -20,16 +21,29 @@ import system.CartItem
 import system.ShoppingCart
 import system.Utility
 
+
+
+
 class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewHolder>() {
+
+    private lateinit var listOfCartItem :ArrayList<CartItem>
     override fun getItemCount(): Int {
         return homeFeed!!.dishes.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBuyerViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
+        listOfCartItem = ShoppingCart.getCartItems()
 
         val cellForRow = layoutInflater.inflate(R.layout.home_row, parent, false)
         return HomeBuyerViewHolder(cellForRow,homeFeed)
+    }
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     override fun onBindViewHolder(holder: HomeBuyerViewHolder, position: Int) {
@@ -72,6 +86,15 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
             intent.putExtra(Utility.CHEF_ID_KEY,chefinfo.chef_id as Int)
             holder.view.img_chef_profile_home.context.startActivity(intent)
         }
+        if(listOfCartItem.any { x -> x.dishItem.dishId == dishInfo.dish_id }){
+            val cartItem: CartItem= listOfCartItem.filter { s-> dishInfo.dish_id==s.dishItem.dishId}.single()
+            if(cartItem.dishItem.quantity>0){
+                holder.view.btn_lay.visibility=View.VISIBLE
+                holder.view.btn_buy_home.visibility=View.GONE
+                holder.view.tv_qutity.text=cartItem.dishItem.quantity.toString()
+
+            }
+        }
 
         // Set ClickListener for buy Button
         holder.view.btn_buy_home.setOnClickListener {
@@ -86,8 +109,8 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
 
 
 
-            holder.view.btn_lay.visibility=View.VISIBLE
-            holder.view.btn_buy_home.visibility=View.GONE
+          /*  holder.view.btn_lay.visibility=View.VISIBLE
+            holder.view.btn_buy_home.visibility=View.GONE*/
         }
 
         // Set ClickListener for + Button
@@ -166,19 +189,7 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
 
 
 class HomeBuyerViewHolder(val view: View, val homeFeed: HomeFeed?) : RecyclerView.ViewHolder(view) {
-//  init {
-//            view.setOnClickListener {
-//            val intent = Intent(view.context, DishDetailActivity::class.java)
-//                intent.putExtra(Utility.DISH_ID_KEY,view.getTag() as Int)
-//            view.context.startActivity(intent)
-//
-//
-////             view.btn_buy_home.setOnClickListener {
-////                 val intent = Intent(view.context, TimeSlotActivity::class.java)
-////                 view.context.startActivity(intent)
-////             }
-//        }
-//    }
+
 }
 
 

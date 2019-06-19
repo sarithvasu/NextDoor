@@ -32,10 +32,12 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
     private lateinit var m_dishItem: DishItem
     private val m_delimiter = "("
+    private val m_delimiter_hyphen  = "-"
 
 
 
-    private lateinit var timeSlotText: String
+
+    private  var timeSlotText: String =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_slot)
@@ -73,12 +75,18 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 //        val intent = Intent(this, HomeActivity::class.java)
 //        startActivity(intent)
 
-        m_dishItem.deliveryStartTime = "6.30pm"
-        m_dishItem.deliveryEndTime = "6.45pm"
 
-        val intent = Intent(this, HomeActivity:: class.java)
-        intent.putExtra(Utility.DISH_ITEM_KEY, m_dishItem)
-        this.startActivity(intent)
+
+        if(!timeSlotText.equals("")&&m_dishItem.packingTypeId!=null&&m_dishItem.deliveryTypeId !=null) {
+            m_dishItem.deliveryStartTime = timeSlotText.split(m_delimiter_hyphen)[0].trim()
+            m_dishItem.deliveryEndTime = timeSlotText.split(m_delimiter_hyphen)[1].trim()
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra(Utility.DISH_ITEM_KEY, m_dishItem)
+            this.startActivity(intent)
+        }
+        else{
+            Toast.makeText(this,"Select theoptions",Toast.LENGTH_SHORT).show()
+        }
     }
 
 
