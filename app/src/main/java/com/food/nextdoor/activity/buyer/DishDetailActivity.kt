@@ -42,14 +42,10 @@ class DishDetailActivity : AppCompatActivity() {
         listOfCartItem = ShoppingCart.getCartItems()
         if(listOfCartItem.size>0){
             floating_proced_lay_dish.visibility = View.VISIBLE
-            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
-            layout.bottomMargin=70
-            nestedScrollView2.layoutParams=layout
+
         }else{
             floating_proced_lay_dish.visibility= View.GONE
-            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
-            layout.bottomMargin=0
-            nestedScrollView2.layoutParams=layout
+
         }
 
         // Set Controls
@@ -64,14 +60,10 @@ class DishDetailActivity : AppCompatActivity() {
         super.onResume()
         if(listOfCartItem.size>0){
             floating_proced_lay_dish.visibility = View.VISIBLE
-            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
-            layout.bottomMargin=70
-            nestedScrollView2.layoutParams=layout
+
         }else{
             floating_proced_lay_dish.visibility= View.GONE
-            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
-            layout.bottomMargin=0
-            nestedScrollView2.layoutParams=layout
+
         }
     }
 
