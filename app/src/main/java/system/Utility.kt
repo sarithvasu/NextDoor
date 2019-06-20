@@ -8,9 +8,11 @@ import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import com.food.nextdoor.R
 import com.food.nextdoor.model.HomeFeed
+import kotlinx.android.synthetic.main.checkout_btn_layout.view.*
 import java.util.*
 
 
@@ -61,6 +63,21 @@ class Utility {
         val DISH_ID_KEY = "DISH_ID"
         val CHEF_ID_KEY = "CHEF_ID"
         val DISH_ITEM_KEY = "DISH_ITEM"
+
+
+
+         fun manageCheckoutButton(cartItems: ArrayList<CartItem>, view: View) {
+            if (cartItems.size > 0) {
+                view.visibility = View.VISIBLE
+                view.tv_item_count.text = ShoppingCart.itemCount.toString()
+                view.tv_total_amount.text = ShoppingCart.totalAmount().toString() // ShoppingCart.getTotalAmount1().toString() //
+
+            } else {
+                view.visibility = View.GONE
+            }
+
+        }
+
 
 
 

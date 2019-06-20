@@ -2,27 +2,20 @@ package com.food.nextdoor.activity.buyer
 
 import android.content.Intent
 import com.food.nextdoor.R
-
-
-
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcelable
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import com.food.nextdoor.adapter.buyer.TimeSlotAdapter
-
 import com.food.nextdoor.listeners.OnTimeSlotSelectListener
 import com.food.nextdoor.model.DishItem
+import com.food.nextdoor.model.HomeFeed
 import com.food.nextdoor.model.TimeSlots
-import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_time_slot.*
 import system.Manager
-import system.ShoppingCart
 import system.Utility
-
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -34,24 +27,23 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
     private val m_delimiter = "("
     private val m_delimiter_hyphen  = "-"
 
-
-
-
     private  var timeSlotText: String =""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_slot)
 
         val dishId = intent.getIntExtra(Utility.DISH_ID_KEY,0)
+        val dishInfo: HomeFeed.Dish =  Utility.DataHolder.homeFeedInstance!!.dishes.filter { d-> d.dish_id == dishId}.single()
         m_dishItem =  DishItem()
         m_dishItem.dishId = dishId
         m_dishItem.quantity = 1
-
-        val listOfCartItem = ShoppingCart.getCartItems()
-
+        m_dishItem.unitPrice = dishInfo.unit_price
 
 
-        var timeSlots: TimeSlots= createTimeSlots("09:00 AM","07:00 PM",60)
+        var timeSlots: TimeSlots= createTimeSlots(dishInfo.dish_available_start_time,dishInfo.dish_available_end_time,dishInfo.time_slot_interval)
+
         rv_after_noon_time_slots.apply {
             layoutManager = GridLayoutManager(this@TimeSlotActivity,2)
             adapter = TimeSlotAdapter(this@TimeSlotActivity,timeSlots.afterNoonTimeSlots,TimeSlotAdapter.AFTER_NOON_SLOTS)
@@ -72,20 +64,30 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
 
     private fun start() {
-//        val intent = Intent(this, HomeActivity::class.java)
-//        startActivity(intent)
-
-
-
-        if(!timeSlotText.equals("")&&m_dishItem.packingTypeId!=null&&m_dishItem.deliveryTypeId !=null) {
+        if(!timeSlotText.equals("")&& m_dishItem.packingTypeId!=null&&m_dishItem.deliveryTypeId !=null) {
             m_dishItem.deliveryStartTime = timeSlotText.split(m_delimiter_hyphen)[0].trim()
             m_dishItem.deliveryEndTime = timeSlotText.split(m_delimiter_hyphen)[1].trim()
+
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra(Utility.DISH_ITEM_KEY, m_dishItem)
             this.startActivity(intent)
         }
         else{
-            Toast.makeText(this,"Select theoptions",Toast.LENGTH_SHORT).show()
+            this.validateTimeSlotsScreen()
+        }
+    }
+
+    private fun validateTimeSlotsScreen() {
+        if (timeSlotText.isNullOrEmpty()) {
+            Toast.makeText(this,"Please select a delivery time",Toast.LENGTH_SHORT).show()
+        }
+
+        if (m_dishItem.deliveryTypeId == null) {
+            Toast.makeText(this,"Please select a delivery option",Toast.LENGTH_SHORT).show()
+        }
+
+        if (m_dishItem.packingTypeId == null) {
+            Toast.makeText(this,"Please select a packing option",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -108,7 +110,7 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
                         strPackingDescription = rb_packing_bring_own.text.toString()
                     }
             }
-            Toast.makeText(applicationContext,"${strPackingDescription}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext,"${strPackingDescription}", Toast.LENGTH_SHORT).show()
             m_dishItem.packingTypeId = Manager.Companion.Preference().getPackingTypeId(strPackingDescription.split(m_delimiter)[0].trim())
         }
     }
@@ -133,7 +135,7 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
                     }
             }
 
-            Toast.makeText(applicationContext,"${strDeliveryDescription}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext,"${strDeliveryDescription}", Toast.LENGTH_SHORT).show()
             m_dishItem.deliveryTypeId = Manager.Companion.Preference().getDeliveryTypeId(strDeliveryDescription.split(m_delimiter)[0].trim())
         }
     }
@@ -204,9 +206,5 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
 }
 
-//@Parcelize
-//class PackingAndDeliveryWarper (val deliveryStartTime: String, val deliveryEndTime: String, val packingTypeId: Int, val deliveryTypeId: Int) :
-//    Parcelable {
-//
-//}
+
 

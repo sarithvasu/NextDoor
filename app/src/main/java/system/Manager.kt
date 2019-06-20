@@ -19,8 +19,8 @@ class Manager {
 
         class Preference () {
 
-            fun getDeliveryTypeId(deliveryDescription: String) : Int? {
-                var deliveryTypeId: Int? = null
+            fun getDeliveryTypeId(deliveryDescription: String) : Int {
+                var deliveryTypeId: Int = -1
 
 
                 var MatchingDeliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes()
@@ -49,10 +49,23 @@ class Manager {
             fun saveDeliveryType(deliveryType: DeliveryType) {
                 // Soumen need to save it to prefereance
             }
+            fun getDeliveryDescription(deliveryTypeId: Int) : String {
+                var description: String = ""
+
+                var deliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes()
+                var MatchingDeliveryType:  List<DeliveryType> =  deliveryTypes.filter { d-> d.deliveryTypeId == deliveryTypeId }
+
+                if (MatchingDeliveryType.size > 0) {
+                    description =  MatchingDeliveryType[0].deliveryDescription
+                } else {
+                    // Soumen need to adde xception
+                }
+                return description
+            }
 
 
-            fun getPackingTypeId(packingDescription: String) : Int? {
-               var packingTypeId: Int? = null
+            fun getPackingTypeId(packingDescription: String) : Int {
+               var packingTypeId: Int = -1
 
                 var packingTypes: ArrayList<PackingType> = getPackingTypes()
                 var MatchingPackingType:  List<PackingType> =  packingTypes.filter { d-> d.packingDescription == packingDescription }
@@ -64,7 +77,6 @@ class Manager {
                 }
                 return packingTypeId
             }
-
             fun getPackingTypes(): ArrayList<PackingType> {
 
                 var packingTypes: ArrayList<PackingType> = arrayListOf()
@@ -84,6 +96,20 @@ class Manager {
             fun savePackingType(packingType: PackingType) {
                 // Soumen need to save it to prefereance
             }
+            fun getPackingDescription(packingTypeId: Int) : String {
+                var description: String = ""
+
+                var packingTypes: ArrayList<PackingType> = getPackingTypes()
+                var MatchingPackingType:  List<PackingType> =  packingTypes.filter { d-> d.packingTypeId == packingTypeId }
+
+                if (MatchingPackingType.size > 0) {
+                    description =  MatchingPackingType[0].packingDescription
+                } else {
+                    // Soumen need to adde xception
+                }
+                return description
+            }
+
         }
     }
 

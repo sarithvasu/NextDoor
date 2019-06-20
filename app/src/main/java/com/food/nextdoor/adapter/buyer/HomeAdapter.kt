@@ -1,7 +1,6 @@
 package com.food.nextdoor.adapter.buyer
 
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +8,8 @@ import android.view.ViewGroup
 import com.food.nextdoor.R
 import com.food.nextdoor.activity.buyer.ChefProfileActivity
 import com.food.nextdoor.activity.buyer.DishDetailActivity
-//import com.food.nextdoor.activity.buyer.PackingAndDeliveryWarper
-
 import com.food.nextdoor.activity.buyer.TimeSlotActivity
 import com.food.nextdoor.model.*
-import com.google.gson.GsonBuilder
-
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_row.view.*
 import system.CartItem
@@ -27,6 +22,7 @@ import system.Utility
 class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewHolder>() {
 
     private lateinit var listOfCartItem :ArrayList<CartItem>
+
     override fun getItemCount(): Int {
         return homeFeed!!.dishes.count()
     }
@@ -86,28 +82,27 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
             intent.putExtra(Utility.CHEF_ID_KEY,chefinfo.chef_id as Int)
             holder.view.img_chef_profile_home.context.startActivity(intent)
         }
-        if(listOfCartItem.any { x -> x.dishItem.dishId == dishInfo.dish_id }){
-            val cartItem: CartItem= listOfCartItem.filter { s-> dishInfo.dish_id==s.dishItem.dishId}.single()
-            if(cartItem.dishItem.quantity>0){
-                holder.view.btn_lay.visibility=View.VISIBLE
-                holder.view.btn_buy_home.visibility=View.GONE
-                holder.view.tv_qutity.text=cartItem.dishItem.quantity.toString()
 
+        // Disable buy button and enable (+) and (-) button If the item is already added to the cart
+        if(listOfCartItem.any { x -> x.dishItem.dishId == dishInfo.dish_id }){
+           // val cartItem: CartItem = listOfCartItem.filter { s-> dishInfo.dish_id==s.dishItem.dishId}.single()
+            val cartItem: CartItem = listOfCartItem.filter { s-> s.dishItem.dishId == dishInfo.dish_id}.single()
+
+            if(cartItem.dishItem.quantity>0){
+                holder.view.btn_lay.visibility = View.VISIBLE
+                holder.view.btn_buy_home.visibility=View.GONE
+                holder.view.tv_qutity.text= cartItem.dishItem.quantity.toString()
             }
         }
 
+
+
         // Set ClickListener for buy Button
         holder.view.btn_buy_home.setOnClickListener {
-           /* val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity::class.java)
-            holder.view.btn_buy_home.context.startActivity(intent)*/
-
             // AddItem(dishInfo)
             val intent = Intent(holder.view.btn_buy_home.context, TimeSlotActivity:: class.java)
             intent.putExtra(Utility.DISH_ID_KEY,dishInfo.dish_id as Int)
             holder.view.btn_buy_home.context.startActivity(intent)
-
-
-
 
           /*  holder.view.btn_lay.visibility=View.VISIBLE
             holder.view.btn_buy_home.visibility=View.GONE*/
@@ -150,6 +145,7 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
         dishItem.packingTypeId = dishInfo.packing_type_id
         dishItem.deliveryTypeId = dishInfo.delivery_type_id
         dishItem.quantity = 1
+        dishItem.unitPrice = dishInfo.unit_price
 
         val thiCartItem = CartItem(dishItem)
         ShoppingCart.addToCart(thiCartItem)
@@ -171,6 +167,7 @@ class HomeAdapter(val homeFeed: HomeFeed?) : RecyclerView.Adapter<HomeBuyerViewH
         dishItem.packingTypeId = dishInfo.packing_type_id
         dishItem.deliveryTypeId = dishInfo.delivery_type_id
         dishItem.quantity = 1
+        dishItem.unitPrice = dishInfo.unit_price
 
         val thiDishItem = CartItem(dishItem)
         ShoppingCart.removeFromCart(thiDishItem)

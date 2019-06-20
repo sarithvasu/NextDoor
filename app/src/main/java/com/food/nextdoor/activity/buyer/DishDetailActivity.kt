@@ -3,19 +3,27 @@ package com.food.nextdoor.activity.buyer
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.widget.NestedScrollView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.WindowManager
+import android.widget.RelativeLayout
+import android.widget.TableLayout
 import com.food.nextdoor.R
 import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.model.HomeFeed
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dish_detail.*
 import kotlinx.android.synthetic.main.dish_detail.view.*
+import kotlinx.android.synthetic.main.home.*
+import system.CartItem
+import system.ShoppingCart
 import system.Utility
 
 
 class DishDetailActivity : AppCompatActivity() {
+
+    private  var listOfCartItem: ArrayList<CartItem> = ArrayList<CartItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +39,19 @@ class DishDetailActivity : AppCompatActivity() {
         val buyerHomeFeed = Utility.DataHolder.homeFeedInstance
         supportActionBar?.title = dishId.toString()
 
+        listOfCartItem = ShoppingCart.getCartItems()
+        if(listOfCartItem.size>0){
+            floating_proced_lay_dish.visibility = View.VISIBLE
+            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
+            layout.bottomMargin=70
+            nestedScrollView2.layoutParams=layout
+        }else{
+            floating_proced_lay_dish.visibility= View.GONE
+            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
+            layout.bottomMargin=0
+            nestedScrollView2.layoutParams=layout
+        }
+
         // Set Controls
          setControls(dishId, buyerHomeFeed)
 
@@ -39,6 +60,20 @@ class DishDetailActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        if(listOfCartItem.size>0){
+            floating_proced_lay_dish.visibility = View.VISIBLE
+            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
+            layout.bottomMargin=70
+            nestedScrollView2.layoutParams=layout
+        }else{
+            floating_proced_lay_dish.visibility= View.GONE
+            var layout:RelativeLayout.LayoutParams=RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT)
+            layout.bottomMargin=0
+            nestedScrollView2.layoutParams=layout
+        }
+    }
 
     fun loadAllDishes(view: View){
         startActivity(Intent(this, HomeActivity::class.java))
@@ -109,7 +144,10 @@ class DishDetailActivity : AppCompatActivity() {
     }
 
 
+    fun OnClickProceed(view: View) {
 
+        var s = "Soumen"
+    }
 
 
 }

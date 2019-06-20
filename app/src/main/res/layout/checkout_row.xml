@@ -57,34 +57,62 @@
             android:layout_marginStart="20dp"
             app:layout_constraintStart_toEndOf="@+id/tv_dish_price_rv"
             app:layout_constraintTop_toBottomOf="@+id/tv_dish_name_rv" android:textSize="16dp"/>
-    <TextView
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView24"
-            android:layout_marginStart="20dp"
-            app:layout_constraintStart_toEndOf="@+id/textView23"
-            android:textSize="24dp"
-            android:textColor="@color/DarkBlue"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-            android:text="10"
-            android:layout_width="33dp"
-            android:layout_height="20dp"
-            android:id="@+id/tv_dish_quantity_rv"
-            app:layout_constraintTop_toTopOf="@+id/textView23" android:layout_marginStart="20dp"
-            app:layout_constraintStart_toEndOf="@+id/textView24" android:textStyle="bold"
-            android:textColor="@color/Black" android:textSize="16dp" android:gravity="center"/>
-    <TextView
-            android:text="+"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView26"
-            android:layout_marginStart="20dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_dish_quantity_rv"
-            android:textSize="20dp"
-            android:textColor="@color/DarkBlue" android:layout_marginTop="25dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/textView23" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/textView23" android:id="@+id/linearLayout5">
+
+        <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:background="@drawable/quantity_btn" android:id="@+id/tv_minus_checkout_rv"/>
+
+        <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"
+                android:background="@color/White" android:id="@+id/tv_dish_quantity_rv"/>
+
+        <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:background="@drawable/quantity_btn" android:id="@+id/tv_plus_chechout_rv"/>
+    </LinearLayout>
+
+    <Button
+            android:text="@string/buy"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:background="@drawable/buy_button_round_corner"
+            android:textColor="@color/White"
+            android:padding="0dp"
+            app:layout_constraintTop_toTopOf="@+id/textView23" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5" android:id="@+id/btn_buy_button_checkout_rv"/>
     <TextView
             android:text="Rs.200"
             android:layout_width="wrap_content"
@@ -108,23 +136,13 @@
             android:layout_marginStart="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView28" android:textSize="16dp"/>
     <TextView
-            android:text="Parcel"
+            android:text="Parcel in disposable box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_dish_packing_type_rv"
-            app:layout_constraintTop_toBottomOf="@+id/textView28"
-            android:layout_marginStart="10dp" app:layout_constraintStart_toEndOf="@+id/view2" android:textSize="16dp"/>
-
-
-    <View
-            android:layout_width="1dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:background="@color/Black"
-            app:layout_constraintTop_toBottomOf="@+id/textView28"
-            android:id="@+id/view3"
-            android:layout_marginTop="4dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_dish_packing_type_rv" android:layout_marginStart="10dp"/>
+            android:textSize="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dish_delivery_time_rv"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
 
 
     <TextView
@@ -132,8 +150,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_dish_delivery_type_rv"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/view3" android:textSize="16dp"/>
+            android:textSize="16dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_dish_packing_type_rv" android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_dish_packing_type_rv"/>
     <TextView
             android:text="Edit"
             android:layout_width="wrap_content"
@@ -142,29 +161,9 @@
             android:background="@color/Green"
             android:textColor="@color/White"
             android:padding="2dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_dish_delivery_type_rv" android:layout_marginStart="25dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" android:textSize="16dp"/>
-
-
-    <View
-            android:layout_width="1dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:background="@color/Black"
-
-
-            app:layout_constraintTop_toBottomOf="@+id/textView28"
-            android:layout_marginTop="4dp" android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_dish_delivery_time_rv" android:id="@+id/view2"/>
-
-
-
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@android:drawable/btn_dialog"
-            android:id="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/tv_packing_and_delivery_charges_rv" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:textSize="16dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_dish_delivery_type_rv" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

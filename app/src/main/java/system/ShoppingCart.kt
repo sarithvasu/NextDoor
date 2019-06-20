@@ -1,9 +1,16 @@
 package system
+import com.food.nextdoor.model.BuyerInfo
 import com.food.nextdoor.model.DishItem
 
 
 class ShoppingCart {
     companion object {
+
+
+        //private lateinit var m_buyerInfo: BuyerInfo
+        val itemCount: Int
+            get() = this.getCartItems().size
+
         fun addToCart(cartItem: CartItem) {
             // Get all cart Items
             val cartItems: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
@@ -30,6 +37,22 @@ class ShoppingCart {
         fun getCartItems(): ArrayList<CartItem> {
             return this.getItemsFromStoreHouse()
         }
+        fun totalAmount(): Int {
+            val cartItems = ShoppingCart.getCartItems()
+
+            var qty = 0; var price = 0; var amount = 0
+            for(cartItem in cartItems){
+                qty = cartItem.dishItem.quantity
+                price = cartItem.dishItem.unitPrice
+                amount =  amount + qty * price //  number *= 5   // number = number*5
+
+                qty = 0; price = 0
+            }
+
+            return amount //  //return cartItems.map { s -> s.dishItem.unitPrice }.sum()
+        }
+
+
 
         private fun getItemsFromStoreHouse(): ArrayList<CartItem> {
             return StoreHouse.instance.cartItemList

@@ -1,8 +1,10 @@
 package com.food.nextdoor.model
 
 class DeliveryType() {
-    var deliveryTypeId: Int? = null
-    var deliveryDescription: String? = null
+    //var deliveryTypeId: Int? = null
+    var deliveryTypeId: Int = -1
+   // var deliveryDescription: String? = null
+   var deliveryDescription: String = ""
 
     // :this() pointing to empty constractor
     constructor (

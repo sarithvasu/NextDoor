@@ -19,10 +19,11 @@ data class Order(
 class DishItem (
     var dishId :  Int = -1,
     var quantity:  Int = -1,
+    var unitPrice: Int = -1,
     var deliveryStartTime: String? = null,
     var deliveryEndTime:String? = null,
-    var packingTypeId: Int? = null,
-    var deliveryTypeId: Int? = null
+    var packingTypeId: Int = -1,
+    var deliveryTypeId: Int = -1
 ) : Parcelable
 
 

@@ -8,13 +8,16 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Layout
 import android.util.Log
+import android.view.View
 import com.food.nextdoor.R
 import com.food.nextdoor.model.BuyerInfo
 import com.food.nextdoor.model.DishItem
 import com.food.nextdoor.webservices.RetrofitInstantBuilder
 import com.food.nextdoor.webservices.RetrofitService
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.checkout_btn_layout.view.*
 import kotlinx.android.synthetic.main.home.*
 import okhttp3.*
 import system.CartItem
@@ -28,6 +31,13 @@ import java.io.IOException
 
 
 class HomeActivity : AppCompatActivity() {
+
+    private var m_cartItems: ArrayList<CartItem> = arrayListOf()
+
+
+    //private lateinit var productAdapter: ProductAdapter
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,23 +54,34 @@ class HomeActivity : AppCompatActivity() {
             s += "babab"
         }
 
-
-
-        // val dishItem:DishItem1 = intent.getParcelableExtra("DISH_ITEM_KEY") //as DishItem
-
-
         recyclerView_home_buyer.layoutManager = LinearLayoutManager(this)
-        //recyclerView_home_buyer.adapter =  HomeAdapter() // Soumen Instead Assigned in readJsondata Method
+
+        m_cartItems = ShoppingCart.getCartItems()
 
        // Draw line Divider between two rows in recyclerview
-        drawRowDivider()
-       //fetchJsonFromServer()
-        readfromAsset()
+        this.drawRowDivider()
+
+        //fetchJsonFromServer()
+        this.readfromAsset()
         //fetchJsonFromServerUsingRefrofit()
 
+        Utility.manageCheckoutButton(m_cartItems,floating_proced_lay)
         this.loadBuyerInfo()
-        button.setOnClickListener { start() }
     }
+
+    private fun manageCheckoutButton1(layout: Layout) {
+        if (m_cartItems.size > 0) {
+            floating_proced_lay.visibility = View.VISIBLE
+            floating_proced_lay.tv_item_count.text = ShoppingCart.itemCount.toString()
+            floating_proced_lay.tv_total_amount.text = ShoppingCart.totalAmount().toString() // ShoppingCart.getTotalAmount1().toString() //
+
+        } else {
+            floating_proced_lay.visibility = View.GONE
+        }
+    }
+
+
+
 
     private fun loadBuyerInfo() {
         val buyerInfo = BuyerInfo()
@@ -80,11 +101,11 @@ class HomeActivity : AppCompatActivity() {
         //Save buyer Info
         Manager.Companion.buyerInfo = buyerInfo
     }
-    private fun start() {
-        val intent = Intent(this, TimeSlotActivity::class.java)
-        startActivity(intent)
-    }
 
+ fun OnClickProceed(view: View) {
+     val intent = Intent(this, CheckoutActivity::class.java)
+     this.startActivity(intent)
+ }
 
     private fun readfromAsset() {
         val json_string = application.assets.open("home_json.json").bufferedReader().use{
@@ -174,12 +195,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-//        if(Utility.DataHolder.homeFeedInstance!=null) {
-//            recyclerView_home_buyer.apply {
-//                recyclerView_home_buyer.adapter = HomeAdapter(Utility.DataHolder.homeFeedInstance)
-//            }
-//        }
-
+        //Utility.manageCheckoutButton(m_cartItems,floating_proced_lay)
     }
 
 

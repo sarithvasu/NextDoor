@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/floating_proced_lay">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" android:background="@color/White">
+        <TextView
+                android:text="20 items"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:layout_height="wrap_content" android:id="@+id/tv_item_count"
+        />
+        <TextView
+                android:text="Rs 250 "
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:layout_height="wrap_content" android:id="@+id/tv_total_amount"
+                android:textColor="@color/Black" android:textSize="18sp"/>
+    </LinearLayout>
+    <TextView
+            android:text="Proced"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" android:id="@+id/tv_proced_btn" android:layout_weight="1"
+            android:gravity="center" android:background="@color/SkyBlue" android:textColor="@color/White"
+            android:textStyle="bold" android:textSize="18sp"
+            android:onClick="OnClickProceed"   />
+</LinearLayout>
+
+

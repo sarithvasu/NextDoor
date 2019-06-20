@@ -47,7 +47,7 @@ class HomeFeed(val chefs: List<Chef>, var dishes: List<Dish>, val custommeals: C
         val servings_per_plate: Int,
         val dish_available_start_time: String,
         val dish_available_end_time: String,
-        val time_slot_interval: String,
+        val time_slot_interval: Int,
         val packing_type_id: Int,
         val packing_description: String,
         val packing_charges: Int,
