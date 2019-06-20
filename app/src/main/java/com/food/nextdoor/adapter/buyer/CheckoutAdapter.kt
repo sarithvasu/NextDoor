@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.food.nextdoor.model.DishItem
 import com.food.nextdoor.model.HomeFeed
 import kotlinx.android.synthetic.main.checkout_row.view.*
+import kotlinx.android.synthetic.main.dish_detail_row.view.*
 import system.CartItem
 import system.Manager
 import system.ShoppingCart
@@ -42,6 +43,21 @@ import system.Utility
                 Utility.DataHolder.homeFeedInstance!!.dishes.filter { d -> d.dish_id == cartItem.dishItem.dishId }
                     .single()
 
+
+            itemView.tv_minus_checkout_rv.setOnClickListener{
+                var count=itemView.tv_dish_quantity_rv.text.toString().toInt()
+                if(count>0) {
+                    count--
+                }
+                itemView.tv_dish_quantity_rv.text=count.toString()
+            }
+            itemView.tv_plus_chechout_rv.setOnClickListener{
+                var count=itemView.tv_dish_quantity_rv.text.toString().toInt()
+                if(count<99) {
+                    count++
+                }
+                itemView.tv_dish_quantity_rv.text=count.toString()
+            }
             // set Dish Symbol
             val dishSymbol = Utility.setDishSymbol(dishInfo.dish_type, itemView.img_dish_symbol_rv.context)
             itemView.img_dish_symbol_rv.setImageDrawable(dishSymbol)
