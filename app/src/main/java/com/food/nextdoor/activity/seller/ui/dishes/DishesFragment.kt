@@ -38,11 +38,7 @@ class DishesFragment : Fragment() {
     private var dishState: DishState = DishState.ACTIVE
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
-
-    }
 
 
     override fun onCreateView(
