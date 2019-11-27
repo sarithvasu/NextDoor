@@ -1,9 +1,6 @@
 package system
 
 import com.food.nextdoor.model.BuyerInfo
-import com.food.nextdoor.model.DeliveryType
-import com.food.nextdoor.model.PackingType
-import java.util.ArrayList
 
 class Manager {
 
@@ -17,119 +14,215 @@ class Manager {
                 this.m_buyerInfo = value
             }
 
-        class Preference () {
 
-            fun getDeliveryTypeId(deliveryDescription: String) : Int {
-                var deliveryTypeId: Int = -1
-
-
-                var MatchingDeliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes()
-                if (MatchingDeliveryTypes.size > 0) {
-                    deliveryTypeId =  MatchingDeliveryTypes[0].deliveryTypeId
-                } else {
-                    // Soumen need to adde xception
-                }
-                return deliveryTypeId
-            }
-            fun getDeliveryTypes(): ArrayList<DeliveryType> {
-                var deliveryTypes: ArrayList<DeliveryType> = arrayListOf()
-
-                var deliveryType = DeliveryType()
-                deliveryType.deliveryTypeId = 1
-                deliveryType.deliveryDescription ="Home Delivery"
-                deliveryTypes.add(deliveryType)
-
-                var deliveryType1 = DeliveryType()
-                deliveryType1.deliveryTypeId = 2
-                deliveryType1.deliveryDescription ="Self Pick"
-                deliveryTypes.add(deliveryType1)
-
-                return deliveryTypes
-            }
-            fun saveDeliveryType(deliveryType: DeliveryType) {
-                // Soumen need to save it to prefereance
-            }
-            fun getDeliveryDescription(deliveryTypeId: Int) : String {
-                var description: String = ""
-
-                var deliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes()
-                var MatchingDeliveryType:  List<DeliveryType> =  deliveryTypes.filter { d-> d.deliveryTypeId == deliveryTypeId }
-
-                if (MatchingDeliveryType.size > 0) {
-                    description =  MatchingDeliveryType[0].deliveryDescription
-                } else {
-                    // Soumen need to adde xception
-                }
-                return description
+        private var m_chefId: Int = 0
+        var chefId: Int
+            get() = this.m_chefId
+            set(value) {
+                this.m_chefId = value
             }
 
 
-            fun getPackingTypeId(packingDescription: String) : Int {
-               var packingTypeId: Int = -1
 
-                var packingTypes: ArrayList<PackingType> = getPackingTypes()
-                var MatchingPackingType:  List<PackingType> =  packingTypes.filter { d-> d.packingDescription == packingDescription }
+//        fun getReviewTagList(): ArrayList<ReviewTag> {
+//            val reviewTagList: ArrayList<ReviewTag> = arrayListOf()
+//            var reviewTag = ReviewTag()
+//
+//            reviewTag.reviewTagId = 1
+//            reviewTag.tagName = "Awesome"
+//            reviewTagList.add(reviewTag)
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 2
+//            reviewTag.tagName = "Delight"
+//            reviewTagList.add(reviewTag)
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 3
+//            reviewTag.tagName = "Mouth watering"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 4
+//            reviewTag.tagName = "Yummy"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 5
+//            reviewTag.tagName = "Moderate"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 6
+//            reviewTag.tagName = "Toothsome"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 7
+//            reviewTag.tagName = "Delicious"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 8
+//            reviewTag.tagName = "Not bad"
+//            reviewTagList.add(reviewTag)
+//
+//
+//            reviewTag = ReviewTag()
+//            reviewTag.reviewTagId = 9
+//            reviewTag.tagName = "Not good"
+//            reviewTagList.add(reviewTag)
+//
+//            return reviewTagList
+//
+//        }
 
-                if (MatchingPackingType.size > 0) {
-                    packingTypeId =  MatchingPackingType[0].packingTypeId
-                } else {
-                    // Soumen need to adde xception
-                }
-                return packingTypeId
-            }
-            fun getPackingTypes(): ArrayList<PackingType> {
+        //Preference
+//        class Preference {
+//
+////            fun getDeliveryTypeIdByDescription(deliveryDescription: String): Int {
+////                var deliveryTypeId: Int = -1
+////
+////                val deliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes()
+////                val matchingDeliveryType = deliveryTypes.filter { d -> d.deliveryDescription == deliveryDescription }
+////                if (matchingDeliveryType.isNotEmpty()) {
+////                    deliveryTypeId = matchingDeliveryType[0].deliveryTypeId
+////                } else {
+////                    // Soumen need to adde xception
+////                }
+////                return deliveryTypeId
+////            }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//            private fun getDeliveryTypes123(): ArrayList<DeliveryType> {
+//                val deliveryTypes: ArrayList<DeliveryType> = arrayListOf()
+//
+//                val deliveryType = DeliveryType()
+//                deliveryType.deliveryTypeId = 1
+//                deliveryType.deliveryDescription = "Home delivery"
+//                deliveryTypes.add(deliveryType)
+//
+//                val deliveryType1 = DeliveryType()
+//                deliveryType1.deliveryTypeId = 2
+//                deliveryType1.deliveryDescription = "Self pick"
+//                deliveryTypes.add(deliveryType1)
+//
+//                return deliveryTypes
+//            }
+//
+//
+//
+//
+//
+//            fun getDeliveryDescriptionById1234(deliveryTypeId: Int): String {
+//                var description = ""
+//
+//                val deliveryTypes: ArrayList<DeliveryType> = getDeliveryTypes123()
+//                val matchingDeliveryType: List<DeliveryType> =
+//                    deliveryTypes.filter { d -> d.deliveryTypeId == deliveryTypeId }
+//
+//                if (matchingDeliveryType.isNotEmpty()) {
+//                    description = matchingDeliveryType[0].deliveryDescription
+//                } else {
+//                    // Soumen need to adde xception
+//                }
+//                return description
+//            }
+//
+//
+//
+//
+//
+//
+//
+//
+//            fun getPackingTypeIdByDescription1234(packingDescription: String): Int {
+//                var packingTypeId: Int = -1
+//
+//                val packingTypes: ArrayList<PackingType> = getPackingTypes1234()
+//                val matchingPackingType: List<PackingType>
+//                matchingPackingType = packingTypes.filter { d -> d.packingDescription == packingDescription }
+//
+//                if (matchingPackingType.isNotEmpty()) // Soumen need to adde xception
+//                {
+//                    packingTypeId = matchingPackingType[0].packingTypeId
+//                } else {
+//                    // Soumen need to adde xception
+//                }
+//                return packingTypeId
+//            }
+//
+//
+//
+//
+//            private fun getPackingTypes1234(): ArrayList<PackingType> {
+//
+//                val packingTypes: ArrayList<PackingType> = arrayListOf()
+//
+//                val packingType = PackingType()
+//                packingType.packingTypeId = 1
+//                packingType.packingDescription = "Get your own box"
+//                packingTypes.add(packingType)
+//
+//                val packingType1 = PackingType()
+//                packingType1.packingTypeId = 2
+//                packingType1.packingDescription = "Parcel in disposable box"
+//                packingTypes.add(packingType1)
+//
+//                return packingTypes
+//            }
+//
+//
+//
+//
+//
+//            fun getPackingDescriptionById1234(packingTypeId: Int): String {
+//                var description = ""
+//
+//                val packingTypes: ArrayList<PackingType> = getPackingTypes1234()
+//                val matchingPackingType: List<PackingType> =
+//                    packingTypes.filter { d -> d.packingTypeId == packingTypeId }
+//
+//                if (matchingPackingType.isNotEmpty()) {
+//                    description = matchingPackingType[0].packingDescription
+//                } else {
+//                    // Soumen need to adde xception
+//                }
+//                return description
+//            }
+//        }
 
-                var packingTypes: ArrayList<PackingType> = arrayListOf()
 
-                var packingType = PackingType()
-                packingType.packingTypeId = 1
-                packingType.packingDescription ="Get your box"
-                packingTypes.add(packingType)
 
-                var packingType1 = PackingType()
-                packingType1.packingTypeId = 2
-                packingType1.packingDescription ="Parcel in Disposable box"
-                packingTypes.add(packingType1)
 
-                return packingTypes
-            }
-            fun savePackingType(packingType: PackingType) {
-                // Soumen need to save it to prefereance
-            }
-            fun getPackingDescription(packingTypeId: Int) : String {
-                var description: String = ""
 
-                var packingTypes: ArrayList<PackingType> = getPackingTypes()
-                var MatchingPackingType:  List<PackingType> =  packingTypes.filter { d-> d.packingTypeId == packingTypeId }
 
-                if (MatchingPackingType.size > 0) {
-                    description =  MatchingPackingType[0].packingDescription
-                } else {
-                    // Soumen need to adde xception
-                }
-                return description
-            }
 
-        }
     }
-
-
-
-
-
-
-
-
-
-
-    class  Dodoo() {
-        fun myName(): String {
-            return "My Name function called"
-        }
-    }
-    fun add(): String {
-        return "Add Function Called"
-    }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

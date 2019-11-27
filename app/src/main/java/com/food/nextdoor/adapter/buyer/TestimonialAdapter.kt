@@ -3,8 +3,7 @@ package com.food.nextdoor.adapter.buyer
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.graphics.drawable.DrawableCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import com.food.nextdoor.model.HomeFeed
 import kotlinx.android.synthetic.main.testimonial_row.view.*
 import kotlin.random.Random
 
-class TestimonialAdapter(val items : ArrayList<HomeFeed.Testimonial>, val context: Context): RecyclerView.Adapter<ViewHolder>() {
+class TestimonialAdapter(val items : ArrayList<HomeFeed.Testimonial>, val context: Context): androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
@@ -26,9 +25,9 @@ class TestimonialAdapter(val items : ArrayList<HomeFeed.Testimonial>, val contex
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tv_dishname.text=items[position].dish_name
-        holder.tv_testimonial.text=items[position].testimonial_note
-        holder.tv_user_testimonial.text=items[position].reviewer_name+"\n"+"A2-503"
+        holder.tv_dishname.text=items[position].DishName
+        holder.tv_testimonial.text=items[position].ReviewNote
+        holder.tv_user_testimonial.text=items[position].ReviewerName+"\n"+"A2-503"
         val currentStrokeColor = Color.argb(255, Random.nextInt(200), Random.nextInt(200), Random.nextInt(200))
         val drawable1=holder.ll_item.background
         val drawableNew1: Drawable =setTint(drawable1, currentStrokeColor)
@@ -42,7 +41,7 @@ class TestimonialAdapter(val items : ArrayList<HomeFeed.Testimonial>, val contex
         return wrappedDrawable
     }
 }
-class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+class ViewHolder (view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each animal to
     val tv_dishname = view.tv_dishname
     val tv_testimonial = view.tv_testimonial

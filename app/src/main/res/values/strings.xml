@@ -6,11 +6,30 @@
     <string name="rating">Rating</string>
     <string name="sold">Sold</string>
     <string name="available">Available</string>
+    <string name="somrthing">Some thing went wrong</string>
+    <string name="loading">Loading....</string>
     <string name="buy">Add +</string>
     <string name="ongoing">Ongoing</string>
     <string name="tomorrows">Tomorrows</string>
     <string name="customized">Customized</string>
     <string name="rupees">Rs.</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+
+    <string name="fcm_message">From Soumen</string>
+    <string name="default_notification_channel_id">1</string>
+
+    <string name="default_notification_channel_name">default_notification_channel_name</string>
+    <string name="msg_subscribed">msg_subscribed</string>
+    <string name="msg_subscribe_failed">msg_subscribe_failed</string>
+    <string name="msg_token_fmt">msg_token_fmt</string>
+    <string name="APP_KEY">0lwierv4wlsozeh</string>
+    <string name="title_home">Home</string>
+    <string name="title_dishes">Dishes</string>
+    <string name="title_account">Acoount</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_chef">Chef</string>
 
 
 </resources>

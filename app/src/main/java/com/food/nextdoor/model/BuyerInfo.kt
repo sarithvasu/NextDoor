@@ -1,9 +1,15 @@
 package com.food.nextdoor.model
 
-class BuyerInfo () {
-    var userid: Int? = null
-    var apartmentId: Int? = null
-    var userName: String? = null
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "buyer_info")
+class BuyerInfo ()  {
+    @PrimaryKey
+    var userId: Int = -1
+    var userTypeId: Int = 0
+    var apartmentId: Int = -1
+    var fullName: String = ""
     var flatNumber: String? = null
     var mobileNumber: String? = null
     var email: String? = null
@@ -12,6 +18,8 @@ class BuyerInfo () {
     var isActive: Boolean = true
     var dateInsertion: String? = null
     var dateRevision: String? = null
+    var apparmentName : String?=null
+    var pinCode : String?=null
 
     // :this() pointing to empty constractor
     constructor (
@@ -25,11 +33,13 @@ class BuyerInfo () {
         profileImageUrl: String,
         isActive: Boolean,
         dateInsertion: String,
-        dateRevision: String
+        dateRevision: String,
+        apparmentName :String,
+        pinCode :String
     ) : this() {
-        this.userid = userid
+        this.userId = userid
         this.apartmentId = apartmentId
-        this.userName = userName
+        this.fullName = userName
         this.flatNumber = flatNumber
         this.mobileNumber = mobileNumber
         this.email = email
@@ -38,5 +48,11 @@ class BuyerInfo () {
         this.isActive = isActive
         this.dateInsertion = dateInsertion
         this.dateRevision = dateRevision
+        this.apparmentName = apparmentName
+        this.pinCode = pinCode
     }
+
+
+
+
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+            android:id="@+id/top"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/order_history"
+
+                android:title="Order History" />
+    </group>
+
+    <group
+            android:id="@+id/top_second"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/invite_neighbor"
+
+                android:title="Invite Neighbor" />
+    </group>
+
+    <group
+            android:id="@+id/top_third"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/edit_profile"
+
+                android:title="Edit Profile" />
+    </group>
+    <group
+            android:id="@+id/middle"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/contact_us"
+
+                android:title="Contact Us" />
+    </group>
+
+    <group
+            android:id="@+id/bottom"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/about_us"
+
+                android:title="About Us" />
+    </group>
+
+</menu>

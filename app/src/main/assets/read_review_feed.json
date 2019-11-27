@@ -1,0 +1,154 @@
+{
+  "reviews": [
+    {
+      "tag_name": "Delight",
+      "dish_rating": 5,
+      "review_written_date": "22-06-2019",
+      "buyer_name": "Pooja",
+      "buyer_flat_number": "A2-607",
+      "review_note": "Food was so delicious",
+      "like": 9999,
+      "dislike": 25
+    },
+    {
+      "tag_name": "Awesome",
+      "dish_rating": 5,
+      "review_written_date": "26-06-2019",
+      "buyer_name": "Neha",
+      "buyer_flat_number": "J7-401",
+      "review_note": "So yummy food",
+      "like": 11111,
+      "dislike": 4
+    },
+    {
+      "tag_name": "Not bad",
+      "dish_rating": 3,
+      "review_written_date": "19-06-2019",
+      "buyer_name": "Lisha",
+      "buyer_flat_number": "J6-101",
+      "review_note": "Food was not so good ",
+      "like": 1112,
+      "dislike": 34
+    },
+    {
+      "tag_name": "Toothsome",
+      "dish_rating": 5,
+      "review_written_date": "20-06-2019",
+      "buyer_name": "Bhavya",
+      "buyer_flat_number": "J8-606",
+      "review_note": "So delicious and tasty food",
+      "like": 5611,
+      "dislike": 10
+    },
+    {
+      "tag_name": "Moderate",
+      "dish_rating": 4,
+      "review_written_date": "23-06-2019",
+      "buyer_name": "Teju reddy",
+      "buyer_flat_number": "J8-603",
+      "review_note": "Food is good",
+      "like": 4362,
+      "dislike": 8
+    },
+    {
+      "tag_name": "Awesome",
+      "dish_rating": 5,
+      "review_written_date": "24-06-2019",
+      "buyer_name": "Divya",
+      "buyer_flat_number": "J2-603",
+      "review_note": "So tasty and yummy food",
+      "like": 11111,
+      "dislike": 4
+    },
+    {
+      "tag_name": "Delicious",
+      "dish_rating": 5,
+      "review_written_date": "24-06-2019",
+      "buyer_name": "Sweety",
+      "buyer_flat_number": "J2-102",
+      "review_note": "So yummy and delicious food. Loved it",
+      "like": 345669,
+      "dislike": 8
+    },
+    {
+      "tag_name": "Not good",
+      "dish_rating": 3,
+      "review_written_date": "25-06-2019",
+      "buyer_name": "Neha",
+      "buyer_flat_number": "J7-401",
+      "review_note": "So yummy food",
+      "like": 12132,
+      "dislike": 40
+    },
+    {
+      "tag_name": "Mouth watering",
+      "dish_rating": 5,
+      "review_written_date": "18-06-2019",
+      "buyer_name": "Pradeep",
+      "buyer_flat_number": "J3-202",
+      "review_note": "So tasty and yummy food",
+      "like": 11341,
+      "dislike": 10
+    },
+    {
+      "tag_name": "Awesome",
+      "dish_rating": 5,
+      "review_written_date": "21-06-2019",
+      "buyer_name": "Sowmya",
+      "buyer_flat_number": "J5-202",
+      "review_note": "So nice food",
+      "like": 99911,
+      "dislike": 3
+    },
+    {
+      "tag_name": "Delicious",
+      "dish_rating": 4,
+      "review_written_date": "16-06-2019",
+      "buyer_name": "Kishore",
+      "buyer_flat_number": "J6-202",
+      "review_note": "So delicious food",
+      "like": 46882,
+      "dislike": 8
+    },
+    {
+      "tag_name": "Mouth watering",
+      "dish_rating": 4,
+      "review_written_date": "18-06-2019",
+      "buyer_name": "Karan",
+      "buyer_flat_number": "J7-202",
+      "review_note": "So yummy and tasty food",
+      "like": 11111,
+      "dislike": 4
+    },
+    {
+      "tag_name": "Moderate",
+      "dish_rating": 3,
+      "review_written_date": "6-06-2019",
+      "buyer_name": "Suguna",
+      "buyer_flat_number": "J7-603",
+      "review_note": "The food was not soo good",
+      "like": 4681,
+      "dislike": 44
+    },
+    {
+      "tag_name": "Not good",
+      "dish_rating": 2,
+      "review_written_date": "15-06-2019",
+      "buyer_name": "Anusha",
+      "buyer_flat_number": "J7-104",
+      "review_note": "The food was not good",
+      "like": 1234,
+      "dislike": 60
+    },
+    {
+      "tag_name": "Not bad",
+      "dish_rating": 3,
+      "review_written_date": "19-06-2019",
+      "buyer_name": "cHAIRA",
+      "buyer_flat_number": "C8-102",
+      "review_note": "The food was not bad",
+      "like": 2341,
+      "dislike": 20
+    }
+  ]
+}

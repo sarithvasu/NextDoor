@@ -1,0 +1,36 @@
+{
+  "apartments": [
+    {
+      "apartmentId": 1,
+      "apartmentName": "Provident welworth city",
+      "address": "Doddaballapur Rd, Bisuvanahalli",
+      "pinCode": 560064,
+      "activeUsers": 800,
+      "activeChefs": 30
+    },
+    {
+      "apartmentId": 2,
+      "apartmentName": "Prestige Royale Gardens",
+      "address": "Avalahalli, Doddaballapur Rd",
+      "pinCode": 560064,
+      "activeUsers": 300,
+      "activeChefs": 10
+    },
+    {
+      "apartmentId": 3,
+      "apartmentName": "Ramky One North",
+      "address": "Opp. To BMSIT College, Avalahalli",
+      "pinCode": 560064,
+      "activeUsers": 400,
+      "activeChefs": 15
+    },
+    {
+      "apartmentId": 4,
+      "apartmentName": "Veracious Vani Vilas",
+      "address": "Agrahara Layout Main Road, Doddaballapur Rd",
+      "pinCode": 560064,
+      "activeUsers": 900,
+      "activeChefs": 25
+    }
+  ]
+}

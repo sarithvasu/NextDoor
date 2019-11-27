@@ -1,0 +1,70 @@
+{
+  "packingTypes": [
+    {
+      "packingTypeId": 1,
+      "packingDescription": "Get your own box"
+    },
+    {
+      "packingTypeId": 2,
+      "packingDescription": "Parcel in disposable box"
+    }
+  ],
+  "deliveryTypes": [
+    {
+      "deliveryTypeId": 1,
+      "deliveryDescription": "Home delivery"
+    },
+    {
+      "deliveryTypeId": 2,
+      "deliveryDescription": "Self pick"
+    }
+  ],
+  "paymentModes": [
+    {
+      "paymentModeId": 1,
+      "paymentModeDescription": "COD"
+    },
+    {
+      "paymentModeId": 2,
+      "paymentModeDescription": "Digital payment"
+    }
+  ],
+  "reviewTags": [
+    {
+      "reviewTagId": 1,
+      "tagName": "Awesome"
+    },
+    {
+      "reviewTagId": 2,
+      "tagName": "Delight"
+    },
+    {
+      "reviewTagId": 3,
+      "tagName": "Mouth watering"
+    },
+    {
+      "reviewTagId": 4,
+      "tagName": "Yummy"
+    },
+    {
+      "reviewTagId": 5,
+      "tagName": "Moderate"
+    },
+    {
+      "reviewTagId": 6,
+      "tagName": "Toothsome"
+    },
+    {
+      "reviewTagId": 7,
+      "tagName": "Delicious"
+    },
+    {
+      "reviewTagId": 8,
+      "tagName": "Not bad"
+    },
+    {
+      "reviewTagId": 9,
+      "tagName": "Not good"
+    }
+  ]
+}

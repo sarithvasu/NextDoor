@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/textView95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Dish Name"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+                android:id="@+id/tv_dish_name_seller_edit_dish_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="4dp"
+                android:text="Kadai Paneer"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView95" />
+
+        <TextView
+                android:id="@+id/textView128"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Dish Description"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dish_name_seller_edit_dish_details" />
+
+        <EditText
+                android:id="@+id/tv_dish_description_seller_edit_dish_details"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxLines="5"
+                android:padding="4dp"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView128" />
+
+        <TextView
+                android:id="@+id/textView131"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Quantity preparing:"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dish_description_seller_edit_dish_details" />
+
+        <EditText
+                android:id="@+id/tv_quantity_preparing_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/border"
+                android:inputType="number"
+                android:padding="2dp"
+                android:text="15"
+                android:textSize="16dp"
+                app:layout_constraintStart_toEndOf="@+id/textView131"
+                app:layout_constraintTop_toTopOf="@+id/textView131" />
+
+        <LinearLayout
+                android:id="@+id/linearLayout24"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_quantity_preparing_seller_edit_dish_details">
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                <TextView
+                        android:id="@+id/textView179"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Dish price"
+                        android:textSize="16dp" />
+
+                <EditText
+                        android:id="@+id/tv_dish_price_seller_edit_dish_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Rs.250"
+                        android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                <TextView
+                        android:id="@+id/textView186"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Serving / plate"
+                        android:textSize="16dp" />
+
+                <EditText
+                        android:id="@+id/tv_serving_per_plaate_seller_edit_dish_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="1 person"
+                        android:textSize="16dp" />
+            </LinearLayout>
+
+            <RadioGroup
+                    android:id="@+id/ll_dish_type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                <RadioButton
+                        android:id="@+id/button_veg_seller_edit_dish_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Veg"
+                        android:textSize="16dp" />
+
+                <RadioButton
+                        android:id="@+id/button_non_veg_seller_edit_dish_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Non-Veg"
+                        android:textSize="16dp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/textView190"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Meal Type:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout24" />
+
+        <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView190">
+
+            <RadioButton
+                    android:id="@+id/rb_breakfast_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Breakfast"
+                    android:textSize="14dp" />
+
+            <RadioButton
+                    android:id="@+id/rb_lunch_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Lunch"
+                    android:textSize="14dp" />
+
+            <RadioButton
+                    android:id="@+id/rb_snacks_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Snacks"
+                    android:textSize="14dp" />
+
+            <RadioButton
+                    android:id="@+id/rb_dinner_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Dinner"
+                    android:textSize="14dp" />
+        </RadioGroup>
+
+        <TextView
+                android:id="@+id/textView191"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Dish available timings:"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+        <TextView
+                android:id="@+id/textView192"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="Time Slots:"
+                android:textColor="@color/Black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView200" />
+
+        <RadioGroup
+                android:id="@+id/linearLayout25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView192">
+
+            <RadioButton
+                    android:id="@+id/tv_15_mins_timeslot_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_time_slot"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="15 Mins" />
+
+            <RadioButton
+                    android:id="@+id/tv_30_mins_timeslot_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_time_slot"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="30 Mins" />
+
+            <RadioButton
+                    android:id="@+id/tv_45_mins_timeslots_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_time_slot"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="45 Mins" />
+
+            <RadioButton
+                    android:id="@+id/tv_1_hour_timeslots_seller_edit_dish_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_time_slot"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="1 Hour" />
+        </RadioGroup>
+
+        <TextView
+                android:id="@+id/textView197"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Packing"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_packing_ownbox_seller_edit_dish_details"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout25" />
+
+        <TextView
+                android:id="@+id/textView198"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Delivery"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_delivery_self_pick_seller_edit_dish_details"
+                app:layout_constraintTop_toTopOf="@+id/textView197" />
+
+        <CheckBox
+                android:id="@+id/tv_packing_ownbox_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="own box"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView197" />
+
+        <CheckBox
+                android:id="@+id/tv_packing_parcel_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Parcel"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_packing_ownbox_seller_edit_dish_details" />
+
+        <CheckBox
+                android:id="@+id/tv_delivery_self_pick_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Self pick"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_delivery_home_delivery_seller_edit_dish_details"
+                app:layout_constraintTop_toBottomOf="@+id/textView198" />
+
+        <CheckBox
+                android:id="@+id/tv_delivery_home_delivery_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Delivery"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_delivery_charges_seller_edit_dish_details"
+                app:layout_constraintTop_toTopOf="@+id/tv_packing_parcel_seller_edit_dish_details" />
+
+        <TextView
+                android:id="@+id/textView199"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text="Your earnings after service charges:"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_packing_parcel_seller_edit_dish_details" />
+
+        <TextView
+                android:id="@+id/tv_earnings_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Rs.195"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView199" />
+
+        <TextView
+                android:id="@+id/tv_service_charge_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-1dp"
+                android:text="(Service charge is 2%)"
+                android:textColor="@color/Orange"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView199" />
+
+        <EditText
+                android:id="@+id/tv_packing_chaerges_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/border"
+                android:inputType="textPersonName"
+                android:text="Rs.15"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_packing_parcel_seller_edit_dish_details"
+                app:layout_constraintStart_toEndOf="@+id/tv_packing_parcel_seller_edit_dish_details"
+                app:layout_constraintTop_toTopOf="@+id/tv_packing_parcel_seller_edit_dish_details" />
+
+        <EditText
+                android:id="@+id/tv_delivery_charges_seller_edit_dish_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:inputType="textPersonName"
+                android:text="Rs.20"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_delivery_home_delivery_seller_edit_dish_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_delivery_home_delivery_seller_edit_dish_details" />
+
+        <TextView
+                android:id="@+id/textView157"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="From"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView191" />
+
+        <TextView
+                android:id="@+id/textView200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="To"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView157" />
+
+        <ImageView
+                android:id="@+id/dish_image_seller_edit_dish_details"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_service_charge_seller_edit_dish_details"
+                app:srcCompat="@drawable/food_place_holder" />
+
+        <Button
+                android:id="@+id/update_button_seller_edit_dish_details"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/DarkBlue"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dish_image_seller_edit_dish_details" />
+
+        <Button
+                android:id="@+id/delete_button_seller_edit_dish_details"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+                android:background="@android:color/holo_red_dark"
+                android:text="Delete"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+                android:textSize="12dp"
+                app:layout_constraintStart_toEndOf="@+id/update_button_seller_edit_dish_details"
+                app:layout_constraintTop_toTopOf="@+id/update_button_seller_edit_dish_details" />
+
+        <TextView
+                android:id="@+id/tv_save_seller_edit_dish_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/DarkBlue"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="SAVE AND ACTIVE"
+                android:textColor="@color/White"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/update_button_seller_edit_dish_details" />
+
+        <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:ems="3"
+                android:hint="hr"
+                android:inputType="textPersonName"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView157"
+                app:layout_constraintStart_toEndOf="@+id/textView157"
+                app:layout_constraintTop_toTopOf="@+id/textView157" />
+
+        <TextView
+                android:id="@+id/textView87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text=":"
+                android:textColor="@color/Black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintStart_toEndOf="@+id/editText"
+                app:layout_constraintTop_toTopOf="@+id/editText" />
+
+        <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:ems="3"
+                android:hint="mm"
+                android:inputType="textPersonName"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintStart_toEndOf="@+id/textView87"
+                app:layout_constraintTop_toTopOf="@+id/editText" />
+
+        <EditText
+                android:id="@+id/editText9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:hint="hr"
+                android:inputType="textPersonName"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView200"
+                app:layout_constraintStart_toStartOf="@+id/editText"
+                app:layout_constraintTop_toTopOf="@+id/textView200" />
+
+        <TextView
+                android:id="@+id/textView88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/Black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/editText9"
+                app:layout_constraintStart_toStartOf="@+id/textView87"
+                app:layout_constraintTop_toTopOf="@+id/editText9" />
+
+        <EditText
+                android:id="@+id/editText12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:hint="mm"
+                android:inputType="textPersonName"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText9"
+                app:layout_constraintStart_toStartOf="@+id/editText2"
+                app:layout_constraintTop_toTopOf="@+id/editText9"
+                app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+                android:id="@+id/textView89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:paddingStart="2dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="8dp"
+                android:text="AM"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText2"
+                app:layout_constraintStart_toEndOf="@+id/editText2"
+                app:layout_constraintTop_toTopOf="@+id/editText2" />
+
+        <TextView
+                android:id="@+id/textView90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:paddingStart="2dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="8dp"
+                android:text="PM"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView89"
+                app:layout_constraintStart_toEndOf="@+id/textView89"
+                app:layout_constraintTop_toTopOf="@+id/textView89" />
+
+        <TextView
+                android:id="@+id/textView93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:paddingStart="2dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="8dp"
+                android:text="AM"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText12"
+                app:layout_constraintStart_toStartOf="@+id/textView89"
+                app:layout_constraintTop_toTopOf="@+id/editText12" />
+
+        <TextView
+                android:id="@+id/textView94"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:paddingStart="2dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="8dp"
+                android:text="PM"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView93"
+                app:layout_constraintStart_toEndOf="@+id/textView93"
+                app:layout_constraintTop_toTopOf="@+id/textView93" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

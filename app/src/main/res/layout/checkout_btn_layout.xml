@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="75dp"
               android:id="@+id/floating_proced_lay">
     <LinearLayout
-            android:orientation="vertical"
             android:layout_width="100dp"
-            android:layout_height="match_parent" android:background="@color/White">
+            android:layout_height="match_parent"
+            android:background="@color/DeepYellow"
+            android:orientation="vertical">
         <TextView
+                android:id="@+id/tv_item_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
                 android:text="20 items"
-                android:layout_width="match_parent"
-                android:padding="5dp"
-                android:layout_height="wrap_content" android:id="@+id/tv_item_count"
-        />
+                android:textColor="#01204E"
+                android:textSize="16dp" />
         <TextView
-                android:text="Rs 250 "
+                android:id="@+id/tv_total_amount"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:padding="5dp"
-                android:layout_height="wrap_content" android:id="@+id/tv_total_amount"
-                android:textColor="@color/Black" android:textSize="18sp"/>
+                android:text="Rs 250 "
+                android:textColor="#01204E"
+                android:textSize="18dp" />
     </LinearLayout>
     <TextView
-            android:text="Proced"
+            android:id="@+id/tv_proced_btn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" android:id="@+id/tv_proced_btn" android:layout_weight="1"
-            android:gravity="center" android:background="@color/SkyBlue" android:textColor="@color/White"
-            android:textStyle="bold" android:textSize="18sp"
-            android:onClick="OnClickProceed"   />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/FadedBlack"
+            android:gravity="center"
+            android:onClick="OnClickProceed"
+            android:text="PROCEED"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 </LinearLayout>
 
 

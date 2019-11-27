@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/LightGrey">
+        <include
+                layout="@layout/common_busybar"
+                android:id="@+id/busy_bar_seller_upload"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView55" android:text="Dish name" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                android:textSize="16dp" android:textColor="@color/Black"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/tv_dish_name_seller_upload"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView55" android:background="@drawable/border"
+                android:hint="enter your dish name" android:textSize="16dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:textStyle="bold" android:gravity="top" android:padding="4dp"/>
+        <TextView
+                android:text="Dish description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView58" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dish_name_seller_upload" android:textSize="16dp"
+                android:textColor="@color/Black" android:layout_marginTop="8dp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/tv_dish_description_seller_upload"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView58" android:background="@drawable/border"
+                android:hint="Enter something about dish here" android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:gravity="top"
+                android:padding="4dp"/>
+        <TextView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="@+id/textView85"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:gravity="end" android:id="@+id/tv_earnings_after_service_charge_seller_upload"/>
+
+        <TextView
+                android:id="@+id/textView85"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Your earnings after service charges"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+        <TextView
+                android:text="(Serving charges is 2%)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_service_charge_percentage_selleer_upload"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView85" android:textSize="14dp"
+                android:textColor="@color/Orange"/>
+        <TextView
+                android:text="Upload image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_upload_imgg" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_service_charge_percentage_selleer_upload"
+                android:textColor="@color/Black"/>
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:elevation="20dp"
+                android:orientation="vertical"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_upload_imgg" android:id="@+id/cardView2">>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" android:background="@color/LightGrey"
+                    android:id="@+id/constraintLayout5">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" app:srcCompat="@drawable/food_place_holder"
+                        android:id="@+id/img_upload_image_seller_upload" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                        android:scaleType="centerCrop"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/remove"
+                        android:id="@+id/img_remove_seller_upload" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp" app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="8dp" android:padding="4dp"/>
+                <TextView
+                        android:text="Update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_update_seller_upload" android:textColor="@color/White"
+                        android:background="@color/DarkBlue" android:textStyle="bold" android:padding="4dp"
+                        android:gravity="center" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/img_upload_image_seller_upload"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                <TextView
+                        android:text="Delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_delete_seller_upload"
+                        android:textColor="@color/Black" android:textStyle="bold" android:background="@drawable/border"
+                        android:textSize="16dp" android:padding="4dp" android:gravity="center"
+                        app:layout_constraintStart_toEndOf="@+id/tv_update_seller_upload"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintTop_toTopOf="@+id/tv_update_seller_upload"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_update_seller_upload"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dish_description_seller_upload"
+                android:weightSum="3" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                android:id="@+id/linearLayout14">
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:weightSum="2">
+            <TextView
+                    android:id="@+id/textView67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Dish Price"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            <EditText
+                    android:id="@+id/tv_dish_price_seller_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LightBlue"
+                    android:gravity="center"
+                    android:hint="Rs.99"
+                    android:padding="8dp"
+                    android:textSize="16dp" />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:weightSum="2">
+            <TextView
+                    android:id="@+id/textView75"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Serving/plate"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            <EditText
+                    android:id="@+id/tv_serving_per_plate_seller_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LightBlue"
+                    android:gravity="center"
+                    android:hint="1 person"
+                    android:padding="8dp"
+                    android:textSize="16dp" />
+        </LinearLayout>
+            <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/rg_veg_or_non_veg1"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                <RadioButton
+                        android:id="@+id/rb_veg_seller_upload"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:text="Veg"
+                        android:textSize="16dp" />
+
+                <RadioButton
+                        android:id="@+id/rb_non_veg_seller_upload"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:maxLines="1"
+                        android:text="Non-Veg"
+                        android:textSize="16dp" />
+            </RadioGroup>
+
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+               android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+            <TextView
+                    android:id="@+id/tv_save_seller_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/DarkBlue"
+                    android:gravity="center"
+                    android:padding="8dp"
+
+                    android:text="SAVE"
+                    android:textColor="@color/White"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            <TextView
+                    android:id="@+id/tv_save_and_active_seller_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/DarkBlue"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"
+                    android:text="SAVE and ACTIVE"
+                    android:textColor="@color/White"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout14" android:id="@+id/linearLayout18">
+            <TextView
+                    android:text="Dish Type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/tv_one_transaction_txn_slr" android:layout_weight="1"
+                    android:textSize="16dp" android:textColor="@color/Black" android:textStyle="bold"
+                    android:gravity="center|start"/>
+            <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/rg_veg_or_non_veg"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Meal type"
+                android:textColor="@color/Black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout14" />
+
+        <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:id="@+id/rg_meal_type"
+                android:gravity="center_vertical|center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView39"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout18">
+
+            <RadioButton
+                    android:id="@+id/cb_breakfast_seller_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Breakfast"
+                    android:textSize="10sp" />
+
+            <RadioButton
+                    android:id="@+id/cb_lunch_seller_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Lunch"
+                    android:textSize="10sp" />
+
+            <RadioButton
+                    android:id="@+id/cb_snacks_seller_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Snacks"
+                    android:textSize="10sp" />
+
+            <RadioButton
+                    android:id="@+id/cb_dinner_seller_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Dinner"
+                    android:textSize="10sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

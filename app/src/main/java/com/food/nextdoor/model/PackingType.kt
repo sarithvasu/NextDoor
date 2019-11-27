@@ -1,9 +1,12 @@
 package com.food.nextdoor.model
 
-class PackingType() {
-    //var packingTypeId: Int? = null
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "packing_type")
+class PackingType1() {
+    @PrimaryKey
     var packingTypeId: Int = -1
-    //var packingDescription: String? = null
     var packingDescription: String = ""
 
     // :this() pointing to empty constractor

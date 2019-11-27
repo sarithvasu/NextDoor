@@ -1,43 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.food.nextdoor">
+        package="com.food.nextdoor">
 
-    <uses-permission android:name="android.permission.INTERNET">
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA2" />
 
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
+            android:networkSecurityConfig="@xml/network_security_config"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.buyer.RegistrationActivity">
+        <activity android:name=".activity.seller.SellerEditActiveDIsh"></activity>
+        <activity android:name=".activity.seller.SellerEditDish" />
+        <activity
+                android:name=".activity.seller.SellerDashBoard"
+                android:label="@string/title_chef" />
+        <activity android:name=".activity.seller.SellerUploadSecondary" />
+        <activity android:name=".activity.seller.SellerUserActivity" />
+        <activity android:name=".activity.EditProfileActivity" />
+        <activity android:name=".activity.buyer.AddApartment" />
+        <activity
+                android:name=".activity.buyer.Verification"
+                android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".activity.Registration">
-        </activity>
+        <activity
+                android:name=".activity.LaunchActivity"
+                android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.seller.SellerUpload" />
+        <activity android:name=".activity.Main2Activity" />
+        <activity
+                android:name=".activity.buyer.OTPActivity"
+                android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.buyer.RegistrationActivity" />
+        <activity android:name=".activity.buyer.ReadReviewActivity" />
+        <activity android:name=".activity.buyer.WriteReviewActivity" />
+        <activity android:name=".activity.buyer.MyOrderActivity" />
+        <activity android:name=".activity.buyer.OrderConfirmationActivity" />
         <activity
                 android:name=".activity.buyer.CustomMealActivity"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-        <activity android:name=".activity.buyer.TimeSlotActivity">
-        </activity>
-        <activity android:name=".activity.buyer.CheckoutActivity">
-        </activity>
-        <activity android:name=".activity.buyer.ChefProfileActivity">
-        </activity>
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.buyer.TimeSlotActivity" />
+        <activity android:name=".activity.buyer.CheckoutActivity" />
+        <activity android:name=".activity.buyer.ChefProfileActivity" />
+        <activity android:name=".activity.seller.SellerRegistration" />
         <activity
                 android:name=".activity.buyer.DishDetailActivity"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-        <activity android:name=".activity.buyer.HomeActivity">
-        </activity>
-        <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.VIEW"/>
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+                android:name=".activity.buyer.HomeActivity"
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+        <service android:name=".cloud.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:value="@drawable/nonveg_symbol" />
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:value="@color/LightBlue" />
+
+        <activity
+                android:name="com.dropbox.core.android.AuthActivity"
+                android:configChanges="orientation|keyboard"
+                android:launchMode="singleTask">
+            <intent-filter>
+
+                <!-- Insert your app key after “db-  ...” -->
+                <data android:scheme="db-0lwierv4wlsozeh" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

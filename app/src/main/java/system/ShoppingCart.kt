@@ -1,6 +1,7 @@
 package system
-import com.food.nextdoor.model.BuyerInfo
-import com.food.nextdoor.model.DishItem
+
+import com.food.nextdoor.model.HomeFeed
+import com.food.nextdoor.model.post.DishItem
 
 
 class ShoppingCart {
@@ -11,33 +12,65 @@ class ShoppingCart {
         val itemCount: Int
             get() = this.getCartItems().size
 
-        fun addToCart(cartItem: CartItem) {
-            // Get all cart Items
-            val cartItems: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
+        val totalCartQuantityCount: Int
+            get() = this.getTotalCartQuantity()
 
-            // Cart is NOT EMPTY so check if the product is already there and Update the cart
-            if (cartItems.size > 0) {
-                // If item exist then update the cart by increasing the quantity of the item
-                this.UpdateStoreHouse(cartItems, cartItem, UpdateType.ADD)
+        fun getProductIdList() : ArrayList<Int> {
+            val list: ArrayList<Int> = ArrayList()
+            val cartItems = ShoppingCart.getCartItems()
+
+            for(cartItem in cartItems) {
+                val dishId = cartItem.dishItem.dishId
+                list.add(dishId)
+            }
+
+           return list
+        }
+
+        fun addToCart(cartItem: CartItem) {
+            StoreHouse.instance.cartItemList.add(cartItem)
+        }
+        fun removeFromCart(dishId: Int) {
+            val cartItems: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
+            val matchingElement: CartItem? = cartItems.find { c -> c.dishItem.dishId == dishId }
+            if (matchingElement != null) {
+                StoreHouse.instance.cartItemList.remove(matchingElement)
+                val cartItems123: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
+                var nice = "sdjsldj"
+                nice = nice + "sdjksdhs"
+
             } else {
-                // It's Empty cart...so Add directly
-                this.saveItemInStoreHouse(cartItem)
+                // Soumen Need to handel Exception
             }
         }
-        fun removeFromCart(cartItem: CartItem) {
-            // Get all cart Items
+        fun updateItemQuantity(dishId: Int, updateType: UpdateType) {
             val cartItems: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
 
-            // Cart is NOT EMPTY so check if the item is already there and Update the cart
-            if (cartItems.size > 0) {
-                // If item exist then update the cart by increasing the quantity of the item
-                this.UpdateStoreHouse(cartItems, cartItem, UpdateType.REMOVE)
+
+            val matchingElement: CartItem? = cartItems.find { c-> c.dishItem.dishId == dishId }
+            if (matchingElement != null) {
+                val index = cartItems.indexOf(matchingElement)
+
+                if (updateType == UpdateType.ADD) {
+                    matchingElement.dishItem.quantity = matchingElement.dishItem.quantity + 1
+                } else if (updateType == UpdateType.REMOVE) {
+                    matchingElement.dishItem.quantity = matchingElement.dishItem.quantity - 1
+                }
+
+                cartItems.set(index, matchingElement)
+
+                val cartItems123: ArrayList<CartItem> = ShoppingCart.getItemsFromStoreHouse()
+                var nice = "sdjsldj"
+                nice = nice + "sdjksdhs"
+            } else {
+                // Soumen Need to handel Exception
             }
+
         }
         fun getCartItems(): ArrayList<CartItem> {
-            return this.getItemsFromStoreHouse()
+            return getItemsFromStoreHouse()
         }
-        fun totalAmount(): Int {
+        fun getTotalCartAmount(): Int {
             val cartItems = ShoppingCart.getCartItems()
 
             var qty = 0; var price = 0; var amount = 0
@@ -52,48 +85,63 @@ class ShoppingCart {
             return amount //  //return cartItems.map { s -> s.dishItem.unitPrice }.sum()
         }
 
+        fun clearCart() {
+            StoreHouse.instance.cartItemList.clear()
+        }
+        fun getTotalDeliveryCharges(): Int {
+            val cartItems = ShoppingCart.getCartItems()
+            var totalDeliveryCharges = 0
+            val buyerHomeFeed = DataHolder.homeFeedInstance
 
+            for (cartItem in cartItems) {
+                val thisDishId = cartItem.dishItem.dishId
+                val thisDeliveryId = cartItem.dishItem.deliveryTypeId
 
+                // PackingOptions": 2 means => Parcel in disposable box and it is chargable
+                if (thisDeliveryId == 1) {
+                    val dishInfo: HomeFeed.Dish =
+                        buyerHomeFeed.dishes.single { d -> d.DishId == thisDishId }
+                    val thisDeliveryCharge = dishInfo.DeliveryCharge
+                    totalDeliveryCharges += thisDeliveryCharge
+                }
+            }
+            return totalDeliveryCharges
+        }
+        fun getTotalPackingCharges(): Int {
+            val cartItems = ShoppingCart.getCartItems()
+            var totalpackingcharges = 0
+            val homeFeed: HomeFeed = DataHolder.homeFeedInstance
+
+            for (cartItem in cartItems) {
+                val thisDishId = cartItem.dishItem.dishId
+                val thisPackingId = cartItem.dishItem.packingTypeId
+
+                // PackingOptions": 2 means => Parcel in disposable box and it is chargable
+                if (thisPackingId == 2) {
+                    val dishInfo: HomeFeed.Dish = homeFeed.dishes.single { d -> val b = d.DishId == thisDishId
+                        b
+                    }
+                    val thisPackingCharges = dishInfo.PackageCharge
+                    val thisPackingTotal = thisPackingCharges * cartItem.dishItem.quantity
+                    totalpackingcharges += thisPackingTotal
+                }
+            }
+            return totalpackingcharges
+        }
+
+        private fun getTotalCartQuantity() : Int{
+            val cartItems = ShoppingCart.getCartItems()
+            var qty = 0;
+            for(cartItem in cartItems){
+                val currentQty = cartItem.dishItem.quantity
+                qty = qty + currentQty
+            }
+            return qty
+        }
         private fun getItemsFromStoreHouse(): ArrayList<CartItem> {
             return StoreHouse.instance.cartItemList
         }
-        private fun removeItemFromStoreHouse(cartItem: CartItem) {
-            StoreHouse.instance.cartItemList.remove(cartItem)
-        }
-        private fun saveItemInStoreHouse(cartItem: CartItem) {
-            StoreHouse.instance.cartItemList.add(cartItem)
-        }
-        private fun UpdateStoreHouse(cartItems: ArrayList<CartItem>, cartItem: CartItem, updateType: UpdateType) {
 
-            // Check if item exist in the cart
-            val previousCartItem: CartItem? =
-                cartItems.singleOrNull { e -> e.dishItem.dishId == cartItem.dishItem.dishId }
-
-            // Item already exist in the cart (Duplicate Item)
-            if (previousCartItem != null) {
-                //So, remove it from the cart
-                this.removeItemFromStoreHouse(previousCartItem)
-
-                // We will increase or decrease the qty based on Enum Value
-                if (updateType == UpdateType.ADD) {
-                    // Update the current product quantity with previous qty + 1
-                    cartItem.dishItem.quantity = previousCartItem.dishItem.quantity + 1
-                    this.saveItemInStoreHouse(cartItem) // save it to cart
-                } else if (updateType == UpdateType.REMOVE) {
-                    if (previousCartItem.dishItem.quantity > 1) {
-                        cartItem.dishItem.quantity = previousCartItem.dishItem.quantity - 1
-                        this.saveItemInStoreHouse(cartItem) // save it to cart
-                    }
-                }
-            } else {
-                // Its not a duplicate Item so...We will save or remove the item based on Enum Value
-                if (updateType == UpdateType.ADD) {
-                    this.saveItemInStoreHouse(cartItem)
-                } else if (updateType == UpdateType.REMOVE) {
-                    this.removeItemFromStoreHouse(cartItem)
-                }
-            }
-        }
     }
     private class StoreHouse{
         internal var cartItemList: ArrayList<CartItem> = arrayListOf()

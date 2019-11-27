@@ -4,12 +4,22 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import java.sql.Time
+import java.util.concurrent.TimeUnit
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 object RetrofitInstantBuilder {
-    private const val BASE_URL="https://60ced595-ba5a-4f3c-859d-447cda1bc7a6.mock.pstmn.io"
-    private val okHTTp:OkHttpClient.Builder=OkHttpClient.Builder()
+    private const val BASE_URL="http://192.168.2.186:8080/api/"
+
+    var client = OkHttpClient.Builder()
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30,TimeUnit.SECONDS)
+        .build()
     private val builder:Retrofit.Builder=Retrofit.Builder().baseUrl(BASE_URL)
-        .client(okHTTp.build())
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
     private val retrofit:Retrofit= builder.build();
     fun <T> buildService(serviceType:Class<T>):T?{

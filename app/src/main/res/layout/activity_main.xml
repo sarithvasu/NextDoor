@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#fffffb"
+        tools:context=".activity.MainActivity">
 
 
-        <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:context=".activity.MainActivity" android:background="#fffffb">
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/SliderViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-            <android.support.v4.view.ViewPager
-                    android:id="@+id/SliderViewPager"
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-            <TextView
-                    android:text="Sell Home made Food"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
-                    android:id="@+id/txt_sell"
-                    android:drawableTop="@drawable/buy_small"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/SliderViewPager"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:elevation="10dp"
-                    android:background="#fafafa"
-                    android:gravity="center"
-                    android:paddingTop="20dp" android:textSize="16sp"/>
-            <TextView
-                    android:text="Buy Home made food"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
-                    android:id="@+id/txt_buy" android:drawableTop="@drawable/sell_small"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/SliderViewPager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/txt_sell"
-                    android:layout_marginStart="12dp"
-                    android:elevation="10dp"
-                    android:background="#fafafa"
-                    android:onClick="buyerOnClick"
-                    android:gravity="center"
-                    android:paddingTop="20dp" app:layout_constraintHorizontal_bias="0.0" android:textSize="16sp"/>
-            <TextView
-                    android:text="Share ride"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
-                    android:id="@+id/txt_ride"
-                    android:drawableTop="@drawable/car_small"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="12dp"
-                    android:background="#fafafa"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_sell"
-                    android:elevation="10dp"
-                    android:layout_marginBottom="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:gravity="center"
-                    android:paddingTop="20dp" app:layout_constraintVertical_bias="0.0" android:textSize="16sp"/>
-            <TextView
-                    android:text="Profile"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
-                    android:id="@+id/txt_profile"
-                    android:drawableTop="@drawable/profile_samll"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_buy"
-                    android:layout_marginBottom="18dp"
-                    android:elevation="10dp"
-                    android:background="#fafafa"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/txt_ride"
-                    android:layout_marginStart="12dp"
-                    android:gravity="center"
-                    android:paddingTop="20dp" app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintVertical_bias="1.0" android:textSize="16sp"/>
+    <TextView
+            android:id="@+id/txt_sell"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="#fafafa"
+            android:drawableTop="@drawable/buy_small"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:onClick="sellerOnClick"
+            android:text="Sell Home made Food"
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/txt_buy"
+            app:layout_constraintStart_toStartOf="@+id/SliderViewPager"
+            app:layout_constraintTop_toBottomOf="@+id/SliderViewPager" />
 
 
-        </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:id="@+id/txt_buy"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="#fafafa"
+            android:drawableTop="@drawable/sell_small"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:onClick="buyerOnClick"
+            android:text="Buy Home made food"
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_sell"
+            app:layout_constraintEnd_toEndOf="@+id/SliderViewPager"
+            app:layout_constraintStart_toEndOf="@+id/txt_sell"
+            app:layout_constraintTop_toTopOf="@+id/txt_sell"
+            app:layout_constraintVertical_bias="0.0" />
 
-</ScrollView>
+    <TextView
+            android:id="@+id/txt_ride"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#fafafa"
+            android:drawableTop="@drawable/car_small"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:text="Share ride"
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_sell"
+            app:layout_constraintStart_toStartOf="@+id/txt_sell"
+            app:layout_constraintTop_toBottomOf="@+id/txt_sell" />
+
+    <TextView
+            android:id="@+id/txt_profile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#fafafa"
+            android:drawableTop="@drawable/profile_samll"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_ride"
+            app:layout_constraintEnd_toEndOf="@+id/txt_buy"
+            app:layout_constraintStart_toStartOf="@+id/txt_buy"
+            app:layout_constraintTop_toTopOf="@+id/txt_ride"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

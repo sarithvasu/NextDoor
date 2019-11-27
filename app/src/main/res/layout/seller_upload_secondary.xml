@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include
+            layout="@layout/common_busybar"
+            android:id="@+id/busy_bar_seller_upload_second"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"/>
+
+    <TextView
+            android:text="Timings and Time slots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView51" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+            android:textColor="@color/Black" android:textStyle="bold" android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:background="@color/LightGrey" android:padding="4dp"/>
+    <TextView
+            android:text="Dish will be available from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView63" android:textStyle="bold"
+            android:textSize="16dp" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView51" android:textColor="@color/DarkGrey"/>
+
+    <TextView
+            android:id="@+id/textView83"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="From Time"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView63" />
+
+    <TextView
+            android:id="@+id/textView84"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="To Time"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView83" />
+
+    <TextView
+            android:id="@+id/textView86"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Select time slots"
+            android:textColor="@color/Black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView84" />
+    <RadioGroup
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView86" android:id="@+id/linearLayout12">
+        <RadioButton
+                android:text="15 Mins"
+                android:layout_width="0dp"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/tv_time_slots_15mins_seller_upload_secondary" android:layout_weight="1"
+                android:layout_margin="4dp" android:textSize="16dp" android:textStyle="bold"
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+        <RadioButton
+                android:text="30 Mins"
+                android:layout_width="0dp"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/tv_time_slots_30mins_seller_upload_secondary" android:layout_weight="1"
+                android:layout_margin="4dp" android:textSize="16dp" android:textStyle="bold"
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+        <RadioButton
+                android:text="45 Mins"
+                android:layout_width="0dp"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/tv_time_slots_45mins_seller_upload_secondary" android:layout_weight="1"
+                android:layout_margin="4dp" android:textSize="16dp" android:textStyle="bold"
+
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+        <RadioButton
+                android:text="1 Hour"
+                android:layout_width="0dp"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/tv_time_slots_1hour_seller_upload_secondary" android:layout_weight="1"
+                android:layout_margin="4dp" android:textSize="16dp" android:textStyle="bold"
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+    </RadioGroup>
+
+    <TextView
+            android:id="@+id/textView98"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/LightGrey"
+            android:padding="4dp"
+            android:text="Packing and Delivery"
+            android:textColor="@color/Black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
+    <TextView
+            android:text="Packing options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView99" android:textColor="@color/Black"
+            android:textStyle="bold" android:textSize="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView98"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_packing_option_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView99">
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/rg_packing_option_secondary"
+
+    >
+    <CheckBox
+            android:id="@+id/cb_own_box_seller_upload_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:text="Get your own box"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView99" />
+
+    <CheckBox
+            android:id="@+id/cb_parcel_seller_upload_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:text="Parcel in disposable box"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_own_box_seller_upload_secondary" />
+</LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <EditText
+                    android:id="@+id/et_bring_own_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:inputType="textPersonName"
+                    android:text="Rs.15"
+                    android:textColor="@color/Black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/cb_own_box_seller_upload_secondary"
+                    app:layout_constraintTop_toTopOf="@+id/cb_own_box_seller_upload_secondary" />
+
+            <EditText
+                    android:id="@+id/et_pacel_box"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Charges in rupees"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/Black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+            android:text="Delivery options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView100" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_packing_option_secondary" android:textStyle="bold"
+
+            android:textColor="@color/Black" android:textSize="16dp"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView100"
+            android:orientation="horizontal"
+        android:id="@+id/ll_self_pick_seller_upload_secondary">
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_self_pick_seller_upload_secondary"
+        android:orientation="vertical"
+        >
+    <CheckBox
+            android:id="@+id/cb_home_delivery_seller_upload_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Home delivery"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+           />
+
+    <CheckBox
+            android:id="@+id/cb_self_pick_seller_upload_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Self pick"
+            android:textColor="@color/DarkGrey"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            />
+</LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                    android:id="@+id/et_delivery_charge"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:hint="Charges in rupees"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/Black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            <EditText
+                    android:id="@+id/editText10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:inputType="textPersonName"
+                    android:text="Rs.15"
+                    android:textColor="@color/Black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/btn_continue_seller_upload_secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/DarkBlue"
+            android:text="ACTIVATE"
+            android:textColor="@color/White"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+    <EditText
+            android:id="@+id/et_dish_quatity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:ems="10"
+            android:hint="quatity prepared"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_self_pick_seller_upload_secondary" />
+
+    <EditText
+            android:id="@+id/et_from_time_hours"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="12"
+            app:layout_constraintBottom_toBottomOf="@+id/textView83"
+            app:layout_constraintStart_toEndOf="@+id/textView83"
+            app:layout_constraintTop_toTopOf="@+id/textView83" />
+
+    <EditText
+            android:id="@+id/et_time_from_minutes"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="00"
+            app:layout_constraintBottom_toBottomOf="@+id/et_from_time_hours"
+            app:layout_constraintStart_toEndOf="@+id/et_from_time_hours"
+            app:layout_constraintTop_toTopOf="@+id/et_from_time_hours" />
+
+    <RadioGroup
+            android:id="@+id/rg_from_am_pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/et_time_from_minutes"
+            app:layout_constraintStart_toEndOf="@+id/et_time_from_minutes"
+            app:layout_constraintTop_toTopOf="@+id/et_time_from_minutes" >
+        <RadioButton
+                android:text="AM"
+                android:layout_width="wrap_content"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/rb_from_time_am"
+                 android:textSize="16dp" android:textStyle="bold"
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+        <RadioButton
+                android:text="PM"
+                android:layout_width="wrap_content"
+                android:button="@android:color/transparent"
+                android:layout_height="wrap_content" android:id="@+id/rb_from_time_pm"
+                android:textSize="16dp" android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/rb_text_selector" android:background="@drawable/bg_time_slot" android:padding="8dp"
+                android:gravity="center"/>
+    </RadioGroup>
+
+    <EditText
+            android:id="@+id/et_time_to_hours"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="12"
+            app:layout_constraintBottom_toBottomOf="@+id/textView84"
+            app:layout_constraintStart_toEndOf="@+id/textView84"
+            app:layout_constraintTop_toTopOf="@+id/textView84" />
+
+    <EditText
+            android:id="@+id/et_time_to_minutes"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="00"
+            app:layout_constraintBottom_toBottomOf="@+id/et_time_to_hours"
+            app:layout_constraintStart_toEndOf="@+id/et_time_to_hours"
+            app:layout_constraintTop_toTopOf="@+id/et_time_to_hours" />
+
+    <RadioGroup
+            android:id="@+id/rg_to_am_pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/et_time_to_minutes"
+            app:layout_constraintStart_toEndOf="@+id/et_time_to_minutes"
+            app:layout_constraintTop_toTopOf="@+id/et_time_to_minutes">
+
+        <RadioButton
+                android:id="@+id/rb_to_time_am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_time_slot"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="AM"
+                android:textColor="@color/rb_text_selector"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        <RadioButton
+                android:id="@+id/rb_to_time_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_time_slot"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="PM"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/rb_text_selector"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".activity.EditProfile">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile_pic_edit_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/LightGrey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/profile_p_holder" />
+
+        <TextView
+                android:id="@+id/tv_upload_profile_pic_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Edit Image"
+                android:textColor="@color/DarkBlue"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/img_profile_pic_edit_profile"
+                app:layout_constraintStart_toEndOf="@+id/img_profile_pic_edit_profile"
+                app:layout_constraintTop_toTopOf="@+id/img_profile_pic_edit_profile" />
+
+        <TextView
+                android:id="@+id/textView121"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Account Information"
+                android:textColor="@color/SkyBlue"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_profile_pic_edit_profile" />
+
+        <TextView
+                android:id="@+id/textView134"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:text="Full Name:"
+                android:textColor="@color/Black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView121" />
+
+        <TextView
+                android:id="@+id/textView139"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:text="Email ID:"
+                android:textColor="@color/Black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView134" />
+
+        <TextView
+                android:id="@+id/textView140"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Mobile Number:"
+                android:textColor="@color/Black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView148" />
+
+        <EditText
+                android:id="@+id/tv_edit_full_name_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:gravity="center|start"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:text="Manjunath Reddy"
+                android:textColor="@color/DarkGrey"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView134"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView134"
+                app:layout_constraintTop_toTopOf="@+id/textView134" />
+
+        <EditText
+                android:id="@+id/tv_edit_email_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:text="manjumanju352@gmail.com"
+                android:textColor="@color/DarkGrey"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView139"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView139"
+                app:layout_constraintTop_toTopOf="@+id/textView139" />
+
+        <TextView
+                android:id="@+id/tv_mobile_number_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:gravity="center|start"
+                android:inputType="phone"
+                android:padding="8dp"
+                android:text="+91 8142086269"
+                android:textColor="@color/DarkGrey"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView140"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView140"
+                app:layout_constraintTop_toTopOf="@+id/textView140" />
+
+        <TextView
+                android:id="@+id/tv_verified_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Verified"
+                android:textColor="@color/Green"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_mobile_number_edit_profile"
+                app:layout_constraintEnd_toEndOf="@+id/tv_mobile_number_edit_profile"
+                app:layout_constraintTop_toTopOf="@+id/tv_mobile_number_edit_profile" />
+
+        <TextView
+                android:id="@+id/textView144"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Verified mobile number cannot be changed"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView140" />
+
+        <TextView
+                android:id="@+id/textView145"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="Apartment Address"
+                android:textColor="@color/SkyBlue"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView144" />
+
+        <TextView
+                android:id="@+id/tv_address_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:justificationMode="inter_word"
+                android:maxLines="5"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="100dp"
+                android:text="A2-503, Provident welworth city, Doddaballapur Road, Marasandra, Bisuvanahalli, PIN: 560065"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView145" />
+
+        <TextView
+                android:id="@+id/tv_change_address_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Change Address"
+                android:textColor="@android:color/holo_red_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address_edit_profile" />
+
+        <TextView
+                android:id="@+id/textView150"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Change of address require address proof document"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_change_address_edit_profile" />
+
+        <TextView
+                android:id="@+id/tv_save_changes_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@color/DarkBlue"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Save Changes"
+                android:textColor="@color/White"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+                android:id="@+id/textView42"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:text="Flat Number:"
+                android:textColor="@color/Black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView139" />
+
+        <EditText
+                android:id="@+id/tv_edit_flat_number_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:text="A2-503"
+                android:textColor="@color/DarkGrey"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView42"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView42"
+                app:layout_constraintTop_toTopOf="@+id/textView42" />
+
+        <TextView
+                android:id="@+id/textView148"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:text="Gender"
+                android:textColor="@color/Black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+        <RadioGroup
+                android:id="@+id/gender_edit"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintBottom_toBottomOf="@+id/textView148"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView148"
+                app:layout_constraintTop_toTopOf="@+id/textView148">
+
+            <RadioButton
+                    android:id="@+id/rb_gender_male_edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Male" />
+
+            <RadioButton
+                    android:id="@+id/rb_gender_female_edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Female" />
+
+            <RadioButton
+                    android:id="@+id/rb_gender_other_edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Others" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,7 +1,12 @@
 package com.food.nextdoor.model
 
-class DeliveryType() {
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName ="delivery_type")
+class DeliveryType1() {
     //var deliveryTypeId: Int? = null
+    @PrimaryKey
     var deliveryTypeId: Int = -1
    // var deliveryDescription: String? = null
    var deliveryDescription: String = ""

@@ -2,32 +2,36 @@ package com.food.nextdoor.activity.buyer
 
 import android.content.Intent
 import com.food.nextdoor.R
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import com.food.nextdoor.adapter.buyer.DishDetailAdapter
 import com.food.nextdoor.adapter.buyer.TimeSlotAdapter
+import com.food.nextdoor.database.NextDoorDB
 import com.food.nextdoor.listeners.OnTimeSlotSelectListener
-import com.food.nextdoor.model.DishItem
+
 import com.food.nextdoor.model.HomeFeed
 import com.food.nextdoor.model.TimeSlots
+import com.food.nextdoor.model.post.DishItem
 import kotlinx.android.synthetic.main.activity_time_slot.*
-import system.Manager
-import system.Utility
-import java.text.SimpleDateFormat
+import system.*
 import java.util.*
 import kotlin.collections.ArrayList
+import java.text.SimpleDateFormat as SimpleDateFormat1
 
 
 class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
-    private lateinit var m_dishItem: DishItem
-    private val m_delimiter = "("
-    private val m_delimiter_hyphen  = "-"
+    private lateinit var mDishItem: DishItem
+    private val mDelimiter = "("
+    private val mDelimiterHyphen  = "-"
 
     private  var timeSlotText: String =""
+
+  //  private var isNotHomeDelivery=false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,28 +39,92 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
         setContentView(R.layout.activity_time_slot)
 
         val dishId = intent.getIntExtra(Utility.DISH_ID_KEY,0)
-        val dishInfo: HomeFeed.Dish =  Utility.DataHolder.homeFeedInstance!!.dishes.filter { d-> d.dish_id == dishId}.single()
-        m_dishItem =  DishItem()
-        m_dishItem.dishId = dishId
-        m_dishItem.quantity = 1
-        m_dishItem.unitPrice = dishInfo.unit_price
+        val chefId = intent.getIntExtra(Utility.CHEF_ID_KEY,0)
+        //val dishInfo: HomeFeed.Dish =  Utility.DataHolder.homeFeedInstance!!.signatureDishes.filter { d-> d.DishId == dishId && d.DishId == 5 }.single()
+
+        val dishInfo: HomeFeed.Dish? =  DataHolder.homeFeedInstance.dishes.find { d-> d.DishId == dishId && d.ChefId == chefId  }
+        if (dishInfo == null) {
+            // Soumen need to throw error msg
+        }
+
+        if(dishInfo?.DeliveryOptions == DeliveryOption.BOTH.value){
+            rb_home_delivery.text = "${DeliveryDescription.DESC_HOME_DELIVERY.value} ( Rs ${dishInfo?.DeliveryCharge} Extra)"
+            rb_self_pick.text=DeliveryDescription.DESC_SELF_PICK.value
+            rb_home_delivery.isEnabled=true
+            rb_self_pick.isEnabled=true
+        }
+        else if(dishInfo?.DeliveryOptions==DeliveryOption.HOME_DELIVERY.value){
+            rb_home_delivery.text = "${DeliveryDescription.DESC_HOME_DELIVERY.value} ( Rs ${dishInfo?.DeliveryCharge} Extra)"
+            rb_home_delivery.isEnabled=true
+        }
+        else if(dishInfo?.DeliveryOptions==DeliveryOption.SELF_PICK.value){
+            rb_home_delivery.isEnabled=false
+        }
+
+        if(dishInfo?.PackingOptions==PakingOption.BOTH.value) {
+            rb_packing_disposable.text = "${PakingDescription.DESC_PARCEL_IN_DISPOSABLE_BOX} ( Rs ${dishInfo?.PackageCharge} Extra)"
+            rb_packing_bring_own.text = PakingDescription.DESC_GET_YOUROWN_BOX.value
+            rb_packing_disposable.isEnabled=true
+            rb_packing_bring_own.isEnabled=true
+        }
+        else if (dishInfo?.PackingOptions==PakingOption.PARCEL_IN_DISPOSABLE_BOX.value){
+            rb_packing_disposable.text = "${PakingDescription.DESC_PARCEL_IN_DISPOSABLE_BOX} ( Rs ${dishInfo?.PackageCharge} Extra)"
+            rb_packing_disposable.isEnabled=true
+        }
+        else if (dishInfo?.PackingOptions==PakingOption.GET_YOUROWN_BOX.value){
+            rb_packing_disposable.isEnabled=false
+        }
 
 
-        var timeSlots: TimeSlots= createTimeSlots(dishInfo.dish_available_start_time,dishInfo.dish_available_end_time,dishInfo.time_slot_interval)
+
+      /*  if(dishInfo?.PackingDescription!=null&&!dishInfo.PackingDescription.equals("")) {
+            rb_packing_disposable.text = "${dishInfo?.PackingDescription} ( Rs ${dishInfo?.PackageCharge} Extra)"
+        }
+        else
+            rb_packing_disposable.isEnabled=false
+
+        if(dishInfo?.DeliveryDescription!=null&&!dishInfo.DeliveryDescription.equals("")) {
+            rb_home_delivery.text = "${dishInfo?.DeliveryDescription} ( Rs ${dishInfo?.DeliveryCharge} Extra)"
+
+        }
+        else {
+            rb_home_delivery.isEnabled = false
+         //   isNotHomeDelivery=true
+        }*/
+
+
+
+        mDishItem =  DishItem()
+        mDishItem.dishId = dishId
+        mDishItem.quantity = 1
+        mDishItem.unitPrice = dishInfo!!.UnitPrice
+        mDishItem.chefId = dishInfo.ChefId
+        mDishItem.deliveryEndTime=dishInfo.DishAvailableEndTime
+        mDishItem.deliveryStartTime=dishInfo.DishAvailableStartTime
+
+
+        val timeSlots: TimeSlots= createTimeSlots(dishInfo.DishAvailableStartTime,dishInfo.DishAvailableEndTime,dishInfo.TimeSlotInterval)
 
         rv_after_noon_time_slots.apply {
-            layoutManager = GridLayoutManager(this@TimeSlotActivity,2)
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@TimeSlotActivity, 2)
             adapter = TimeSlotAdapter(this@TimeSlotActivity,timeSlots.afterNoonTimeSlots,TimeSlotAdapter.AFTER_NOON_SLOTS)
         }
+
+        ViewCompat.setNestedScrollingEnabled(nsc_morninf_time_slot,true)
         rv_evening_time_slots.apply {
-            layoutManager = GridLayoutManager(this@TimeSlotActivity,2)
-            adapter = TimeSlotAdapter(this@TimeSlotActivity,timeSlots.evevingTimeSlots,TimeSlotAdapter.EVENING_SLOTS)
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@TimeSlotActivity, 2)
+            adapter = TimeSlotAdapter(this@TimeSlotActivity,timeSlots.eveningTimeSlots,TimeSlotAdapter.EVENING_SLOTS)
         }
         rv_morning_time_slots.apply {
-            layoutManager = GridLayoutManager(this@TimeSlotActivity,2)
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@TimeSlotActivity, 2)
             adapter = TimeSlotAdapter(this@TimeSlotActivity,timeSlots.morningTimeSlots,TimeSlotAdapter.MORNING_SLOTS)
         }
-
+        ViewCompat.setNestedScrollingEnabled(nsc_morninf_time_slot,false)
+        ViewCompat.setNestedScrollingEnabled(nsc_after_noon_time_slot,false)
+        ViewCompat.setNestedScrollingEnabled(nsc_evening_time_slot,false)
+        ViewCompat.setNestedScrollingEnabled(rv_after_noon_time_slots,false)
+        ViewCompat.setNestedScrollingEnabled(rv_evening_time_slots,false)
+        ViewCompat.setNestedScrollingEnabled(rv_morning_time_slots,false)
         btn_confirm_slots.setOnClickListener { start() }
     }
 
@@ -64,35 +132,62 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
 
     private fun start() {
-        if(!timeSlotText.equals("")&& m_dishItem.packingTypeId!=null&&m_dishItem.deliveryTypeId !=null) {
-            m_dishItem.deliveryStartTime = timeSlotText.split(m_delimiter_hyphen)[0].trim()
-            m_dishItem.deliveryEndTime = timeSlotText.split(m_delimiter_hyphen)[1].trim()
+        if(!timeSlotText.equals("")&& mDishItem.packingTypeId!=-1&&mDishItem.deliveryTypeId !=-1) {
 
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra(Utility.DISH_ITEM_KEY, m_dishItem)
-            this.startActivity(intent)
+            mDishItem.deliveryStartTime = getConvertedDate( mDishItem.deliveryStartTime, timeSlotText.split(mDelimiterHyphen)[0].trim())
+            mDishItem.deliveryEndTime =  getConvertedDate(mDishItem.deliveryStartTime,timeSlotText.split(mDelimiterHyphen)[1].trim())
+
+           // or we can use directly  val intent = Intent(this, callingActivity.className::class.java)
+        /*    if (this.callingActivity.className.toString() == "com.food.nextdoor.activity.buyer.DishDetailActivity") {
+                val intent = Intent(this, DishDetailActivity::class.java)
+                intent.putExtra(Utility.DISH_ITEM_KEY, mDishItem)
+                setResult(DishDetailAdapter.REQUEST_CODE, intent)
+                finish()
+            } else if (this.callingActivity.className.toString() == "com.food.nextdoor.activity.buyer.HomeActivity") {
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra(Utility.DISH_ITEM_KEY, mDishItem)
+                setResult(HomeAdapter.REQUEST_CODE, intent)
+                finish()
+            }*/
+
+            //no need to specify a actity when setting a result
+            val intent = Intent()
+            intent.putExtra(Utility.DISH_ITEM_KEY, mDishItem)
+            setResult(DishDetailAdapter.REQUEST_CODE, intent)
+            finish()
         }
+
         else{
+            if(timeSlotText.equals(""))
             this.validateTimeSlotsScreen()
+            else if (mDishItem.packingTypeId==-1)
+                Toast.makeText(this,"Please select a packing option",Toast.LENGTH_SHORT).show()
+            else if (mDishItem.deliveryTypeId ==-1)
+                Toast.makeText(this,"Please select a delivery option",Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun getConvertedDate(deliveryStartTime: String?, trim: String): String? {
+        deliveryStartTime?.split("T")?.get(0)
+        return "${deliveryStartTime?.split("T")?.get(0)}T${Utility.change24hoursTimeSlot(trim)}"
     }
 
     private fun validateTimeSlotsScreen() {
-        if (timeSlotText.isNullOrEmpty()) {
+        if (timeSlotText.isEmpty()) {
             Toast.makeText(this,"Please select a delivery time",Toast.LENGTH_SHORT).show()
         }
 
-        if (m_dishItem.deliveryTypeId == null) {
-            Toast.makeText(this,"Please select a delivery option",Toast.LENGTH_SHORT).show()
-        }
-
-        if (m_dishItem.packingTypeId == null) {
-            Toast.makeText(this,"Please select a packing option",Toast.LENGTH_SHORT).show()
-        }
+//        if (mDishItem.deliveryTypeId == null) {
+//            Toast.makeText(this,"Please select a delivery option",Toast.LENGTH_SHORT).show()
+//        }
+//
+//        if (mDishItem.packingTypeId == null) {
+//            Toast.makeText(this,"Please select a packing option",Toast.LENGTH_SHORT).show()
+//        }
     }
 
 
-    open fun onPackinOptionClicked(view: View) {
+     fun onPackinOptionClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -103,20 +198,28 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
 
                 R.id.rb_packing_disposable ->
                     if (checked) {
+
                         strPackingDescription = rb_packing_disposable.text.toString()
+                       // if(!isNotHomeDelivery)
+                       // rb_home_delivery.isEnabled=true
+
                     }
                 R.id.rb_packing_bring_own ->
                     if (checked) {
                         strPackingDescription = rb_packing_bring_own.text.toString()
+                      //  if(!isNotHomeDelivery)
+                      //  rb_home_delivery.isEnabled=false
+                     //   rb_self_pick.isChecked=true
+
                     }
             }
             //Toast.makeText(applicationContext,"${strPackingDescription}", Toast.LENGTH_SHORT).show()
-            m_dishItem.packingTypeId = Manager.Companion.Preference().getPackingTypeId(strPackingDescription.split(m_delimiter)[0].trim())
+            mDishItem.packingTypeId = NextDoorDB.invoke(this).daoAccess.getPackingTypeIdByDescription(strPackingDescription.split(mDelimiter)[0].trim())
         }
     }
 
 
-   open fun onDeliveryOptionClicked(view: View) {
+   fun onDeliveryOptionClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -135,26 +238,29 @@ class TimeSlotActivity : AppCompatActivity(),OnTimeSlotSelectListener {
                     }
             }
 
-            //Toast.makeText(applicationContext,"${strDeliveryDescription}", Toast.LENGTH_SHORT).show()
-            m_dishItem.deliveryTypeId = Manager.Companion.Preference().getDeliveryTypeId(strDeliveryDescription.split(m_delimiter)[0].trim())
+           // Toast.makeText(applicationContext,"${strDeliveryDescription}", Toast.LENGTH_SHORT).show()
+            val strDescription = strDeliveryDescription.split(mDelimiter)[0].trim()
+            mDishItem.deliveryTypeId = NextDoorDB.invoke(this).daoAccess.getDeliveryTypeIdByDescription(strDescription)
         }
     }
 
 
-    private fun createTimeSlots(startTime: String, EndTime: String, intervel: Int): TimeSlots {
+    private fun createTimeSlots(startTimeNetwork: String, EndTimeNetwok: String, intervel: Int): TimeSlots {
 
-        val sdf = SimpleDateFormat("hh:mm a")
-        var EndTime:Date = sdf.parse(EndTime)
+        val sdf = SimpleDateFormat1(Utility.HH_MM_A)
+        val EndTime=Utility.standardDateToTimeSlot(EndTimeNetwok)
+        val startTime=Utility.standardDateToTimeSlot(startTimeNetwork)
+        val endTime:Date = sdf.parse(EndTime)
         var currentDate: Date = sdf.parse(startTime)
-        var noon:Date=sdf.parse("12:00 PM")
-        var evening:Date=sdf.parse("04:01 PM")
+        val noon:Date=sdf.parse("12:00 PM")
+        val evening:Date=sdf.parse("04:01 PM")
 
-        var timeSlotsMorning :ArrayList<String> = arrayListOf()
-        var timeSlotsafterNoon :ArrayList<String> = arrayListOf()
-        var timeSlotsEvening :ArrayList<String> = arrayListOf()
-        var timeSlots:TimeSlots=TimeSlots(timeSlotsMorning,timeSlotsafterNoon,timeSlotsEvening)
+        val timeSlotsMorning :ArrayList<String> = arrayListOf()
+        val timeSlotsafterNoon :ArrayList<String> = arrayListOf()
+        val timeSlotsEvening :ArrayList<String> = arrayListOf()
+        val timeSlots =TimeSlots(timeSlotsMorning,timeSlotsafterNoon,timeSlotsEvening)
 
-        while(currentDate.before(EndTime)) {
+        while(currentDate.before(endTime)) {
             val calendar = Calendar.getInstance()
             calendar.time = currentDate
             val strDate = sdf.format(currentDate)

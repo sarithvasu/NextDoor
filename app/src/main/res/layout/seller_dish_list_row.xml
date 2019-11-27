@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activity.seller.SellerDishList">
+
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/dish_image_seller_dish_list_row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/egg_biryani" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+            android:id="@+id/tv_other_charges_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Rs.45"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_unit_price_seller_dish_list_row" />
+
+    <ImageView
+            android:id="@+id/dish_type_symbol_seller_dish_list_row"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintTop_toTopOf="@+id/cardView4"
+            app:srcCompat="@drawable/nonveg_symbol" />
+
+    <TextView
+            android:id="@+id/tv_dish_name_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Kadai Paneer"
+            android:textColor="@color/Black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/dish_type_symbol_seller_dish_list_row"
+            app:layout_constraintTop_toTopOf="@+id/cardView4" />
+
+    <TextView
+            android:id="@+id/textView126"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Edit"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dish_name_seller_dish_list_row" />
+
+    <TextView
+            android:id="@+id/textView127"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Unit Price"
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dish_name_seller_dish_list_row" />
+
+    <TextView
+            android:id="@+id/tv_unit_price_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Rs.100"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView126" />
+
+    <TextView
+            android:id="@+id/textView129"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Other Charges"
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView127" />
+
+    <TextView
+            android:id="@+id/textView152"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Timings:"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_current_status_seller_dish_list_row" />
+
+    <TextView
+            android:id="@+id/tv_dish_timings_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="7:30 AM - 12:30 PM"
+            android:textColor="@color/Black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/textView152"
+            app:layout_constraintTop_toTopOf="@+id/textView152" />
+
+    <TextView
+            android:id="@+id/tv_meal_type_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Breakfast"
+            android:textColor="@color/Black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_dish_timings_seller_dish_list_row"
+            app:layout_constraintTop_toTopOf="@+id/tv_dish_timings_seller_dish_list_row" />
+
+    <TextView
+            android:id="@+id/textView183"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Serving per plate:"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView152" />
+
+    <TextView
+            android:id="@+id/tv_servings_per_plate_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="1 Person"
+            android:textColor="@color/Black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/textView183"
+            app:layout_constraintTop_toTopOf="@+id/textView183" />
+
+    <LinearLayout
+            android:id="@+id/linearLayout23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/GhostWhite"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView183">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+            <TextView
+                    android:id="@+id/textView185"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Delivery"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_delivery_charges_seller_dish_list_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="10"
+                    android:textColor="@color/DarkBlue"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+            <TextView
+                    android:id="@+id/textView187"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Parcel"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_parcel_charges_seller_dish_list_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="5"
+                    android:textColor="@color/DarkBlue"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+            <TextView
+                    android:id="@+id/textView189"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Qty preparing"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_quantity_preparing_seller_dish_list_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="15"
+                    android:textColor="@color/DarkBlue"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout23">
+
+        <TextView
+                android:id="@+id/tv_change_and_activate_seller_dish_list_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Change and Activate"
+                android:textColor="@color/DarkBlue"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/tv_activate_seller_dish_list_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/Green"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Activate"
+                android:textColor="@color/White"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_current_status_seller_dish_list_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="Is active now"
+            android:textColor="@color/Green"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView101"
+            app:layout_constraintStart_toEndOf="@+id/textView101"
+            app:layout_constraintTop_toTopOf="@+id/textView101" />
+
+    <TextView
+            android:id="@+id/textView101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Current status:"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@ package com.food.nextdoor.adapter.buyer
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,8 @@ import com.food.nextdoor.listeners.OnTimeSlotSelectListener
 
 import kotlinx.android.synthetic.main.time_slot_row.view.*
 
-class TimeSlotAdapter(val context: Context, val timeSlots:ArrayList<String>,val slotCategory:Int):RecyclerView.Adapter<TimeSlotViewHolder>() {
+class TimeSlotAdapter(val context: Context, val timeSlots:ArrayList<String>,val slotCategory:Int):
+    androidx.recyclerview.widget.RecyclerView.Adapter<TimeSlotViewHolder>() {
     companion object{
         val MORNING_SLOTS:Int=1;
         val AFTER_NOON_SLOTS:Int=2;
@@ -56,7 +57,7 @@ class TimeSlotAdapter(val context: Context, val timeSlots:ArrayList<String>,val 
 
 
 }
-class TimeSlotViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+class TimeSlotViewHolder (view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     val tv_time_slot=view.tv_time_slot
 
 }

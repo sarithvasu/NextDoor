@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+>
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            app:srcCompat="@drawable/profile"
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:id="@+id/img_chef_profile_home_row_sec" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="12dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -21,13 +22,13 @@
             app:layout_constraintStart_toEndOf="@+id/img_chef_profile_home_row_sec" android:textStyle="bold"
             android:textSize="18dp" android:textColor="@color/DarkGrey"/>
     <TextView
-            android:text="A2-503 PWC"
+            android:text="A2-503"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_chef_address_with_flat_no_home_row_sec"
             app:layout_constraintTop_toBottomOf="@+id/tv_chef_name_home_row_sec" android:layout_marginStart="12dp"
             app:layout_constraintStart_toEndOf="@+id/img_chef_profile_home_row_sec" android:textStyle="bold"
-            android:textSize="16dp"/>
+            android:textSize="16dp" android:textColor="@color/SkyBlue"/>
     <TextView
             android:text="About:"
             android:layout_width="wrap_content"
@@ -45,31 +46,36 @@
             app:layout_constraintStart_toEndOf="@+id/img_chef_profile_home_row_sec" android:textSize="16dp"
             android:maxLines="3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/img_chef_profile_home_row_sec"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="12dp" android:weightSum="3">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_chef_home_row_sec"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="12dp" android:weightSum="3">
+
         <TextView
-                android:text="Veg-3"
+                android:text="Veg"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/tv_dish_type_veg_home_row_sec"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center" android:textStyle="bold" android:textColor="@color/Black"
-                android:textSize="16dp"/>
+                android:textSize="16dp" android:id="@+id/tv_dish_type_veg_home_row_sec"/>
         <TextView
-                android:text="Non-Veg-3"
+                android:text="Non-Veg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/tv_dish_type_nonveg_home_row_sec"
                 android:layout_weight="1"
                 android:gravity="center" android:textStyle="bold" android:textColor="@color/Black"
                 android:textSize="16dp"/>
         <TextView
-                android:text="6 Active Dishes"
+                android:text="Active Dishes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/tv_active_dishes_home_row_sec"
                 android:layout_weight="1"
                 android:gravity="center" android:textSize="16dp" android:textStyle="bold"
                 android:textColor="@color/SkyBlue"/>
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
